@@ -8,7 +8,7 @@ import { createMeshBvh } from "../lib/MeshBT"
 
 export function useLoadSampleBlocks() {
 
-    const gltf = useGLTF("/cubes.glb")
+    const gltf = useGLTF("/blocks.glb")
 
 
     const bvhBlocks = useMemo(() => {

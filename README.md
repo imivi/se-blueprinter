@@ -2,9 +2,18 @@
   <img src="docs/logo.svg" width="128" height="128"/>
 </p>
 
-<h1 align="center">SE Blueprinter</h1>
+<h1 align="center">
+  SE Blueprinter
+</h1>
 
-SE Blueprinter is an online tool to convert 3D models into Space Engineers blueprints.
+<p align="center">
+  SE Blueprinter is an online tool to convert 3D models into Space Engineers blueprints.
+</p>
+
+<p align="center">
+  Try it now at https://se-blueprinter.imivi.dev
+</p>
+
 
 ## Features
 
@@ -17,7 +26,7 @@ SE Blueprinter is an online tool to convert 3D models into Space Engineers bluep
 1. Upload your 3d model. The format must by **GLTF binary** (`.glb` extension). If you have an STL or another format you can use [Blender](https://www.blender.org/) to convert it to .glb
 1. Pick between **large/small** grid, **heavy/light** armor, and **static/ship** grid.
 1. Optionally, enter your player information
-1. Create blueprint preview. You can view the generated preview layer by layer.
+1. Create the blueprint preview. You can view the generated preview layer by layer.
 1. Download the blueprint as a zip file. Unzip it and place the folder inside the SE blueprints folder. By default it's `C:/Users/<YOUR_USERNAME>/AppData/Roaming/SpaceEngineers/Blueprints/local/`
 
 ## Caveats & tips
@@ -87,17 +96,21 @@ SE Blueprinter runs entirely in your browser, so all your data stays private.
 
 ## For developers
 
-Before distributing the webapp, do these steps:
+### Add more blocks
 
-**Create block signatures**
+1. Edit `src/blocks/block-names.csv` and add the names for the new blocks
+2. run `npm run save-block-names` to convert the csv to json (src/blocks/block-names.json)
+3. Edit `src/models/blocks.blend` adding the blocks in all orientations
+4. Export to `public/cubes.glb`
+5. Re-create the block signatures (steps below)
 
-* Run the webapp in debug mode: http://localhost:5173/?debug=true
-* Open the console
-* copy the block signature logged in the console (right click -> Copy Object)
-* open `src/blocks/block-signatures.json`
-* replace the file content by pasting the copied data
+### Create block signatures
 
-**Create block names**
-
-* Edit `src/blocks/block-names.csv` and add all the blocks you want
-* run `pnpm prebuild` to convert the csv to json (src/blocks/block-names.json)
+1. Run the webapp in debug mode: http://localhost:5173/?debug=true
+2. Load any example model
+3. Select "slopes (fast)" scan mode
+4. In the debug panel, click on `copy signatures`
+5. Paste the signatures in `src/blocks/block-signatures-3x3x3.json`
+6. Switch to "slopes (best)" scan mode
+7. Again `copy signatures`
+8. Paste the signatures in `src/blocks/block-signatures-4x4x4.json`
