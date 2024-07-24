@@ -3,12 +3,13 @@ import { useMemo } from "react"
 import { BufferGeometry, Mesh } from "three"
 import { materials } from "../materials"
 import { createMeshBvh } from "../lib/MeshBT"
+import { BASE_URL } from "../settings"
 
 
 
 export function useLoadSampleBlocks() {
 
-    const gltf = useGLTF(import.meta.env.BASE_URL + "/blocks.glb")
+    const gltf = useGLTF(BASE_URL + "/blocks.glb")
 
 
     const bvhBlocks = useMemo(() => {

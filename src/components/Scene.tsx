@@ -11,6 +11,7 @@ import { useGltfStore } from "../stores/useGltfStore"
 import Loader from "./Loader"
 import { Controls } from "./panels/Controls"
 import { useDebug } from "../hooks/useDebug"
+import { BASE_URL } from "../settings"
 
 
 ColorManagement.enabled = true
@@ -52,7 +53,7 @@ export default function Scene() {
             >
 
                 <ambientLight intensity={Math.PI / 2} />
-                <Environment files="/environment.jpg" background />
+                <Environment files={BASE_URL + "/environment.jpg"} background />
                 <OrbitControls />
 
                 <axesHelper args={[1]} />

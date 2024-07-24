@@ -1,3 +1,4 @@
+import { ReactNode } from "react"
 import s from "./BinaryRadio.module.scss"
 
 
@@ -5,7 +6,7 @@ type Props = {
     firstChecked: boolean
     onCheckedFirst: () => void
     onCheckedSecond: () => void
-    labels: [string, string]
+    labels: [ReactNode, ReactNode]
 }
 
 export default function BinaryRadio({ firstChecked, onCheckedFirst, onCheckedSecond, labels }: Props) {

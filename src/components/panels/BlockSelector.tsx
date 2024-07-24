@@ -1,3 +1,4 @@
+import { BASE_URL } from "../../settings"
 import { useSettingsStore } from "../../stores/useSettingsStore"
 import Spinner from "../Spinner"
 import s from "./BlockSelector.module.scss"
@@ -54,7 +55,7 @@ export default function BlockSelector() {
                             data-disabled={disabledBlocks.has(block.name)}
                             onClick={() => toggleBlockDisabled(block.name)}
                         >
-                            <img src={"/blocks/" + block.img} alt="" />
+                            <img src={BASE_URL + "/blocks/" + block.img} alt="" />
                             <div className={s.spinner}><Spinner size={20} color="white" /></div>
                         </li>
                     ))

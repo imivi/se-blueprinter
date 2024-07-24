@@ -8,7 +8,7 @@ import { useScanOutputStore } from "../stores/useScanOutputStore"
 import { IconChevronRight } from "@tabler/icons-react"
 import { useSettingsStore } from "../stores/useSettingsStore"
 import ClickAwayListener from "react-click-away-listener"
-import { samples } from "../settings"
+import { BASE_URL, samples } from "../settings"
 import Spinner from "./Spinner"
 
 
@@ -22,8 +22,8 @@ export type Sample = {
 
 const samplesData: Sample[] = Object.entries(samples).map(([label, filename]) => ({
     label,
-    url: import.meta.env.BASE_URL + "/samples/" + filename + ".glb",
-    imageUrl: import.meta.env.BASE_URL + "/samples/" + filename + ".jpg",
+    url: BASE_URL + "/samples/" + filename + ".glb",
+    imageUrl: BASE_URL + "/samples/" + filename + ".jpg",
 }))
 
 
