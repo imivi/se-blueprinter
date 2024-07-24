@@ -8,7 +8,7 @@
     "dev": "vite",
     "save-block-names": "tsx src/blocks/save-block-names.ts",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "build": "tsc -b && vite build",
     "test": "vitest",
     "coverage": "vitest run --coverage",

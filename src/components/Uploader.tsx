@@ -8,9 +8,23 @@ import { useScanOutputStore } from "../stores/useScanOutputStore"
 import { IconChevronRight } from "@tabler/icons-react"
 import { useSettingsStore } from "../stores/useSettingsStore"
 import ClickAwayListener from "react-click-away-listener"
-import { Sample, samples } from "../settings"
+import { samples } from "../settings"
 import Spinner from "./Spinner"
 
+
+
+
+export type Sample = {
+    label: string
+    url: string
+    imageUrl: string
+}
+
+const samplesData: Sample[] = Object.entries(samples).map(([label, filename]) => ({
+    label,
+    url: import.meta.env.BASE_URL + "/samples/" + filename + ".glb",
+    imageUrl: import.meta.env.BASE_URL + "/samples/" + filename + ".jpg",
+}))
 
 
 export default function Uploader() {
@@ -46,8 +60,8 @@ export default function Uploader() {
     function loadSampleGltf(sample: Sample) {
         setScanOutput(null)
         setSettingsModified(true)
-        setCubeGridDisplayName(sample.name)
-        setGltfFilename(sample.name)
+        setCubeGridDisplayName(sample.label)
+        setGltfFilename(sample.label)
         loadGltf(sample.url)
         setShowSampleMenu(false)
     }
@@ -105,10 +119,10 @@ function SamplesMenu({ onClose, onSampleSelect }: MenuProps) {
                 {/* <div className={s.bg} onClick={onClose} /> */}
                 <ul>
                     {
-                        samples.map(sample => (
-                            <li key={sample.name} onClick={() => onSampleSelect(sample)}>
+                        samplesData.map(sample => (
+                            <li key={sample.label} onClick={() => onSampleSelect(sample)}>
                                 <img src={sample.imageUrl} alt="" />
-                                <label>{sample.name}</label>
+                                <label>{sample.label}</label>
                                 <div className={s.spinner}>
                                     <Spinner size={32} color="white" />
                                 </div>
