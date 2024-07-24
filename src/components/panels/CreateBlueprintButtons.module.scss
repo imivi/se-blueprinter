@@ -1,0 +1,76 @@
+.buttons {
+
+    display: grid;
+    justify-content: center;
+    margin-top: 1em;
+    gap: 5px;
+}
+
+.btn_create,
+.btn_download {
+    cursor: pointer;
+    color: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    border: none;
+    transition: 100ms;
+
+    font-size: 1.1rem;
+    padding: .5em 1em;
+    letter-spacing: 0.05em;
+
+    &:active {
+        transform: translateY(1px);
+    }
+
+    &:hover {
+        transition: 100ms;
+    }
+
+    &:disabled {
+        cursor: unset;
+    }
+
+    box-shadow: 0 3px 3px rgba($color: black, $alpha: 0.1);
+}
+
+.btn_create {
+
+    border: 2px solid dodgerblue;
+    background: linear-gradient(to right, #4896e4, #1893f7);
+
+    &:hover {
+        background: linear-gradient(to right, #4e99e3, #2098fb);
+    }
+
+    &[data-loading=true] {
+        background: #f1b544;
+        border-color: #ce9f49;
+        // transition: background 200ms, border-color 200ms;
+    }
+}
+
+.btn_download {
+    // padding: .5em;
+
+    // border: 1px solid rgb(51, 101, 7);
+    border: 2px solid darkgreen;
+    background: linear-gradient(to right, #1c7403, #2a7f03);
+
+    &:hover {
+        background: linear-gradient(to right, darkgreen, #2a7f03);
+    }
+}
+
+.btn_copy {
+    margin: 0 auto;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    gap: .3em;
+    cursor: pointer;
+}

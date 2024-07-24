@@ -1,0 +1,60 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 1px;
+    box-shadow: 0 2px 2px rgba($color: black, $alpha: 0.1);
+
+    $height: 1.5em;
+    height: $height;
+    border-radius: $height;
+
+    input[type=radio] {
+        display: none;
+    }
+
+    label {
+
+        width: 100%;
+        height: 100%;
+        padding: 0 .8em;
+        display: flex;
+        place-content: center;
+        place-items: center;
+        text-align: center;
+        cursor: pointer;
+
+        transition: 100ms;
+
+        &[data-active=true] {
+            background-color: steelblue;
+            color: white;
+
+            &:hover {
+                background-color: #4b8bbf;
+            }
+        }
+
+        &[data-active=false] {
+            background-color: rgba($color: white, $alpha: 0.2);
+            color: #555;
+
+            &:hover {
+                background-color: rgba($color: white, $alpha: 0.3);
+            }
+        }
+
+    }
+
+    label:nth-of-type(1) {
+        border-top-left-radius: $height;
+        border-bottom-left-radius: $height;
+    }
+
+    label:nth-of-type(2) {
+        border-top-right-radius: $height;
+        border-bottom-right-radius: $height;
+    }
+}

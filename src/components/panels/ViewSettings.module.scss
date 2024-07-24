@@ -1,0 +1,16 @@
+.container {
+    display: grid;
+    gap: 5px;
+    justify-content: flex-start;
+
+    hr {
+        width: 100%;
+        color: steelblue;
+        opacity: 0.3;
+    }
+}
+
+.slider {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}

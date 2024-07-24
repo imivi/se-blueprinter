@@ -1,0 +1,25 @@
+.container {
+    position: fixed;
+    background-color: rgba($color: white, $alpha: 0.4);
+    backdrop-filter: blur(5px);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: .3rem;
+    // min-width: min(22rem, 50vw);
+    max-width: 50vw;
+    max-height: 95vh;
+
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+
+    font-family: "Rubik Variable", sans-serif;
+    font-size: 1rem;
+
+    z-index: 17000000; // The "Html" component from Drei creates divs with z-index just below this value
+
+    box-shadow: 0 5px 15px rgba($color: black, $alpha: 0.1);
+
+    &[data-show=false] {
+        display: none;
+    }
+}

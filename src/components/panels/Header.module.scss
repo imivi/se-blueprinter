@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+    margin-top: .5rem;
+    margin-bottom: 1.5rem;
+
+    color: steelblue;
+    font-size: 1.2rem;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.ribbon {
+    position: fixed;
+    top: 0;
+    right: 1rem;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: steelblue;
+
+    &:hover {
+        background-color: #4e8ec2;
+    }
+
+    a {
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        gap: .3em;
+        font-size: .8em;
+    }
+}

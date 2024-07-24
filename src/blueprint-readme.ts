@@ -1,0 +1,1 @@
+export const blueprintReadmeText = "Unzip this folder and place it inside C:/Users/<YOUR_USERNAME>/AppData/Roaming/SpaceEngineers/Blueprints/local/"

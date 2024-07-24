@@ -1,0 +1,45 @@
+.container {
+
+    overflow: hidden;
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 50%));
+        // grid-template-rows: repeat(6, 1fr);
+        align-items: center;
+        gap: .5em;
+        margin: .5em 0;
+
+        &>label {
+            min-height: 1.6em;
+            display: flex;
+            align-items: center;
+        }
+
+        &[data-show=true] {
+            transform: translateY(0%);
+        }
+
+        &[data-show=false] {
+            transform: translateY(100%);
+        }
+    }
+
+    input,
+    select {
+        padding: .3em .5em;
+        border: none;
+        background-color: rgba($color: white, $alpha: 0.4);
+        border-radius: 3px;
+        font-size: inherit;
+        font-family: inherit;
+    }
+
+    input {
+        border-left: 3px solid white;
+    }
+
+    select {
+        cursor: pointer;
+    }
+}

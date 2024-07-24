@@ -1,0 +1,1482 @@
+[
+    {
+        "name": "HalfSlopeCornerInvFU",
+        "signature": "111111111111111111011111111"
+    },
+    {
+        "name": "HalfSlopeInvFU",
+        "signature": "111111111111111111110110110"
+    },
+    {
+        "name": "HalfSlopedCornerBaseFU",
+        "signature": "111111111111110100000000000"
+    },
+    {
+        "name": "slopeFU",
+        "signature": "111111111111111000111000000"
+    },
+    {
+        "name": "blockFU",
+        "signature": "111111111111111111111111111"
+    },
+    {
+        "name": "HalfCornerFU",
+        "signature": "111110100111110100000000000"
+    },
+    {
+        "name": "HalfSlopeCornerFU",
+        "signature": "000000001000000000000000000"
+    },
+    {
+        "name": "HalfSlopedCornerFU",
+        "signature": "111110100111110100100000000"
+    },
+    {
+        "name": "SlopedCornerFU",
+        "signature": "111111111111110100100000000"
+    },
+    {
+        "name": "SlopedCornerBaseFU",
+        "signature": "111111111111111111111001001"
+    },
+    {
+        "name": "SlopedCornerTipFU",
+        "signature": "000100110000000000000000000"
+    },
+    {
+        "name": "Corner211BaseFU",
+        "signature": "111110000110000000000000000"
+    },
+    {
+        "name": "slopeRU",
+        "signature": "111111111011011011001001001"
+    },
+    {
+        "name": "slopeLU",
+        "signature": "111111111110110110100100100"
+    },
+    {
+        "name": "slopeBU",
+        "signature": "111111111000111111000000111"
+    },
+    {
+        "name": "cornerFU",
+        "signature": "011001000001000000000000000"
+    },
+    {
+        "name": "InvCornerFU",
+        "signature": "100110111110111111111111111"
+    },
+    {
+        "name": "InvCornerRU",
+        "signature": "111110100111111110111111111"
+    },
+    {
+        "name": "InvCornerBU",
+        "signature": "111011001111111011111111111"
+    },
+    {
+        "name": "InvCornerLU",
+        "signature": "001011111011111111111111111"
+    },
+    {
+        "name": "InvCornerUB",
+        "signature": "111111111110111111100110111"
+    },
+    {
+        "name": "InvCornerUL",
+        "signature": "111111111111111110111110100"
+    },
+    {
+        "name": "InvCornerUF",
+        "signature": "111111111111111011111011001"
+    },
+    {
+        "name": "InvCornerUR",
+        "signature": "111111111011111111001011111"
+    },
+    {
+        "name": "slopeUB",
+        "signature": "111000000111111000111111111"
+    },
+    {
+        "name": "slopeUL",
+        "signature": "001001001011011011111111111"
+    },
+    {
+        "name": "slopeUR",
+        "signature": "100100100110110110111111111"
+    },
+    {
+        "name": "slopeUF",
+        "signature": "000000111000111111111111111"
+    },
+    {
+        "name": "slopeFR",
+        "signature": "111110100111110100111110100"
+    },
+    {
+        "name": "slopeRB",
+        "signature": "111011001111011001111011001"
+    },
+    {
+        "name": "slopeBL",
+        "signature": "001011111001011111001011111"
+    },
+    {
+        "name": "slopeLF",
+        "signature": "100110111100110111100110111"
+    },
+    {
+        "name": "CornerSquareFU",
+        "signature": "111111111110110000100000000"
+    },
+    {
+        "name": "CornerSquareInvFU",
+        "signature": "111111111111111110111100100"
+    },
+    {
+        "name": "cornerFR",
+        "signature": "110100000100000000000000000"
+    },
+    {
+        "name": "cornerFD",
+        "signature": "000000000100000000110100000"
+    },
+    {
+        "name": "cornerFL",
+        "signature": "000000000001000000011001000"
+    },
+    {
+        "name": "cornerLD",
+        "signature": "000000000000000100000100110"
+    },
+    {
+        "name": "cornerLF",
+        "signature": "000100110000000100000000000"
+    },
+    {
+        "name": "cornerRU",
+        "signature": "000001011000000001000000000"
+    },
+    {
+        "name": "cornerRF",
+        "signature": "000000000000000001000001011"
+    },
+    {
+        "name": "CornerSquareFR",
+        "signature": "100100100110110100111110100"
+    },
+    {
+        "name": "CornerSquareFD",
+        "signature": "001000000011011000111111111"
+    },
+    {
+        "name": "CornerSquareFL",
+        "signature": "111011001011011001001001001"
+    },
+    {
+        "name": "CornerSquareLU",
+        "signature": "111111111000110110000000100"
+    },
+    {
+        "name": "CornerSquareBU",
+        "signature": "111111111000011011000000001"
+    },
+    {
+        "name": "CornerSquareRU",
+        "signature": "111111111011011000001000000"
+    },
+    {
+        "name": "CornerSquareLB",
+        "signature": "111110100111110000111000000"
+    },
+    {
+        "name": "CornerSquareLD",
+        "signature": "100000000110110000111111111"
+    },
+    {
+        "name": "CornerSquareLF",
+        "signature": "000010111000110111100110111"
+    },
+    {
+        "name": "CornerSquareBR",
+        "signature": "100110111100110110100100100"
+    },
+    {
+        "name": "CornerSquareBD",
+        "signature": "000000100000110110111111111"
+    },
+    {
+        "name": "CornerSquareBL",
+        "signature": "001001001001011011001011111"
+    },
+    {
+        "name": "CornerSquareRB",
+        "signature": "111000000111011000111011001"
+    },
+    {
+        "name": "CornerSquareRD",
+        "signature": "000000001000011011111111111"
+    },
+    {
+        "name": "CornerSquareRF",
+        "signature": "001011111000011111000000111"
+    },
+    {
+        "name": "CornerSquareInvFR",
+        "signature": "111110100111110110111111111"
+    },
+    {
+        "name": "CornerSquareInvFD",
+        "signature": "111001001111111011111111111"
+    },
+    {
+        "name": "CornerSquareInvFL",
+        "signature": "111111111111011011111011001"
+    },
+    {
+        "name": "CornerSquareInvLU",
+        "signature": "111111111110111111100100111"
+    },
+    {
+        "name": "CornerSquareInvLB",
+        "signature": "111111111111111100111110100"
+    },
+    {
+        "name": "CornerSquareInvLD",
+        "signature": "111100100111111110111111111"
+    },
+    {
+        "name": "CornerSquareInvLF",
+        "signature": "100110111100111111111111111"
+    },
+    {
+        "name": "CornerSquareInvBU",
+        "signature": "111111111011111111001001111"
+    },
+    {
+        "name": "CornerSquareInvBR",
+        "signature": "111111111110110111100110111"
+    },
+    {
+        "name": "CornerSquareInvBD",
+        "signature": "100100111110111111111111111"
+    },
+    {
+        "name": "CornerSquareInvBL",
+        "signature": "001011111011011111111111111"
+    },
+    {
+        "name": "CornerSquareInvRU",
+        "signature": "111111111111111011111001001"
+    },
+    {
+        "name": "CornerSquareInvRB",
+        "signature": "111011001111111001111111111"
+    },
+    {
+        "name": "CornerSquareInvRD",
+        "signature": "001001111011111111111111111"
+    },
+    {
+        "name": "CornerSquareInvRF",
+        "signature": "111111111001111111001011111"
+    },
+    {
+        "name": "Slope211BaseFU",
+        "signature": "111111111111111111111000000"
+    },
+    {
+        "name": "Slope211BaseFR",
+        "signature": "111110110111110110111110110"
+    },
+    {
+        "name": "Slope211BaseFD",
+        "signature": "111000000111111111111111111"
+    },
+    {
+        "name": "Slope211BaseFL",
+        "signature": "111011011111011011111011011"
+    },
+    {
+        "name": "Slope211BaseLU",
+        "signature": "111111111111111111100100100"
+    },
+    {
+        "name": "Slope211BaseLB",
+        "signature": "111111100111111100111111100"
+    },
+    {
+        "name": "Slope211BaseLD",
+        "signature": "100100100111111111111111111"
+    },
+    {
+        "name": "Slope211BaseLF",
+        "signature": "100111111100111111100111111"
+    },
+    {
+        "name": "Slope211TipFU",
+        "signature": "111111000000000000000000000"
+    },
+    {
+        "name": "Slope211TipFR",
+        "signature": "100100000100100000100100000"
+    },
+    {
+        "name": "Slope211TipFD",
+        "signature": "000000000000000000111111000"
+    },
+    {
+        "name": "Slope211TipFL",
+        "signature": "001001000001001000001001000"
+    },
+    {
+        "name": "Slope211TipLU",
+        "signature": "110110110000000000000000000"
+    },
+    {
+        "name": "Slope211TipLB",
+        "signature": "110000000110000000110000000"
+    },
+    {
+        "name": "Slope211TipLD",
+        "signature": "000000000000000000110110110"
+    },
+    {
+        "name": "Slope211TipLF",
+        "signature": "000000110000000110000000110"
+    },
+    {
+        "name": "Slope211BaseBU",
+        "signature": "111111111111111111000000111"
+    },
+    {
+        "name": "Slope211BaseBR",
+        "signature": "110110111110110111110110111"
+    },
+    {
+        "name": "Slope211BaseBD",
+        "signature": "000000111111111111111111111"
+    },
+    {
+        "name": "Slope211BaseBL",
+        "signature": "011011111011011111011011111"
+    },
+    {
+        "name": "Slope211BaseRU",
+        "signature": "111111111111111111001001001"
+    },
+    {
+        "name": "Slope211BaseRB",
+        "signature": "111111001111111001111111001"
+    },
+    {
+        "name": "Slope211BaseRD",
+        "signature": "001001001111111111111111111"
+    },
+    {
+        "name": "Slope211BaseRF",
+        "signature": "001111111001111111001111111"
+    },
+    {
+        "name": "Slope211TipBU",
+        "signature": "000111111000000000000000000"
+    },
+    {
+        "name": "Slope211TipBR",
+        "signature": "000100100000100100000100100"
+    },
+    {
+        "name": "Slope211TipBD",
+        "signature": "000000000000000000000111111"
+    },
+    {
+        "name": "Slope211TipBL",
+        "signature": "000001001000001001000001001"
+    },
+    {
+        "name": "Slope211TipRU",
+        "signature": "011011011000000000000000000"
+    },
+    {
+        "name": "Slope211TipRB",
+        "signature": "011000000011000000011000000"
+    },
+    {
+        "name": "Slope211TipRD",
+        "signature": "000000000000000000011011011"
+    },
+    {
+        "name": "Slope211TipRF",
+        "signature": "000000011000000011000000011"
+    },
+    {
+        "name": "Slope211TipUB",
+        "signature": "000000000111000000111000000"
+    },
+    {
+        "name": "Slope211TipUR",
+        "signature": "000000000100100100100100100"
+    },
+    {
+        "name": "Slope211TipUF",
+        "signature": "000000000000000111000000111"
+    },
+    {
+        "name": "Slope211TipUL",
+        "signature": "000000000001001001001001001"
+    },
+    {
+        "name": "Slope211TipDF",
+        "signature": "000000111000000111000000000"
+    },
+    {
+        "name": "Slope211TipDL",
+        "signature": "001001001001001001000000000"
+    },
+    {
+        "name": "Slope211TipDB",
+        "signature": "111000000111000000000000000"
+    },
+    {
+        "name": "Slope211TipDR",
+        "signature": "100100100100100100000000000"
+    },
+    {
+        "name": "Slope211BaseUB",
+        "signature": "111111000111111000111111111"
+    },
+    {
+        "name": "Slope211BaseUR",
+        "signature": "110110110110110110111111111"
+    },
+    {
+        "name": "Slope211BaseUF",
+        "signature": "000111111000111111111111111"
+    },
+    {
+        "name": "Slope211BaseUL",
+        "signature": "011011011011011011111111111"
+    },
+    {
+        "name": "Slope211BaseDF",
+        "signature": "111111111000111111000111111"
+    },
+    {
+        "name": "Slope211BaseDL",
+        "signature": "111111111011011011011011011"
+    },
+    {
+        "name": "Slope211BaseDB",
+        "signature": "111111111111111000111111000"
+    },
+    {
+        "name": "Slope211BaseDR",
+        "signature": "111111111110110110110110110"
+    },
+    {
+        "name": "HalfFU",
+        "signature": "111111000111111000111111000"
+    },
+    {
+        "name": "HalfLU",
+        "signature": "110110110110110110110110110"
+    },
+    {
+        "name": "HalfBU",
+        "signature": "000111111000111111000111111"
+    },
+    {
+        "name": "HalfRU",
+        "signature": "011011011011011011011011011"
+    },
+    {
+        "name": "HalfUB",
+        "signature": "000000000111111111111111111"
+    },
+    {
+        "name": "HalfDB",
+        "signature": "111111111111111111000000000"
+    },
+    {
+        "name": "Corner211TipFU",
+        "signature": "001000000000000000000000000"
+    },
+    {
+        "name": "InvCorner211BaseFU",
+        "signature": "110111111111111111111111111"
+    },
+    {
+        "name": "InvCorner211TipFU",
+        "signature": "100100110110110111111111111"
+    },
+    {
+        "name": "HalfSlopeFU",
+        "signature": "111000000000000000000000000"
+    },
+    {
+        "name": "Corner211BaseFR",
+        "signature": "100000000110100000110100000"
+    },
+    {
+        "name": "Corner211BaseFD",
+        "signature": "000000000011000000111011000"
+    },
+    {
+        "name": "Corner211BaseFL",
+        "signature": "011001000011001000001000000"
+    },
+    {
+        "name": "Corner211BaseLU",
+        "signature": "100110110000100100000000000"
+    },
+    {
+        "name": "Corner211BaseLB",
+        "signature": "110100000110100000100000000"
+    },
+    {
+        "name": "Corner211BaseLD",
+        "signature": "000000000100100000110110100"
+    },
+    {
+        "name": "Corner211BaseLF",
+        "signature": "000000100000100110000100110"
+    },
+    {
+        "name": "Corner211BaseBU",
+        "signature": "000011111000000011000000000"
+    },
+    {
+        "name": "Corner211BaseBR",
+        "signature": "000100110000100110000000100"
+    },
+    {
+        "name": "Corner211BaseBD",
+        "signature": "000000000000000110000110111"
+    },
+    {
+        "name": "Corner211BaseBL",
+        "signature": "000000001000001011000001011"
+    },
+    {
+        "name": "Corner211BaseRU",
+        "signature": "011011001001001000000000000"
+    },
+    {
+        "name": "Corner211BaseRB",
+        "signature": "001000000011001000011001000"
+    },
+    {
+        "name": "Corner211BaseRD",
+        "signature": "000000000000001001001011011"
+    },
+    {
+        "name": "Corner211BaseRF",
+        "signature": "000001011000001011000000001"
+    },
+    {
+        "name": "Corner211BaseUB",
+        "signature": "000000000110000000111110000"
+    },
+    {
+        "name": "Corner211BaseUR",
+        "signature": "000000000000100100100110110"
+    },
+    {
+        "name": "Corner211BaseUF",
+        "signature": "000000000000000011000011111"
+    },
+    {
+        "name": "Corner211BaseUL",
+        "signature": "000000000001001000011011001"
+    },
+    {
+        "name": "Corner211BaseDU",
+        "signature": "000110111000000110000000000"
+    },
+    {
+        "name": "Corner211BaseDR",
+        "signature": "110110100100100000000000000"
+    },
+    {
+        "name": "Corner211BaseDB",
+        "signature": "111011000011000000000000000"
+    },
+    {
+        "name": "Corner211BaseDL",
+        "signature": "001011011000001001000000000"
+    },
+    {
+        "name": "HalfSlopeFR",
+        "signature": "100000000100000000100000000"
+    },
+    {
+        "name": "HalfSlopeFD",
+        "signature": "000000000000000000111000000"
+    },
+    {
+        "name": "HalfSlopeFL",
+        "signature": "001000000001000000001000000"
+    },
+    {
+        "name": "HalfSlopeLU",
+        "signature": "100100100000000000000000000"
+    },
+    {
+        "name": "HalfSlopeLF",
+        "signature": "000000100000000100000000100"
+    },
+    {
+        "name": "HalfSlopeBU",
+        "signature": "000000111000000000000000000"
+    },
+    {
+        "name": "HalfSlopeBD",
+        "signature": "000000000000000000000000111"
+    },
+    {
+        "name": "HalfSlopeBL",
+        "signature": "000000001000000001000000001"
+    },
+    {
+        "name": "HalfSlopeRU",
+        "signature": "001001001000000000000000000"
+    },
+    {
+        "name": "HalfSlopeRD",
+        "signature": "000000000000000000001001001"
+    },
+    {
+        "name": "HalfSlopeLD",
+        "signature": "000000000000000000100100100"
+    },
+    {
+        "name": "Corner211TipFR",
+        "signature": "100000000000000000000000000"
+    },
+    {
+        "name": "Corner211TipFD",
+        "signature": "000000000000000000100000000"
+    },
+    {
+        "name": "Corner211TipFL",
+        "signature": "000000000000000000001000000"
+    },
+    {
+        "name": "Corner211TipLU",
+        "signature": "100000000000000000000000000"
+    },
+    {
+        "name": "Corner211TipLB",
+        "signature": "000000000000000000100000000"
+    },
+    {
+        "name": "Corner211TipLD",
+        "signature": "000000000000000000000000100"
+    },
+    {
+        "name": "Corner211TipLF",
+        "signature": "000000100000000000000000000"
+    },
+    {
+        "name": "Corner211TipBU",
+        "signature": "000000100000000000000000000"
+    },
+    {
+        "name": "Corner211TipBR",
+        "signature": "000000000000000000000000100"
+    },
+    {
+        "name": "Corner211TipBD",
+        "signature": "000000000000000000000000001"
+    },
+    {
+        "name": "Corner211TipBL",
+        "signature": "000000001000000000000000000"
+    },
+    {
+        "name": "Corner211TipRU",
+        "signature": "000000001000000000000000000"
+    },
+    {
+        "name": "Corner211TipRB",
+        "signature": "001000000000000000000000000"
+    },
+    {
+        "name": "Corner211TipRD",
+        "signature": "000000000000000000001000000"
+    },
+    {
+        "name": "Corner211TipRF",
+        "signature": "000000000000000000000000001"
+    },
+    {
+        "name": "Corner211TipUB",
+        "signature": "000000000000000000001000000"
+    },
+    {
+        "name": "Corner211TipUR",
+        "signature": "000000000000000000100000000"
+    },
+    {
+        "name": "Corner211TipUF",
+        "signature": "000000000000000000000000100"
+    },
+    {
+        "name": "Corner211TipUL",
+        "signature": "000000000000000000000000001"
+    },
+    {
+        "name": "Corner211TipDF",
+        "signature": "000000001000000000000000000"
+    },
+    {
+        "name": "Corner211TipDR",
+        "signature": "000000100000000000000000000"
+    },
+    {
+        "name": "Corner211TipDB",
+        "signature": "100000000000000000000000000"
+    },
+    {
+        "name": "Corner211TipDL",
+        "signature": "001000000000000000000000000"
+    },
+    {
+        "name": "InvCorner211BaseFR",
+        "signature": "011111111111111111111111111"
+    },
+    {
+        "name": "InvCorner211BaseFD",
+        "signature": "111111111111111111011111111"
+    },
+    {
+        "name": "InvCorner211BaseFL",
+        "signature": "111111111111111111110111111"
+    },
+    {
+        "name": "InvCorner211BaseLU",
+        "signature": "011111111111111111111111111"
+    },
+    {
+        "name": "InvCorner211BaseLB",
+        "signature": "111111111111111111011111111"
+    },
+    {
+        "name": "InvCorner211BaseLD",
+        "signature": "111111111111111111111111011"
+    },
+    {
+        "name": "InvCorner211BaseLF",
+        "signature": "111111011111111111111111111"
+    },
+    {
+        "name": "InvCorner211BaseRU",
+        "signature": "111111110111111111111111111"
+    },
+    {
+        "name": "InvCorner211BaseRB",
+        "signature": "110111111111111111111111111"
+    },
+    {
+        "name": "InvCorner211BaseRD",
+        "signature": "111111111111111111110111111"
+    },
+    {
+        "name": "InvCorner211BaseRF",
+        "signature": "111111111111111111111111110"
+    },
+    {
+        "name": "InvCorner211BaseBU",
+        "signature": "111111011111111111111111111"
+    },
+    {
+        "name": "InvCorner211BaseBR",
+        "signature": "111111111111111111111111011"
+    },
+    {
+        "name": "InvCorner211BaseBD",
+        "signature": "111111111111111111111111110"
+    },
+    {
+        "name": "InvCorner211BaseBL",
+        "signature": "111111110111111111111111111"
+    },
+    {
+        "name": "InvCorner211BaseUB",
+        "signature": "111111111111111111110111111"
+    },
+    {
+        "name": "InvCorner211BaseUR",
+        "signature": "111111111111111111011111111"
+    },
+    {
+        "name": "InvCorner211BaseUF",
+        "signature": "111111111111111111111111011"
+    },
+    {
+        "name": "InvCorner211BaseUL",
+        "signature": "111111111111111111111111110"
+    },
+    {
+        "name": "InvCorner211BaseDF",
+        "signature": "111111110111111111111111111"
+    },
+    {
+        "name": "InvCorner211BaseDR",
+        "signature": "111111011111111111111111111"
+    },
+    {
+        "name": "InvCorner211BaseDB",
+        "signature": "011111111111111111111111111"
+    },
+    {
+        "name": "InvCorner211BaseDL",
+        "signature": "110111111111111111111111111"
+    },
+    {
+        "name": "InvCorner211TipFR",
+        "signature": "001001011011011111111111111"
+    },
+    {
+        "name": "InvCorner211TipFD",
+        "signature": "111111111011011111001001011"
+    },
+    {
+        "name": "InvCorner211TipFL",
+        "signature": "111111111110110111100100110"
+    },
+    {
+        "name": "InvCorner211TipLU",
+        "signature": "000001111001111111111111111"
+    },
+    {
+        "name": "InvCorner211TipLF",
+        "signature": "111001000111111001111111111"
+    },
+    {
+        "name": "InvCorner211TipLD",
+        "signature": "111111111111111001111001000"
+    },
+    {
+        "name": "InvCorner211TipLB",
+        "signature": "111111111001111111000001111"
+    },
+    {
+        "name": "InvCorner211TipRU",
+        "signature": "111100000111111100111111111"
+    },
+    {
+        "name": "InvCorner211TipRB",
+        "signature": "000100111100111111111111111"
+    },
+    {
+        "name": "InvCorner211TipRD",
+        "signature": "111111111100111111000100111"
+    },
+    {
+        "name": "InvCorner211TipRF",
+        "signature": "111111111111111100111100000"
+    },
+    {
+        "name": "InvCorner211TipBU",
+        "signature": "011001001111011011111111111"
+    },
+    {
+        "name": "InvCorner211TipBL",
+        "signature": "110100100111110110111111111"
+    },
+    {
+        "name": "InvCorner211TipBD",
+        "signature": "111111111111110110110100100"
+    },
+    {
+        "name": "InvCorner211TipBR",
+        "signature": "111111111111011011011001001"
+    },
+    {
+        "name": "InvCorner211TipUB",
+        "signature": "110111111100110111100110111"
+    },
+    {
+        "name": "InvCorner211TipUR",
+        "signature": "011111111001011111001011111"
+    },
+    {
+        "name": "InvCorner211TipUF",
+        "signature": "111111011111011001111011001"
+    },
+    {
+        "name": "InvCorner211TipUL",
+        "signature": "111111110111110100111110100"
+    },
+    {
+        "name": "InvCorner211TipDF",
+        "signature": "111110100111110100111111110"
+    },
+    {
+        "name": "InvCorner211TipDR",
+        "signature": "111011001111011001111111011"
+    },
+    {
+        "name": "InvCorner211TipDB",
+        "signature": "001011111001011111011111111"
+    },
+    {
+        "name": "InvCorner211TipDL",
+        "signature": "100110111100110111110111111"
+    },
+    {
+        "name": "HalfCornerFR",
+        "signature": "110000000110110000110110110"
+    },
+    {
+        "name": "HalfCornerFD",
+        "signature": "000000000111011001111011001"
+    },
+    {
+        "name": "HalfCornerLU",
+        "signature": "100110111100110111000000000"
+    },
+    {
+        "name": "HalfCornerLB",
+        "signature": "111111000110110000100100000"
+    },
+    {
+        "name": "HalfCornerLD",
+        "signature": "000010000111110100111110100"
+    },
+    {
+        "name": "HalfCornerLF",
+        "signature": "000100100000110110000111111"
+    },
+    {
+        "name": "HalfCornerRU",
+        "signature": "111011001111011001000000000"
+    },
+    {
+        "name": "HalfCornerRF",
+        "signature": "000111111000011011000001001"
+    },
+    {
+        "name": "HalfCornerRD",
+        "signature": "000000000001011111001011111"
+    },
+    {
+        "name": "HalfCornerRB",
+        "signature": "001001000011011000111111000"
+    },
+    {
+        "name": "HalfCornerFL",
+        "signature": "011011011011011000011000000"
+    },
+    {
+        "name": "HalfCornerBU",
+        "signature": "001011111001011111000000000"
+    },
+    {
+        "name": "HalfCornerBL",
+        "signature": "000000011000011011011011011"
+    },
+    {
+        "name": "HalfCornerBD",
+        "signature": "000000000100110111100110111"
+    },
+    {
+        "name": "HalfCornerBR",
+        "signature": "110110110000110110000000110"
+    },
+    {
+        "name": "HalfCornerUB",
+        "signature": "100100000110110000111111000"
+    },
+    {
+        "name": "HalfCornerUR",
+        "signature": "000000110000110110110110110"
+    },
+    {
+        "name": "HalfCornerUF",
+        "signature": "000011001000011011000111111"
+    },
+    {
+        "name": "HalfCornerUL",
+        "signature": "011000000011011000011011011"
+    },
+    {
+        "name": "HalfCornerDF",
+        "signature": "000111111000110110000100100"
+    },
+    {
+        "name": "HalfCornerDR",
+        "signature": "110110110110110000110000000"
+    },
+    {
+        "name": "HalfCornerDB",
+        "signature": "111111000011011000001001000"
+    },
+    {
+        "name": "HalfCornerDL",
+        "signature": "011011011000011011000000011"
+    },
+    {
+        "name": "HalfSlopeCornerFR",
+        "signature": "000000100000000000000000000"
+    },
+    {
+        "name": "HalfSlopeCornerFD",
+        "signature": "000000000000000000000000100"
+    },
+    {
+        "name": "HalfSlopeCornerFL",
+        "signature": "000000000000000000000000001"
+    },
+    {
+        "name": "HalfSlopeCornerLU",
+        "signature": "001000000000000000000000000"
+    },
+    {
+        "name": "HalfSlopeCornerLF",
+        "signature": "000000001000000000000000000"
+    },
+    {
+        "name": "HalfSlopeCornerLD",
+        "signature": "000000000000000000000000001"
+    },
+    {
+        "name": "HalfSlopeCornerLB",
+        "signature": "000000000000000000001000000"
+    },
+    {
+        "name": "HalfSlopeCornerRU",
+        "signature": "000000100000000000000000000"
+    },
+    {
+        "name": "HalfSlopeCornerRB",
+        "signature": "100000000000000000000000000"
+    },
+    {
+        "name": "HalfSlopeCornerRD",
+        "signature": "000000000000000000100000000"
+    },
+    {
+        "name": "HalfSlopeCornerRF",
+        "signature": "000000000000000000000000100"
+    },
+    {
+        "name": "HalfSlopeCornerUB",
+        "signature": "001000000000000000000000000"
+    },
+    {
+        "name": "HalfSlopeCornerUR",
+        "signature": "100000000000000000000000000"
+    },
+    {
+        "name": "HalfSlopeCornerUF",
+        "signature": "000000100000000000000000000"
+    },
+    {
+        "name": "HalfSlopeCornerUL",
+        "signature": "000000001000000000000000000"
+    },
+    {
+        "name": "HalfSlopeCornerDF",
+        "signature": "000000000000000000000000001"
+    },
+    {
+        "name": "HalfSlopeCornerDR",
+        "signature": "000000000000000000000000100"
+    },
+    {
+        "name": "HalfSlopeCornerDB",
+        "signature": "000000000000000000100000000"
+    },
+    {
+        "name": "HalfSlopeCornerDL",
+        "signature": "000000000000000000001000000"
+    },
+    {
+        "name": "HalfSlopeCornerInvFR",
+        "signature": "111111111111111111110111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvFD",
+        "signature": "110111111111111111111111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvFL",
+        "signature": "011111111111111111111111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvLU",
+        "signature": "111111111111111111111111011"
+    },
+    {
+        "name": "HalfSlopeCornerInvLF",
+        "signature": "111111111111111111011111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvLD",
+        "signature": "011111111111111111111111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvLB",
+        "signature": "111111011111111111111111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvRU",
+        "signature": "111111111111111111110111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvRB",
+        "signature": "111111111111111111111111110"
+    },
+    {
+        "name": "HalfSlopeCornerInvRD",
+        "signature": "111111110111111111111111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvRF",
+        "signature": "110111111111111111111111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvBU",
+        "signature": "111111111111111111111111110"
+    },
+    {
+        "name": "HalfSlopeCornerInvBL",
+        "signature": "111111111111111111111111011"
+    },
+    {
+        "name": "HalfSlopeCornerInvBD",
+        "signature": "111111011111111111111111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvBR",
+        "signature": "111111110111111111111111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvUB",
+        "signature": "111111111111111111111111011"
+    },
+    {
+        "name": "HalfSlopeCornerInvUR",
+        "signature": "111111111111111111111111110"
+    },
+    {
+        "name": "HalfSlopeCornerInvUF",
+        "signature": "111111111111111111110111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvUL",
+        "signature": "111111111111111111011111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvDF",
+        "signature": "011111111111111111111111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvDR",
+        "signature": "110111111111111111111111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvDB",
+        "signature": "111111110111111111111111111"
+    },
+    {
+        "name": "HalfSlopeCornerInvDL",
+        "signature": "111111011111111111111111111"
+    },
+    {
+        "name": "HalfSlopedCornerFR",
+        "signature": "110000000110110000111110110"
+    },
+    {
+        "name": "HalfSlopedCornerFD",
+        "signature": "001000000111011001111011001"
+    },
+    {
+        "name": "HalfSlopedCornerFL",
+        "signature": "111011011011011000011000000"
+    },
+    {
+        "name": "HalfSlopedCornerLU",
+        "signature": "100110111100110111000000100"
+    },
+    {
+        "name": "HalfSlopedCornerLF",
+        "signature": "000100100000110110100111111"
+    },
+    {
+        "name": "HalfSlopedCornerLD",
+        "signature": "100000000111110100111110100"
+    },
+    {
+        "name": "HalfSlopedCornerLB",
+        "signature": "111111100110110000100100000"
+    },
+    {
+        "name": "HalfSlopedCornerRU",
+        "signature": "111011001111011001001000000"
+    },
+    {
+        "name": "HalfSlopedCornerRB",
+        "signature": "001001000011011000111111001"
+    },
+    {
+        "name": "HalfSlopedCornerRD",
+        "signature": "000000001001011111001011111"
+    },
+    {
+        "name": "HalfSlopedCornerRF",
+        "signature": "001111111000011011000001001"
+    },
+    {
+        "name": "HalfSlopedCornerBU",
+        "signature": "001011111001011111000000001"
+    },
+    {
+        "name": "HalfSlopedCornerBL",
+        "signature": "000000011000011011011011111"
+    },
+    {
+        "name": "HalfSlopedCornerBD",
+        "signature": "000000100100110111100110111"
+    },
+    {
+        "name": "HalfSlopedCornerBR",
+        "signature": "110110111000110110000000110"
+    },
+    {
+        "name": "HalfSlopedCornerUB",
+        "signature": "100100000110110000111111100"
+    },
+    {
+        "name": "HalfSlopedCornerUR",
+        "signature": "000000110000110110110110111"
+    },
+    {
+        "name": "HalfSlopedCornerUF",
+        "signature": "000001001000011011001111111"
+    },
+    {
+        "name": "HalfSlopedCornerUL",
+        "signature": "011000000011011000111011011"
+    },
+    {
+        "name": "HalfSlopedCornerDF",
+        "signature": "100111111000110110000100100"
+    },
+    {
+        "name": "HalfSlopedCornerDR",
+        "signature": "111110110110110000110000000"
+    },
+    {
+        "name": "HalfSlopedCornerDB",
+        "signature": "111111001011011000001001000"
+    },
+    {
+        "name": "HalfSlopedCornerDL",
+        "signature": "011011111000011011000000011"
+    },
+    {
+        "name": "HalfSlopeInvFR",
+        "signature": "110110110111111111111111111"
+    },
+    {
+        "name": "HalfSlopeInvFD",
+        "signature": "011011011111111111111111111"
+    },
+    {
+        "name": "HalfSlopeInvFL",
+        "signature": "111111111111111111011011011"
+    },
+    {
+        "name": "HalfSlopeInvLU",
+        "signature": "111111111111111111000111111"
+    },
+    {
+        "name": "HalfSlopeInvLF",
+        "signature": "000111111111111111111111111"
+    },
+    {
+        "name": "HalfSlopeInvLD",
+        "signature": "111111000111111111111111111"
+    },
+    {
+        "name": "HalfSlopeInvLB",
+        "signature": "111111111111111111111111000"
+    },
+    {
+        "name": "HalfSlopeInvRU",
+        "signature": "111111111111111111111111000"
+    },
+    {
+        "name": "HalfSlopeInvRB",
+        "signature": "111111000111111111111111111"
+    },
+    {
+        "name": "HalfSlopeInvRD",
+        "signature": "000111111111111111111111111"
+    },
+    {
+        "name": "HalfSlopeInvRF",
+        "signature": "111111111111111111000111111"
+    },
+    {
+        "name": "HalfSlopeInvBU",
+        "signature": "111111111111111111011011011"
+    },
+    {
+        "name": "HalfSlopeInvBL",
+        "signature": "011011011111111111111111111"
+    },
+    {
+        "name": "HalfSlopeInvBD",
+        "signature": "110110110111111111111111111"
+    },
+    {
+        "name": "HalfSlopeInvBR",
+        "signature": "111111111111111111110110110"
+    },
+    {
+        "name": "HalfSlopeInvUB",
+        "signature": "111111110111111110111111110"
+    },
+    {
+        "name": "HalfSlopeInvUR",
+        "signature": "110111111110111111110111111"
+    },
+    {
+        "name": "HalfSlopeInvUF",
+        "signature": "011111111011111111011111111"
+    },
+    {
+        "name": "HalfSlopeInvUL",
+        "signature": "111111011111111011111111011"
+    },
+    {
+        "name": "HalfSlopeInvDF",
+        "signature": "110111111110111111110111111"
+    },
+    {
+        "name": "HalfSlopeInvDR",
+        "signature": "111111110111111110111111110"
+    },
+    {
+        "name": "HalfSlopeInvDB",
+        "signature": "111111011111111011111111011"
+    },
+    {
+        "name": "HalfSlopeInvDL",
+        "signature": "011111111011111111011111111"
+    },
+    {
+        "name": "HalfSlopedCornerBaseFR",
+        "signature": "110110100110110100110110110"
+    },
+    {
+        "name": "HalfSlopedCornerBaseFD",
+        "signature": "000000000111011001111111111"
+    },
+    {
+        "name": "HalfSlopedCornerBaseFL",
+        "signature": "011011011011011001011001001"
+    },
+    {
+        "name": "HalfSlopedCornerBaseLU",
+        "signature": "111111111100110111000000000"
+    },
+    {
+        "name": "HalfSlopedCornerBaseLF",
+        "signature": "000100111000110111000111111"
+    },
+    {
+        "name": "HalfSlopedCornerBaseLD",
+        "signature": "000000000111110100111111111"
+    },
+    {
+        "name": "HalfSlopedCornerBaseLB",
+        "signature": "111111000111110000111100000"
+    },
+    {
+        "name": "HalfSlopedCornerBaseRU",
+        "signature": "111111111111011001000000000"
+    },
+    {
+        "name": "HalfSlopedCornerBaseRB",
+        "signature": "111001000111011000111101000"
+    },
+    {
+        "name": "HalfSlopedCornerBaseRD",
+        "signature": "000000000001011111111111111"
+    },
+    {
+        "name": "HalfSlopedCornerBaseRF",
+        "signature": "000111111000011111000001111"
+    },
+    {
+        "name": "HalfSlopedCornerBaseBU",
+        "signature": "111111111001011111000000000"
+    },
+    {
+        "name": "HalfSlopedCornerBaseBL",
+        "signature": "001001011001011011011011011"
+    },
+    {
+        "name": "HalfSlopedCornerBaseBD",
+        "signature": "000000000100110111111111111"
+    },
+    {
+        "name": "HalfSlopedCornerBaseBR",
+        "signature": "110110110100110110100100110"
+    },
+    {
+        "name": "HalfSlopedCornerBaseUB",
+        "signature": "110000000111110000111111000"
+    },
+    {
+        "name": "HalfSlopedCornerBaseUR",
+        "signature": "100100110100110110110110110"
+    },
+    {
+        "name": "HalfSlopedCornerBaseUF",
+        "signature": "000010111000011111000111111"
+    },
+    {
+        "name": "HalfSlopedCornerBaseUL",
+        "signature": "011001001011011001011011011"
+    },
+    {
+        "name": "HalfSlopedCornerBaseDF",
+        "signature": "000111111000110111000100111"
+    },
+    {
+        "name": "HalfSlopedCornerBaseDR",
+        "signature": "110110110110110100110100100"
+    },
+    {
+        "name": "HalfSlopedCornerBaseDB",
+        "signature": "111111000111011000111001000"
+    },
+    {
+        "name": "HalfSlopedCornerBaseDL",
+        "signature": "011011011001011011001001011"
+    },
+    {
+        "name": "HalfSlopeCornerBU",
+        "signature": "100000000000000000000000000"
+    },
+    {
+        "name": "HalfSlopeCornerBL",
+        "signature": "001000000000000000000000000"
+    },
+    {
+        "name": "HalfSlopeCornerBD",
+        "signature": "000000000000000000001000000"
+    },
+    {
+        "name": "HalfSlopeCornerBR",
+        "signature": "000000000000000000100000000"
+    }
+]

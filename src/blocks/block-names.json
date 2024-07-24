@@ -1,0 +1,158 @@
+{
+    "block": {
+        "LARGE_HEAVY": "LargeHeavyBlockArmorBlock",
+        "LARGE_LIGHT": "LargeBlockArmorBlock",
+        "SMALL_HEAVY": "SmallHeavyBlockArmorBlock",
+        "SMALL_LIGHT": "SmallBlockArmorBlock"
+    },
+    "slope": {
+        "LARGE_HEAVY": "LargeHeavyBlockArmorSlope",
+        "LARGE_LIGHT": "LargeBlockArmorSlope",
+        "SMALL_HEAVY": "SmallHeavyBlockArmorSlope",
+        "SMALL_LIGHT": "SmallBlockArmorSlope"
+    },
+    "corner": {
+        "LARGE_HEAVY": "LargeHeavyBlockArmorCorner",
+        "LARGE_LIGHT": "LargeBlockArmorCorner",
+        "SMALL_HEAVY": "SmallHeavyBlockArmorCorner",
+        "SMALL_LIGHT": "SmallBlockArmorCorner"
+    },
+    "invcorner": {
+        "LARGE_HEAVY": "LargeHeavyBlockArmorCornerInv",
+        "LARGE_LIGHT": "LargeBlockArmorCornerInv",
+        "SMALL_HEAVY": "SmallHeavyBlockArmorCornerInv",
+        "SMALL_LIGHT": "SmallBlockArmorCornerInv"
+    },
+    "roundslope": {
+        "LARGE_HEAVY": "LargeHeavyBlockArmorRoundSlope",
+        "LARGE_LIGHT": "LargeBlockArmorRoundSlope",
+        "SMALL_HEAVY": "SmallHeavyBlockArmorRoundSlope",
+        "SMALL_LIGHT": "SmallBlockArmorRoundSlope"
+    },
+    "roundcorner": {
+        "LARGE_HEAVY": "LargeHeavyBlockArmorRoundCorner",
+        "LARGE_LIGHT": "LargeRoundArmor_Corner",
+        "SMALL_HEAVY": "SmallHeavyBlockArmorRoundCorner",
+        "SMALL_LIGHT": "SmallBlockArmorRoundCorner"
+    },
+    "roundinvcorner": {
+        "LARGE_HEAVY": "LargeHeavyBlockArmorRoundCornerInv",
+        "LARGE_LIGHT": "LargeBlockArmorRoundCornerInv",
+        "SMALL_HEAVY": "SmallHeavyBlockArmorRoundCornerInv",
+        "SMALL_LIGHT": "SmallBlockArmorRoundCornerInv"
+    },
+    "cornersquare": {
+        "LARGE_HEAVY": "LargeBlockHeavyArmorCornerSquare",
+        "LARGE_LIGHT": "LargeBlockArmorCornerSquare",
+        "SMALL_HEAVY": "SmallBlockHeavyArmorCornerSquare",
+        "SMALL_LIGHT": "SmallBlockArmorCornerSquare"
+    },
+    "cornersquareinv": {
+        "LARGE_HEAVY": "LargeBlockHeavyArmorCornerSquareInverted",
+        "LARGE_LIGHT": "LargeBlockArmorCornerSquareInverted",
+        "SMALL_HEAVY": "SmallBlockHeavyArmorCornerSquareInverted",
+        "SMALL_LIGHT": "SmallBlockArmorCornerSquareInverted"
+    },
+    "slope211base": {
+        "LARGE_HEAVY": "LargeHeavyBlockArmorSlope2Base",
+        "LARGE_LIGHT": "LargeBlockArmorSlope2Base",
+        "SMALL_HEAVY": "SmallHeavyBlockArmorSlope2Base",
+        "SMALL_LIGHT": "SmallBlockArmorSlope2Base"
+    },
+    "slope211tip": {
+        "LARGE_HEAVY": "LargeHeavyBlockArmorSlope2Tip",
+        "LARGE_LIGHT": "LargeBlockArmorSlope2Tip",
+        "SMALL_HEAVY": "SmallHeavyBlockArmorSlope2Tip",
+        "SMALL_LIGHT": "SmallBlockArmorSlope2Tip"
+    },
+    "corner211base": {
+        "LARGE_HEAVY": "LargeHeavyBlockArmorCorner2Base",
+        "LARGE_LIGHT": "LargeBlockArmorCorner2Base",
+        "SMALL_HEAVY": "SmallHeavyBlockArmorCorner2Base",
+        "SMALL_LIGHT": "SmallBlockArmorCorner2Base"
+    },
+    "corner211tip": {
+        "LARGE_HEAVY": "LargeHeavyBlockArmorCorner2Tip",
+        "LARGE_LIGHT": "LargeBlockArmorCorner2Tip",
+        "SMALL_HEAVY": "SmallHeavyBlockArmorCorner2Tip",
+        "SMALL_LIGHT": "SmallBlockArmorCorner2Tip"
+    },
+    "invcorner211base": {
+        "LARGE_HEAVY": "LargeHeavyBlockArmorInvCorner2Base",
+        "LARGE_LIGHT": "LargeBlockArmorInvCorner2Base",
+        "SMALL_HEAVY": "SmallHeavyBlockArmorInvCorner2Base",
+        "SMALL_LIGHT": "SmallBlockArmorInvCorner2Base"
+    },
+    "invcorner211tip": {
+        "LARGE_HEAVY": "LargeHeavyBlockArmorInvCorner2Tip",
+        "LARGE_LIGHT": "LargeBlockArmorInvCorner2Tip",
+        "SMALL_HEAVY": "SmallHeavyBlockArmorInvCorner2Tip",
+        "SMALL_LIGHT": "SmallBlockArmorInvCorner2Tip"
+    },
+    "half": {
+        "LARGE_HEAVY": "LargeHeavyHalfArmorBlock",
+        "LARGE_LIGHT": "LargeHalfArmorBlock",
+        "SMALL_HEAVY": "HeavyHalfArmorBlock",
+        "SMALL_LIGHT": "HalfArmorBlock"
+    },
+    "halfslope": {
+        "LARGE_HEAVY": "LargeHeavyHalfSlopeArmorBlock",
+        "LARGE_LIGHT": "LargeHalfSlopeArmorBlock",
+        "SMALL_HEAVY": "HeavyHalfSlopeArmorBlock",
+        "SMALL_LIGHT": "HalfSlopeArmorBlock"
+    },
+    "halfcorner": {
+        "LARGE_HEAVY": "LargeBlockHeavyArmorHalfCorner",
+        "LARGE_LIGHT": "LargeBlockArmorHalfCorner",
+        "SMALL_HEAVY": "SmallBlockHeavyArmorHalfCorner",
+        "SMALL_LIGHT": "SmallBlockArmorHalfCorner"
+    },
+    "halfslopecorner": {
+        "LARGE_HEAVY": "LargeBlockHeavyArmorHalfSlopeCorner",
+        "LARGE_LIGHT": "LargeBlockArmorHalfSlopeCorner",
+        "SMALL_HEAVY": "SmallBlockHeavyArmorHalfSlopeCorner",
+        "SMALL_LIGHT": "SmallBlockArmorHalfSlopeCorner"
+    },
+    "halfslopecornerinv": {
+        "LARGE_HEAVY": "LargeBlockHeavyArmorHalfSlopeCornerInverted",
+        "LARGE_LIGHT": "LargeBlockArmorHalfSlopeCornerInverted",
+        "SMALL_HEAVY": "SmallBlockHeavyArmorHalfSlopeCornerInverted",
+        "SMALL_LIGHT": "SmallBlockArmorHalfSlopeCornerInverted"
+    },
+    "halfslopedcorner": {
+        "LARGE_HEAVY": "LargeBlockHeavyArmorHalfSlopedCorner",
+        "LARGE_LIGHT": "LargeBlockArmorHalfSlopedCorner",
+        "SMALL_HEAVY": "SmallBlockHeavyArmorHalfSlopedCorner",
+        "SMALL_LIGHT": "SmallBlockArmorHalfSlopedCorner"
+    },
+    "halfslopedcornerbase": {
+        "LARGE_HEAVY": "LargeBlockHeavyArmorHalfSlopeInverted",
+        "LARGE_LIGHT": "LargeBlockArmorHalfSlopeInverted",
+        "SMALL_HEAVY": "SmallBlockHeavyArmorHalfSlopeInverted",
+        "SMALL_LIGHT": "SmallBlockArmorHalfSlopeInverted"
+    },
+    "halfslopeinv": {
+        "LARGE_HEAVY": "LargeBlockHeavyArmorHalfSlopeInverted",
+        "LARGE_LIGHT": "LargeBlockArmorHalfSlopeInverted",
+        "SMALL_HEAVY": "SmallBlockHeavyArmorHalfSlopeInverted",
+        "SMALL_LIGHT": "SmallBlockArmorHalfSlopeInverted"
+    },
+    "slopedcorner": {
+        "LARGE_HEAVY": "LargeBlockHeavyArmorSlopedCorner",
+        "LARGE_LIGHT": "LargeBlockArmorSlopedCorner",
+        "SMALL_HEAVY": "SmallBlockHeavyArmorSlopedCorner",
+        "SMALL_LIGHT": "SmallBlockArmorSlopedCorner"
+    },
+    "slopedcornerbase": {
+        "LARGE_HEAVY": "LargeBlockHeavyArmorSlopedCornerBase",
+        "LARGE_LIGHT": "LargeBlockArmorSlopedCornerBase",
+        "SMALL_HEAVY": "SmallBlockHeavyArmorSlopedCornerBase",
+        "SMALL_LIGHT": "SmallBlockArmorSlopedCornerBase"
+    },
+    "slopedcornertip": {
+        "LARGE_HEAVY": "LargeBlockHeavyArmorSlopedCornerTip",
+        "LARGE_LIGHT": "LargeBlockArmorSlopedCornerTip",
+        "SMALL_HEAVY": "SmallBlockHeavyArmorSlopedCornerTip",
+        "SMALL_LIGHT": "SmallBlockArmorSlopedCornerTip"
+    }
+}

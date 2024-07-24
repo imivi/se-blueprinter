@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        place-content: center;
+        place-items: center;
+    }
+
+    li {
+        background-color: steelblue;
+        border: 2px solid transparent;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        position: relative;
+
+        &[data-disabled=true] {
+            img {
+                opacity: 0.3;
+            }
+
+            .spinner {
+                display: none;
+            }
+        }
+
+        &:hover {
+            border-color: orange;
+        }
+    }
+
+    img {
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        position: relative;
+        background-color: steelblue;
+    }
+}
+
+.spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}

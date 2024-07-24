@@ -1,0 +1,16 @@
+.spinner {
+    animation: 2s infinite spin;
+    display: flex;
+    place-content: center;
+    place-items: center;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
