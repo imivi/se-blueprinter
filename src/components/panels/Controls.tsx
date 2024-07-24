@@ -1,6 +1,6 @@
 import s from "./Controls.module.scss"
 
-import { IconArrowUp } from "@tabler/icons-react"
+import { IconArrowUp, IconBuilding, IconBuildingFactory, IconBuildingFactory2, IconCube, IconFeather, IconRocket, IconWeight } from "@tabler/icons-react"
 import { lazy, Suspense, useState } from "react"
 import { ViewSettings } from "./ViewSettings"
 import Uploader from "../Uploader"
@@ -83,7 +83,10 @@ export function Controls({ scanOutput, onScan, meshes, sampleSignatures }: Props
 
                         <label>Grid size</label>
                         <BinaryRadio
-                            labels={["Large", "Small"]}
+                            labels={[
+                                <><IconCube size={18} /> Large</>,
+                                <>Small <IconCube size={12} /></>,
+                            ]}
                             firstChecked={fields.gridSize === "Large"}
                             onCheckedFirst={() => fields.setGridSize("Large")}
                             onCheckedSecond={() => fields.setGridSize("Small")}
@@ -91,7 +94,10 @@ export function Controls({ scanOutput, onScan, meshes, sampleSignatures }: Props
 
                         <label>Armor type</label>
                         <BinaryRadio
-                            labels={["Heavy", "Light"]}
+                            labels={[
+                                <><IconWeight size={16} /> Heavy</>,
+                                <>Light <IconFeather size={16} /></>,
+                            ]}
                             firstChecked={fields.armorType === "Heavy"}
                             onCheckedFirst={() => fields.setArmorType("Heavy")}
                             onCheckedSecond={() => fields.setArmorType("Light")}
@@ -99,7 +105,10 @@ export function Controls({ scanOutput, onScan, meshes, sampleSignatures }: Props
 
                         <label>Grid type</label>
                         <BinaryRadio
-                            labels={["Station", "Ship"]}
+                            labels={[
+                                <><IconBuildingFactory2 size={16} /> Station</>,
+                                <>Ship <IconRocket size={16} /></>,
+                            ]}
                             firstChecked={fields.staticGrid}
                             onCheckedFirst={() => fields.setStaticGrid(true)}
                             onCheckedSecond={() => fields.setStaticGrid(false)}
