@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  Try it now at https://se-blueprinter.imivi.dev
+  Try it now at https://imivi.github.io/se-blueprinter
 </p>
 
 
