@@ -122,13 +122,13 @@ function Benchmarks({ benchmarks }: { benchmarks: Record<string, Benchmark> }) {
                     Object.entries(benchmarks).map(([name, benchmark]) => (
                         <tr key={name}>
                             <td>{name}</td>
-                            <td>{benchmark.getSeconds()}</td>
+                            <td>{benchmark.getSeconds().toFixed(1)}</td>
                         </tr>
                     ))
                 }
                 <tr>
                     <td>Total</td>
-                    <td>{total}</td>
+                    <td>{total.toFixed(1)}</td>
                 </tr>
             </tbody>
         </table>

@@ -1,6 +1,6 @@
 import { create } from "zustand"
 import { Direction, Pattern, ReplacementPolicy } from "../types"
-import { fuseSearch } from "../lib/fuse-search"
+import { blockFinder } from "../lib/BlockFinder"
 
 
 type Store = {
@@ -102,9 +102,6 @@ export const useSettingsStore = create<Store>((set, get) => ({
         else
             disabled.add(block)
         set({ disabledBlocks: new Set(disabled), settingsModified: true })
-
-        // Make sure that fuseSearch is set to update its collection
-        fuseSearch.invalidate()
     },
 
     replacementPolicy: "next best",

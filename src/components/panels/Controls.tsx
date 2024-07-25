@@ -1,6 +1,6 @@
 import s from "./Controls.module.scss"
 
-import { IconArrowUp, IconBuildingFactory2, IconCube, IconFeather, IconRocket, IconWeight } from "@tabler/icons-react"
+import { IconArrowUp, IconBuildingFactory2, IconCube, IconFeather, IconPrism, IconRocket, IconWeight } from "@tabler/icons-react"
 import { lazy, Suspense, useState } from "react"
 import { ViewSettings } from "./ViewSettings"
 import Uploader from "../Uploader"
@@ -24,7 +24,7 @@ const CreateBlueprintButtons = lazy(() => import("./CreateBlueprintButtons"))
 
 const patternOptions: { name: Pattern, label: string }[] = [
     { name: "basic", label: "Cube only (fastest)" },
-    { name: "slopes_fast", label: "Slopes (fast)" },
+    { name: "slopes_fast", label: "Slopes (faster)" },
     { name: "slopes_full", label: "Slopes (best)" },
 ]
 
@@ -178,6 +178,15 @@ export function Controls({ scanOutput, onScan, meshes, sampleSignatures, benchma
                         <select value={slicePattern} onChange={(e) => { e.preventDefault(); setSlicePattern(e.target.value as typeof slicePattern) }}>
                             {patternOptions.map(option => <option key={option.name} value={option.name}>{option.label}</option>)}
                         </select>
+                        {/* <BinaryRadio
+                            labels={[
+                                <><IconCube size={16} /> Cubes</>,
+                                <> Slopes <IconPrism size={16} /></>,
+                            ]}
+                            firstChecked={slicePattern === "basic"}
+                            onCheckedFirst={() => setSlicePattern("basic")}
+                            onCheckedSecond={() => setSlicePattern("slopes_full")}
+                        /> */}
 
                     </SliceSettings>
 
@@ -229,7 +238,7 @@ export function Controls({ scanOutput, onScan, meshes, sampleSignatures, benchma
 
                     </SliceSettings>
 
-                    {showAdvancedSettings && <BlockSelector />}
+                    {showAdvancedSettings && slicePattern !== "basic" && <BlockSelector />}
 
                     <SliceSettings show={showAdvancedSettings && disabledBlocks.size > 0}>
                         <label>Replace disabled blocks with...</label>

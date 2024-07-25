@@ -4,13 +4,13 @@ import { scanMeshes } from "../lib/scan-meshes"
 import { Vector3 } from "three"
 import { MeshBT } from "../lib/MeshBT"
 import { useScanOutputStore } from "../stores/useScanOutputStore"
-import { fuseSearch } from "../lib/fuse-search"
 import { blockSignatures } from "../blocks/block-signatures"
 import { CLOSENESS_THRESHOLD } from "../settings"
 import { useSlicePattern } from "./useSlicePattern"
 import { BlockSignatures } from "../lib/BlockSignatures"
 import { useState } from "react"
 import { Benchmark } from "../lib/Benchmark"
+import { blockFinder } from "../lib/BlockFinder"
 
 
 
@@ -128,16 +128,12 @@ function addMatchingBlockInfo(scanOutput: ScanOutput, disabledBlocks: Set<string
         blocks = blocks.filter(block => !disabledBlocks.has(block.name.slice(0, -2))) // Remove the orientation code (FU, LF, UB, etc)
     }
 
-    fuseSearch.setBlocks(blocks)
-
-    // const benchmarks: Benchmark[] = []
+    blockFinder.setBlocks(blocks)
 
     for (const gridSpace of scanOutput.gridSpaces) {
         const signature = gridSpace.getSignature()
 
-        // const benchmark = new Benchmark().start()
-        const match = fuseSearch.findBestMatch(signature, signatures, disabledBlocks, replacementPolicy)
-        // benchmarks.push(benchmark.end())
+        const match = blockFinder.findBestMatch(signature, signatures, disabledBlocks, replacementPolicy)
 
         if (match)
             gridSpace.matchingBlock = {
@@ -145,8 +141,6 @@ function addMatchingBlockInfo(scanOutput: ScanOutput, disabledBlocks: Set<string
                 perfect: match.signature === signature,
             }
     }
-
-    // return benchmarks
 }
 
 

@@ -1,33 +1,61 @@
-import Fuse from "fuse.js"
 import { BlockSignatures } from "./BlockSignatures"
 import { sameCorners } from "./same-corners"
 import { BlockSignature, ReplacementPolicy } from "../types"
 
 
 
-class FuseSearch {
+interface SearchEngine {
+    setCollection: (items: BlockSignature[]) => void
+    search: (key: string) => BlockSignature[]
+}
 
-    // private currentCollection: BlockSignature[] = []
 
-    /* Fuse is initialized with dummy data; the real collection data is set before scanning the model */
-    private readonly fuse = new Fuse([{ name: "", signature: "" }], {
-        includeScore: false,
-        keys: ["signature"],
-        isCaseSensitive: false,
-    })
+class BasicSearchEngine implements SearchEngine {
 
-    private collectionChanged = true
+    items: BlockSignature[] = []
 
-    /** Cause the fuse collection to be recreated when next used */
-    invalidate() {
-        this.collectionChanged = true
+    setCollection(items: BlockSignature[]) {
+        this.items = items
     }
 
-    setBlocks(newCollection: BlockSignature[]) {
-        if (this.collectionChanged) {
-            this.fuse.setCollection(newCollection)
-            this.collectionChanged = false
+    search(input: string): BlockSignature[] {
+        const matches: Match[] = []
+
+        for (const block of this.items) {
+            matches.push({
+                score: countSameCharacters(input, block.signature),
+                name: block.name,
+                signature: block.signature,
+            })
         }
+        return matches.sort((a, b) => b.score - a.score)
+    }
+}
+
+type Match = {
+    score: number
+    name: string
+    signature: string
+}
+
+function countSameCharacters(text1: string, text2: string): number {
+    let sameCharacterCount = 0
+    for (let i = 0; i < text1.length; i++) {
+        if (text1[i] === text2[i])
+            sameCharacterCount += 1
+    }
+    return sameCharacterCount
+}
+
+
+
+
+class BlockFinder {
+
+    constructor(private readonly searchEngine: SearchEngine) { }
+
+    setBlocks(newCollection: BlockSignature[]) {
+        this.searchEngine.setCollection(newCollection)
     }
 
     findBestMatch(input: string, signatures: BlockSignatures, disabledBlocks: Set<string>, replacementPolicy: ReplacementPolicy): BlockSignature | null {
@@ -62,7 +90,7 @@ class FuseSearch {
         }
 
         // Remember that fuse will never return disabled blocks!
-        const results = this.fuse.search(input).map(res => res.item)
+        const results = this.searchEngine.search(input)
 
         // Return the first result with the same corners
         for (const result of results) {
@@ -78,7 +106,9 @@ class FuseSearch {
     }
 }
 
-export const fuseSearch = new FuseSearch()
+
+const basicSearchEngine = new BasicSearchEngine()
+export const blockFinder = new BlockFinder(basicSearchEngine)
 
 
 function countOnes(text: string): number {
