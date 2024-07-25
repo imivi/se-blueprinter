@@ -9,6 +9,8 @@ import { blockSignatures } from "../blocks/block-signatures"
 import { CLOSENESS_THRESHOLD } from "../settings"
 import { useSlicePattern } from "./useSlicePattern"
 import { BlockSignatures } from "../lib/BlockSignatures"
+import { useState } from "react"
+import { Benchmark } from "../lib/Benchmark"
 
 
 
@@ -30,12 +32,21 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
 
     const pattern = useSlicePattern()
 
+    const [benchmarks, setBenchmarks] = useState<Record<string, Benchmark>>({})
+
     function runScan() {
 
         const cubeBlockOnly = disabledBlocks.size === (sampleBlockCount - 1) && !disabledBlocks.has("block")
 
         const offsets = cubeBlockOnly ? [0] : pattern
 
+        const benchmarks = {
+            scanMeshes: new Benchmark(),
+            addMarkers: new Benchmark(),
+            matchBlocks: new Benchmark(),
+        }
+
+        benchmarks.scanMeshes.start()
         const result = scanMeshes({
             meshes,
             offsets,
@@ -43,8 +54,10 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
             closenessThreshold: CLOSENESS_THRESHOLD,
             maxDistanceFromMeshSurface: hollow ? blocksUntilHollow : null,
         })
+        benchmarks.scanMeshes.end()
 
         if (!result) {
+            setBenchmarks(benchmarks)
             return
         }
 
@@ -60,8 +73,13 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
             markersOutside: [],
         }
 
-        if (createMarkers)
+        if (createMarkers) {
+            benchmarks.addMarkers.start()
             addMarkers(scanOutput)
+            benchmarks.addMarkers.end()
+        }
+
+        benchmarks.matchBlocks.start()
 
         if (pattern.length === 1) {
             for (const block of scanOutput.gridSpaces) {
@@ -81,9 +99,12 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
             console.warn("Can't find matching blocks with pattern length", pattern.length)
         }
 
+        benchmarks.matchBlocks.end()
+
         setScanOutput({ ...scanOutput })
         setSettingsModified(false)
         setShowBlocks(true)
+        setBenchmarks(benchmarks)
 
         setVisibleLayers(gridSize.y - 1)
     }
@@ -91,6 +112,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
     return {
         scanOutput,
         runScan,
+        benchmarks,
     }
 }
 
@@ -108,15 +130,23 @@ function addMatchingBlockInfo(scanOutput: ScanOutput, disabledBlocks: Set<string
 
     fuseSearch.setBlocks(blocks)
 
+    // const benchmarks: Benchmark[] = []
+
     for (const gridSpace of scanOutput.gridSpaces) {
         const signature = gridSpace.getSignature()
+
+        // const benchmark = new Benchmark().start()
         const match = fuseSearch.findBestMatch(signature, signatures, disabledBlocks, replacementPolicy)
+        // benchmarks.push(benchmark.end())
+
         if (match)
             gridSpace.matchingBlock = {
                 blockName: match.name,
                 perfect: match.signature === signature,
             }
     }
+
+    // return benchmarks
 }
 
 

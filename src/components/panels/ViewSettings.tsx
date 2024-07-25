@@ -5,12 +5,14 @@ import { ScanOutput } from "../../types"
 import { useDebug } from "../../hooks/useDebug"
 import { IconArrowsMaximize, IconPackages } from "@tabler/icons-react"
 import BinaryRadio from "./BinaryRadio"
+import { Benchmark } from "../../lib/Benchmark"
 
 type Props = {
     scanOutput: ScanOutput | null
+    benchmarks: Record<string, Benchmark>
 }
 
-export function ViewSettings({ scanOutput }: Props) {
+export function ViewSettings({ scanOutput, benchmarks }: Props) {
 
     const showBlocks = useSettingsStore(store => store.showBlocks)
     const setShowBlocks = useSettingsStore(store => store.setShowBlocks)
@@ -64,6 +66,8 @@ export function ViewSettings({ scanOutput }: Props) {
                 </tbody>
             </table>
 
+            {(debug || import.meta.env.DEV) && <Benchmarks benchmarks={benchmarks} />}
+
             <hr />
 
             <BinaryRadio
@@ -94,5 +98,39 @@ export function ViewSettings({ scanOutput }: Props) {
             }
 
         </div>
+    )
+}
+
+
+function Benchmarks({ benchmarks }: { benchmarks: Record<string, Benchmark> }) {
+
+    let total = 0
+    for (const benchmark of Object.values(benchmarks)) {
+        total += benchmark.getSeconds()
+    }
+
+    return (
+        <table>
+            <thead>
+                <tr>
+                    <th>benchmark</th>
+                    <th>seconds</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    Object.entries(benchmarks).map(([name, benchmark]) => (
+                        <tr key={name}>
+                            <td>{name}</td>
+                            <td>{benchmark.getSeconds()}</td>
+                        </tr>
+                    ))
+                }
+                <tr>
+                    <td>Total</td>
+                    <td>{total}</td>
+                </tr>
+            </tbody>
+        </table>
     )
 }

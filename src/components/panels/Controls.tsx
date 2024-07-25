@@ -1,6 +1,6 @@
 import s from "./Controls.module.scss"
 
-import { IconArrowUp, IconBuilding, IconBuildingFactory, IconBuildingFactory2, IconCube, IconFeather, IconRocket, IconWeight } from "@tabler/icons-react"
+import { IconArrowUp, IconBuildingFactory2, IconCube, IconFeather, IconRocket, IconWeight } from "@tabler/icons-react"
 import { lazy, Suspense, useState } from "react"
 import { ViewSettings } from "./ViewSettings"
 import Uploader from "../Uploader"
@@ -17,6 +17,7 @@ import { useDebug } from "../../hooks/useDebug"
 import ButtonAdvancedSettings from "./ButtonAdvancedSettings"
 import BinaryRadio from "./BinaryRadio"
 import Tooltip from "./Tooltip"
+import { Benchmark } from "../../lib/Benchmark"
 
 const CreateBlueprintButtons = lazy(() => import("./CreateBlueprintButtons"))
 
@@ -32,10 +33,11 @@ type Props = {
     scanOutput: ScanOutput | null
     meshes: MeshBT[]
     sampleSignatures: BlockSignature[]
+    benchmarks: Record<string, Benchmark>
     onScan: () => void
 }
 
-export function Controls({ scanOutput, onScan, meshes, sampleSignatures }: Props) {
+export function Controls({ scanOutput, onScan, meshes, sampleSignatures, benchmarks }: Props) {
 
     const raycastDirectionOption = useSettingsStore(store => store.raycastDirectionOption)
     const setRaycastDirectionOption = useSettingsStore(store => store.setRaycastDirectionOption)
@@ -254,7 +256,7 @@ export function Controls({ scanOutput, onScan, meshes, sampleSignatures }: Props
             </Panel>
 
             <Panel show={!!scanOutput} top right>
-                <ViewSettings scanOutput={scanOutput} />
+                <ViewSettings scanOutput={scanOutput} benchmarks={benchmarks} />
             </Panel>
 
             {

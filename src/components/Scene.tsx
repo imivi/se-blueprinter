@@ -1,6 +1,6 @@
 import { Environment, Grid, OrbitControls } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import { ColorManagement, DoubleSide } from "three"
+import { BufferGeometry, ColorManagement, DoubleSide, Mesh } from "three"
 import SlicedPreview from "./scene/SlicedPreview"
 import { useScanMeshes } from "../hooks/useScanMeshes"
 import { useRaycastDirection } from "../hooks/useRaycastDirection"
@@ -12,11 +12,16 @@ import Loader from "./Loader"
 import { Controls } from "./panels/Controls"
 import { useDebug } from "../hooks/useDebug"
 import { BASE_URL } from "../settings"
+import { computeBoundsTree, disposeBoundsTree, acceleratedRaycast } from "three-mesh-bvh"
 
 
 ColorManagement.enabled = true
 
-
+// @ts-expect-error "from three-mesh-bvh"
+BufferGeometry.prototype.computeBoundsTree = computeBoundsTree
+// @ts-expect-error "from three-mesh-bvh"
+BufferGeometry.prototype.disposeBoundsTree = disposeBoundsTree
+Mesh.prototype.raycast = acceleratedRaycast
 
 
 export default function Scene() {
@@ -29,7 +34,7 @@ export default function Scene() {
 
     const debug = useDebug()
 
-    const { runScan, scanOutput } = useScanMeshes(raycastDirection, meshes, debug, sampleMeshes.length)
+    const { runScan, scanOutput, benchmarks } = useScanMeshes(raycastDirection, meshes, debug, sampleMeshes.length)
 
     const loading = useGltfStore(store => store.loading)
 
@@ -41,6 +46,7 @@ export default function Scene() {
                 meshes={meshes}
                 onScan={runScan}
                 scanOutput={scanOutput}
+                benchmarks={benchmarks}
             />
 
             {loading && <Loader />}
