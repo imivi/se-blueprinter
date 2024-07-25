@@ -3,14 +3,25 @@ import { getOffsetPositions } from "./analyze-block";
 import { formatSignature, getBlockSignature } from "./misc";
 import { MeshBT } from "./MeshBT";
 import { getPointDistanceToMesh, pointIsInsideMesh } from "./point-utils";
-import { MatchingBlock } from "../types";
-import { getCornerOffsets } from "./get-corner-offsets";
+import { MatchingBlock, ReplacementPolicy } from "../types";
+import { getScanPoints, PointFeature } from "./get-scan-points";
+import { BlockFinder } from "./BlockFinder";
+import { BlockSignatures } from "./BlockSignatures";
 
 
 type Point = {
     position: Vector3
     inside: boolean // using raycast
     near: boolean | null // using closestPointToPoint
+}
+
+type ScanMeshForPointsOptions = {
+    blockFinder: BlockFinder,
+    mesh: MeshBT, raycastDirection: Vector3,
+    closenessThreshold: number
+    signatures: BlockSignatures,
+    disabledBlocks: Set<string>,
+    replacementPolicy: ReplacementPolicy
 }
 
 export class GridSpace {
@@ -35,8 +46,7 @@ export class GridSpace {
         }
     }
 
-    scanMeshForPoints(mesh: MeshBT, raycastDirection: Vector3, closenessThreshold: number): boolean {
-        // this.meshesScanned.push(mesh.id)
+    scanMeshForPoints({ blockFinder, mesh, raycastDirection, closenessThreshold, disabledBlocks, replacementPolicy, signatures }: ScanMeshForPointsOptions): boolean {
 
         // Avoid overwriting this grid space
         // with a possibly empty mesh scan
@@ -48,25 +58,53 @@ export class GridSpace {
         // we just have the scan the center position
         if (this.pattern.length === 1) {
             this.scanPoint(this.worldPosition, 0, mesh, raycastDirection, closenessThreshold)
+            if (!this.isEmpty())
+                this.matchingBlock = {
+                    blockName: "blockfu",
+                    perfect: true,
+                }
             return this.updateEmptyStatus()
         }
 
         const pointPositions = getOffsetPositions(this.pattern, this.worldPosition)
 
         // Scan just the 8 corner points for now
-        this.scanCorners(pointPositions, mesh, raycastDirection, closenessThreshold)
+        this.scanFeature("corners", pointPositions, mesh, raycastDirection, closenessThreshold)
 
         // If the 8 corner points are empty,
         // we don't need to check any other point
-        if (this.cornersEmpty()) {
-            this.empty = true
-            return true
+        if (this.cornersAreEmpty()) {
+            return this.empty = true
         }
 
-        // Scan all non-corner points
-        for (let i = 0; i < this.points.length; i++) {
+        this.scanFeature("edges", pointPositions, mesh, raycastDirection, closenessThreshold)
+
+        if (this.edgesAreFull()) {
+            this.matchingBlock = {
+                blockName: "blockfu",
+                perfect: true,
+            }
+            return this.empty = false
+        }
+
+        // Scan all non-corner, non-edge points
+        const indexes = [
+            ...getScanPoints("center", this.pattern.length),
+            ...getScanPoints("faces", this.pattern.length),
+        ]
+        for (const i of indexes) {
             if (!this.points[i])
                 this.scanPoint(pointPositions[i], i, mesh, raycastDirection, closenessThreshold)
+        }
+
+        const signature = this.getSignature()
+        const match = blockFinder.findBestMatch(signature, signatures, disabledBlocks, replacementPolicy)
+
+        if (match) {
+            this.matchingBlock = {
+                blockName: match.name,
+                perfect: match.signature === signature,
+            }
         }
 
         return this.updateEmptyStatus()
@@ -77,18 +115,31 @@ export class GridSpace {
         return this.empty
     }
 
-    private scanCorners(pointPositions: Vector3[], mesh: MeshBT, raycastDirection: Vector3, closenessThreshold: number) {
-
-        // const positions = getOffsetPositions(this.pattern, this.worldPosition)
-
-        for (const i of getCornerOffsets(this.pattern.length)) {
+    private scanFeature(feature: PointFeature, pointPositions: Vector3[], mesh: MeshBT, raycastDirection: Vector3, closenessThreshold: number) {
+        for (const i of getScanPoints(feature, this.pattern.length)) {
             this.scanPoint(pointPositions[i], i, mesh, raycastDirection, closenessThreshold)
         }
     }
 
-    private cornersEmpty() {
-        for (const i of getCornerOffsets(this.pattern.length)) {
+    private cornersAreEmpty() {
+        for (const i of getScanPoints("corners", this.pattern.length)) {
             if (this.points[i]?.inside || this.points[i]?.near)
+                return false
+        }
+        return true
+    }
+
+    private edgesAreFull() {
+        for (const i of getScanPoints("corners", this.pattern.length)) {
+            const point = this.points[i]
+            const pointExists = point && (point.inside || point.near)
+            if (!pointExists)
+                return false
+        }
+        for (const i of getScanPoints("edges", this.pattern.length)) {
+            const point = this.points[i]
+            const pointExists = point && (point.inside || point.near)
+            if (!pointExists)
                 return false
         }
         return true
@@ -136,8 +187,13 @@ export class GridSpace {
         this.empty = true
     }
 
-    public isFull(): boolean {
-        return this.points.length > 0 && this.points.every(point => point?.inside || point?.near)
+    public isFullCube(): boolean {
+        return this.matchingBlock?.blockName === "blockfu"
+
+        // return (
+        //     this.points.length > 0 &&
+        //     this.points.every(point => point?.inside || point?.near)
+        // )
     }
 }
 

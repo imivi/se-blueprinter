@@ -3,6 +3,9 @@ import { GridSpace, hashPosition } from "./GridSpace"
 import { BlueprintGrid } from "./BlueprintGrid"
 import { MeshBT } from "./MeshBT"
 import { pointIsInsideMesh } from "./point-utils"
+import { BlockFinder } from "./BlockFinder"
+import { BlockSignatures } from "./BlockSignatures"
+import { ReplacementPolicy } from "../types"
 
 
 type Options = {
@@ -11,6 +14,10 @@ type Options = {
     raycastDirection: Vector3
     closenessThreshold: number
     maxDistanceFromMeshSurface: number | null
+    blockFinder: BlockFinder
+    signatures: BlockSignatures
+    disabledBlocks: Set<string>
+    replacementPolicy: ReplacementPolicy
 }
 
 type GridSpaces = Map<string, GridSpace>
@@ -31,7 +38,10 @@ const sixRaycastDirections = [
     new Vector3(0, 0, -1),
 ]
 
-export function scanMeshes({ meshes, offsets, raycastDirection, closenessThreshold, maxDistanceFromMeshSurface }: Options): Output | null {
+
+export function scanMeshes(options: Options): Output | null {
+
+    const { meshes, offsets, maxDistanceFromMeshSurface } = options
 
     if (meshes.length === 0) {
         console.warn("No meshes received, cannot scan!")
@@ -54,7 +64,10 @@ export function scanMeshes({ meshes, offsets, raycastDirection, closenessThresho
 
         for (const meshIndex of gridSpace.parentMeshes) {
             if (gridSpace.isEmpty())
-                gridSpace.scanMeshForPoints(meshes[meshIndex], raycastDirection, closenessThreshold)
+                gridSpace.scanMeshForPoints({
+                    ...options,
+                    mesh: meshes[meshIndex],
+                })
         }
     }
 
@@ -66,7 +79,7 @@ export function scanMeshes({ meshes, offsets, raycastDirection, closenessThresho
         for (const gridSpace of gridSpaces.values()) {
 
             // Only test spaces that are full blocks
-            if (!gridSpace.isFull()) {
+            if (!gridSpace.isFullCube()) {
                 continue
             }
 

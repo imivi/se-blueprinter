@@ -46,6 +46,18 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
             matchBlocks: new Benchmark(),
         }
 
+        const signatures = pattern.length === 3 ? blockSignatures.slopes_fast : blockSignatures.slopes_full
+
+
+        const allBlocks = signatures.getSignaturesArray()
+        let blocks = allBlocks
+
+        if (disabledBlocks.size > 0) {
+            blocks = blocks.filter(block => !disabledBlocks.has(block.name.slice(0, -2))) // Remove the orientation code (FU, LF, UB, etc)
+        }
+
+        blockFinder.setBlocks(blocks)
+
         benchmarks.scanMeshes.start()
         const result = scanMeshes({
             meshes,
@@ -53,6 +65,10 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
             raycastDirection,
             closenessThreshold: CLOSENESS_THRESHOLD,
             maxDistanceFromMeshSurface: hollow ? blocksUntilHollow : null,
+            blockFinder,
+            disabledBlocks,
+            replacementPolicy,
+            signatures,
         })
         benchmarks.scanMeshes.end()
 
@@ -73,12 +89,16 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
             markersOutside: [],
         }
 
+        console.info(scanOutput)
+
         if (createMarkers) {
             benchmarks.addMarkers.start()
             addMarkers(scanOutput)
             benchmarks.addMarkers.end()
         }
 
+        // OBSOLETE - blocks are matched during the raycasting process
+        /*
         benchmarks.matchBlocks.start()
 
         if (pattern.length === 1) {
@@ -100,6 +120,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
         }
 
         benchmarks.matchBlocks.end()
+        */
 
         setScanOutput({ ...scanOutput })
         setSettingsModified(false)

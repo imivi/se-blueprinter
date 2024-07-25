@@ -2,6 +2,8 @@ import { expect, test } from "vitest"
 import { GridSpace } from "./GridSpace"
 import { BoxGeometry, DoubleSide, Mesh, MeshBasicMaterial, Vector3 } from "three"
 import { createMeshBvh } from "./MeshBT"
+import { BasicSearchEngine, BlockFinder } from "./BlockFinder"
+import { blockSignatures } from "../blocks/block-signatures"
 
 
 test("GridSpace class", () => {
@@ -10,7 +12,7 @@ test("GridSpace class", () => {
     const gridSpace = new GridSpace(worldPos, gridPos)
 
     expect(gridSpace.isEmpty()).toBe(true)
-    expect(gridSpace.isFull()).toBe(false)
+    expect(gridSpace.isFullCube()).toBe(false)
 
     expect(gridSpace.getSignature()).toBe("")
 
@@ -25,12 +27,27 @@ test("GridSpace class", () => {
     meshBT.position.set(...worldPos.toArray())
     meshBT.name = "test_mesh"
 
-    gridSpace.scanMeshForPoints(meshBT, raycastDirection, 0.1)
+    const searchEngine = new BasicSearchEngine()
+    const blockFinder = new BlockFinder(searchEngine)
+
+    gridSpace.scanMeshForPoints({
+        blockFinder,
+        closenessThreshold: 0.1,
+        disabledBlocks: new Set<string>(),
+        mesh: meshBT,
+        raycastDirection,
+        replacementPolicy: "next best",
+        signatures: blockSignatures.slopes_full,
+    })
 
     expect(gridSpace.points).toHaveLength(pattern.length * pattern.length * pattern.length)
 
     expect(gridSpace.isEmpty()).toBe(false)
-    expect(gridSpace.isFull()).toBe(true)
+    expect(gridSpace.isFullCube()).toBe(true)
+    expect(gridSpace.matchingBlock).toMatchObject({
+        blockName: "blockfu",
+        perfect: true,
+    })
 
-    expect(gridSpace.getSignature()).toBe("111111111111111111111111111")
+    // expect(gridSpace.getSignature()).toBe("111111111111111111111111111")
 })

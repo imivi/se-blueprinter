@@ -10,7 +10,7 @@ interface SearchEngine {
 }
 
 
-class BasicSearchEngine implements SearchEngine {
+export class BasicSearchEngine implements SearchEngine {
 
     items: BlockSignature[] = []
 
@@ -50,7 +50,7 @@ function countSameCharacters(text1: string, text2: string): number {
 
 
 
-class BlockFinder {
+export class BlockFinder {
 
     constructor(private readonly searchEngine: SearchEngine) { }
 
