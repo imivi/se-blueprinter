@@ -57,13 +57,15 @@ export class GridSpace {
         // If we are looking for cubes only (no slopes)
         // we just have the scan the center position
         if (this.pattern.length === 1) {
-            this.scanPoint(this.worldPosition, 0, mesh, raycastDirection, closenessThreshold)
-            if (!this.isEmpty())
+            const point = this.scanPoint(this.worldPosition, 0, mesh, raycastDirection, closenessThreshold)
+            if (point.inside || point.near) {
                 this.matchingBlock = {
                     blockName: "blockfu",
                     perfect: true,
                 }
-            return this.updateEmptyStatus()
+                return this.empty = false
+            }
+            return this.empty = true
         }
 
         const pointPositions = getOffsetPositions(this.pattern, this.worldPosition)
@@ -167,6 +169,8 @@ export class GridSpace {
                 point.near = null
             }
         }
+
+        return this.points[pointIndex]
     }
 
     getSignature(chunkLength?: number): string {
