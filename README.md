@@ -31,9 +31,7 @@
 
 ## Caveats & tips
 
-Here's a few tips to achieve the best results using SE Blueprinter:
-
-When creating or modifying 3D models:
+Here's a few tips to achieve the best results using SE Blueprinter.
 
 ### Tip #1: apply transformations and modifiers
 
@@ -46,17 +44,20 @@ When creating or modifying 3D models:
 
 ### Tip #2: orient faces outward
 
-Make sure that all mesh faces are oriented outward. This is an easy fix in Blender:
-
-1. Select the mesh
-1. Enter edit mode (tab)
-1. Make sure the face normals are displayed:
-  !["Show face normals in Blender"](/docs/show_normals_arrows.png)
-1. Still in edit mode, select all faces (shortcut: `A`)
-1. hit `mesh` > `normals` > `recalculate outside`
-  !["Recalculate normals"](/docs/recalculate_normals.png)
-
 SE Blueprinter relies on face normals (i.e. the direction that the faces are facing) to detect where blocks should go, so if the normals are wrong you may end up with missing blocks.
+
+To fix this, make sure that all mesh faces are oriented outward. This is easy in Blender:
+
+* Select the mesh
+* Enter edit mode (tab)
+* Show normals: in `Mesh edit mode`, click on the icon for `Display normals` and increase the `size` slider:
+
+  !["Show face normals in Blender"](/docs/show_normals_arrows.png)
+
+* Still in edit mode, select all faces (shortcut: `A`)
+* hit `mesh` > `normals` > `recalculate outside`
+
+  !["Recalculate normals"](/docs/recalculate_normals.png)
 
 ### Tip #3: simplify your meshes
 
