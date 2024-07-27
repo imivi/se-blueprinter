@@ -46,12 +46,24 @@ export default function DebugPanel({ meshes, scanOutput, sampleSignatures }: Pro
         }))
     }
 
-    function getSignaturesOnly() {
-        const lines: string[] = []
+    function getDuplicateSignatures() {
+        // const lines: string[] = []
+        // for (const block of sampleSignatures) {
+        //     lines.push([block.name, block.signature].join("\t"))
+        // }
+        // return lines.join("\n")
+        const signatures: Record<string, string[]> = {}
         for (const block of sampleSignatures) {
-            lines.push([block.name, block.signature].join("\t"))
+            if (block.signature in signatures)
+                signatures[block.signature].push(block.name)
+            else
+                signatures[block.signature] = [block.name]
         }
-        return lines.join("\n")
+        for (const [key, value] of Object.entries(signatures)) {
+            if (value.length < 2)
+                delete signatures[key]
+        }
+        return signatures
     }
 
     function logSignatures() {
@@ -70,7 +82,7 @@ export default function DebugPanel({ meshes, scanOutput, sampleSignatures }: Pro
 
     async function copySignaturesOnly() {
         try {
-            await navigator.clipboard.writeText(getSignaturesOnly())
+            await navigator.clipboard.writeText(JSON.stringify(getDuplicateSignatures(), null, 4))
             console.info("Copied signatures")
         }
         catch (error) {
