@@ -29,15 +29,6 @@ type Output = {
     meshBboxes: Box3[]
 }
 
-const sixRaycastDirections = [
-    new Vector3(1, 0, 0),
-    new Vector3(-1, 0, 0),
-    new Vector3(0, 1, 0),
-    new Vector3(1, -1, 0),
-    new Vector3(0, 0, 1),
-    new Vector3(0, 0, -1),
-]
-
 
 export function scanMeshes(options: Options): Output | null {
 
@@ -74,7 +65,9 @@ export function scanMeshes(options: Options): Output | null {
     // Mark cubes as hollow
     // For each grid space, raycast along all six axes from the block center to each parent mesh
     // Only scan cubes that are full
-    // If the cube is inside the mesh and the distance is too big, mark this cube as empty
+    // If the cube is inside the mesh and the distanc e is too big, mark this cube as empty
+    /*
+    // OBSOLETE
     if (maxDistanceFromMeshSurface) {
         for (const gridSpace of gridSpaces.values()) {
 
@@ -101,6 +94,7 @@ export function scanMeshes(options: Options): Output | null {
             }
         }
     }
+    */
 
     const realGridSize = new Vector3(0, 0, 0)
     for (const gridSpace of gridSpaces.values()) {

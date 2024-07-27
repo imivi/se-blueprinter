@@ -89,7 +89,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
             markersOutside: [],
         }
 
-        console.info(scanOutput)
+        // console.info(scanOutput)
 
         if (createMarkers) {
             benchmarks.addMarkers.start()

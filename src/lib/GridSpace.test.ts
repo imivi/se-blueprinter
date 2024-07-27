@@ -38,6 +38,7 @@ test("GridSpace class", () => {
         raycastDirection,
         replacementPolicy: "next best",
         signatures: blockSignatures.slopes_full,
+        maxDistanceFromMeshSurface: null,
     })
 
     expect(gridSpace.points).toHaveLength(pattern.length * pattern.length * pattern.length)

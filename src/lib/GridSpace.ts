@@ -22,6 +22,7 @@ type ScanMeshForPointsOptions = {
     signatures: BlockSignatures,
     disabledBlocks: Set<string>,
     replacementPolicy: ReplacementPolicy
+    maxDistanceFromMeshSurface: number | null
 }
 
 export class GridSpace {
@@ -46,7 +47,31 @@ export class GridSpace {
         }
     }
 
-    scanMeshForPoints({ blockFinder, mesh, raycastDirection, closenessThreshold, disabledBlocks, replacementPolicy, signatures }: ScanMeshForPointsOptions): boolean {
+    isHollow(mesh: MeshBT, maxDistanceFromMeshSurface: number): boolean {
+
+        for (const direction of sixRaycastDirections) {
+            const { inside, distance } = pointIsInsideMesh(this.worldPosition, mesh, direction)
+            if (!inside)
+                return false
+            if (distance && distance < maxDistanceFromMeshSurface)
+                return false
+        }
+
+        return true
+    }
+
+    scanMeshForPoints(options: ScanMeshForPointsOptions): boolean {
+
+        const {
+            blockFinder,
+            mesh,
+            raycastDirection,
+            closenessThreshold,
+            disabledBlocks,
+            replacementPolicy,
+            signatures,
+            maxDistanceFromMeshSurface,
+        } = options
 
         // Avoid overwriting this grid space
         // with a possibly empty mesh scan
@@ -54,18 +79,27 @@ export class GridSpace {
             return this.isEmpty()
         }
 
+        // If hollow option is enabled, first check if
+        // this block is too far from the mesh surface.
+        if (maxDistanceFromMeshSurface && this.isHollow(mesh, maxDistanceFromMeshSurface)) {
+            this.matchingBlock = null
+            return this.empty = false
+        }
+
         // If we are looking for cubes only (no slopes)
-        // we just have the scan the center position
+        // we just have to scan the center position
         if (this.pattern.length === 1) {
             const point = this.scanPoint(this.worldPosition, 0, mesh, raycastDirection, closenessThreshold)
-            if (point.inside || point.near) {
-                this.matchingBlock = {
-                    blockName: "blockfu",
-                    perfect: true,
+            if (point) {
+                if (point.inside || point.near) {
+                    this.matchingBlock = {
+                        blockName: "blockfu",
+                        perfect: true,
+                    }
+                    return this.empty = false
                 }
-                return this.empty = false
+                return this.empty = true
             }
-            return this.empty = true
         }
 
         const pointPositions = getOffsetPositions(this.pattern, this.worldPosition)
@@ -117,6 +151,7 @@ export class GridSpace {
         }
     }
 
+    /*
     private checkCornerPoints(): "empty" | "full" | "mixed" {
         let emptyPoints = 0
         let fullPoints = 0
@@ -136,6 +171,7 @@ export class GridSpace {
         else
             return "empty"
     }
+    */
 
     private cornersAreEmpty() {
         for (const i of getScanPoints("corners", this.pattern.length)) {
@@ -228,3 +264,13 @@ export class GridSpace {
 export function hashPosition(position: Vector3): string {
     return position.round().toArray().join(",")
 }
+
+
+const sixRaycastDirections = [
+    new Vector3(1, 0, 0),
+    new Vector3(-1, 0, 0),
+    new Vector3(0, 1, 0),
+    new Vector3(1, -1, 0),
+    new Vector3(0, 0, 1),
+    new Vector3(0, 0, -1),
+]
