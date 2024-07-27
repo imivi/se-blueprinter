@@ -51,19 +51,23 @@ export default function Uploader() {
         const url = URL.createObjectURL(gltfFile)
 
         const name = removeExtension(gltfFile.name)
+        setGltfUrl(url)
+
+        loadGltf(url)
+        setScanOutput(null)
+        setSettingsModified(true)
         setCubeGridDisplayName(name)
         setGltfFilename(name)
-        setGltfUrl(url)
-        loadGltf(url)
     }
 
     function loadSampleGltf(sample: Sample) {
+        setShowSampleMenu(false)
+
+        loadGltf(sample.url)
         setScanOutput(null)
         setSettingsModified(true)
         setCubeGridDisplayName(sample.label)
         setGltfFilename(sample.label)
-        loadGltf(sample.url)
-        setShowSampleMenu(false)
     }
 
     const [showSampleMenu, setShowSampleMenu] = useState(false)

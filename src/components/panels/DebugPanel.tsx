@@ -5,7 +5,19 @@ import { useCanvasImage } from "../../hooks/useCanvasImage"
 import Panel from "./Panel"
 import { useSettingsStore } from "../../stores/useSettingsStore"
 import { useSlicePattern } from "../../hooks/useSlicePattern"
+import { getScanPoints } from "../../lib/get-scan-points"
 
+
+function removeFacesAndCenter(signature: string) {
+    let signature32 = ""
+    for (const i of getScanPoints("corners", 4)) {
+        signature32 += signature[i]
+    }
+    for (const i of getScanPoints("edges", 4)) {
+        signature32 += signature[i]
+    }
+    return signature32
+}
 
 
 type Props = {
@@ -30,7 +42,16 @@ export default function DebugPanel({ meshes, scanOutput, sampleSignatures }: Pro
         return sampleSignatures.map(data => ({
             name: data.name,
             signature: data.signature,
+            signature32: removeFacesAndCenter(data.signature),
         }))
+    }
+
+    function getSignaturesOnly() {
+        const lines: string[] = []
+        for (const block of sampleSignatures) {
+            lines.push([block.name, block.signature].join("\t"))
+        }
+        return lines.join("\n")
     }
 
     function logSignatures() {
@@ -47,12 +68,23 @@ export default function DebugPanel({ meshes, scanOutput, sampleSignatures }: Pro
         }
     }
 
+    async function copySignaturesOnly() {
+        try {
+            await navigator.clipboard.writeText(getSignaturesOnly())
+            console.info("Copied signatures")
+        }
+        catch (error) {
+            console.error(error)
+        }
+    }
+
 
     return (
         <Panel bottom right>
             <fieldset style={{ display: "grid" }}>
                 <legend>Debug</legend>
-                <button onClick={copySignatures}><IconCopy size={18} /> Copy sample signatures ({JSON.stringify(offsets)})</button>
+                <button onClick={copySignatures}><IconCopy size={18} /> Copy sample signatures + names({JSON.stringify(offsets)})</button>
+                <button onClick={copySignaturesOnly}><IconCopy size={18} /> Copy sample signatures only ({JSON.stringify(offsets)})</button>
                 <button onClick={logSignatures}><IconTerminal size={18} /> Log sample signatures</button>
                 <button onClick={() => console.log(meshes)}><IconTerminal size={18} /> Log meshes</button>
                 <button onClick={() => console.log(scanOutput)}><IconTerminal size={18} /> Log scanOutput</button>

@@ -79,9 +79,7 @@ export class GridSpace {
             return this.empty = true
         }
 
-        this.scanFeature("edges", pointPositions, mesh, raycastDirection, closenessThreshold)
-
-        if (this.edgesAreFull()) {
+        if (this.cornersAreFull()) {
             this.matchingBlock = {
                 blockName: "blockfu",
                 perfect: true,
@@ -89,17 +87,13 @@ export class GridSpace {
             return this.empty = false
         }
 
-        // Scan all non-corner, non-edge points
-        const indexes = [
-            ...getScanPoints("center", this.pattern.length),
-            ...getScanPoints("faces", this.pattern.length),
-        ]
-        for (const i of indexes) {
-            if (!this.points[i])
-                this.scanPoint(pointPositions[i], i, mesh, raycastDirection, closenessThreshold)
-        }
+        // Scan all non-corner points
+        this.scanFeature("edges", pointPositions, mesh, raycastDirection, closenessThreshold)
+        this.scanFeature("center", pointPositions, mesh, raycastDirection, closenessThreshold)
+        this.scanFeature("faces", pointPositions, mesh, raycastDirection, closenessThreshold)
 
         const signature = this.getSignature()
+
         const match = blockFinder.findBestMatch(signature, signatures, disabledBlocks, replacementPolicy)
 
         if (match) {
@@ -123,9 +117,38 @@ export class GridSpace {
         }
     }
 
+    private checkCornerPoints(): "empty" | "full" | "mixed" {
+        let emptyPoints = 0
+        let fullPoints = 0
+        for (const i of getScanPoints("corners", this.pattern.length)) {
+            const point = this.points[i]
+            if (point?.inside || point?.near)
+                fullPoints += 1
+            else
+                emptyPoints += 1
+            if (emptyPoints > 0 || fullPoints > 0)
+                break
+        }
+        if (emptyPoints > 0 && fullPoints > 0)
+            return "mixed"
+        if (emptyPoints === 0)
+            return "full"
+        else
+            return "empty"
+    }
+
     private cornersAreEmpty() {
         for (const i of getScanPoints("corners", this.pattern.length)) {
             if (this.points[i]?.inside || this.points[i]?.near)
+                return false
+        }
+        return true
+    }
+
+    private cornersAreFull() {
+        for (const i of getScanPoints("corners", this.pattern.length)) {
+            const point = this.points[i]
+            if (!point || !point.inside || !point.near)
                 return false
         }
         return true
