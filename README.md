@@ -31,18 +31,55 @@
 
 ## Caveats & tips
 
-When creating or modifying 3D models, keep in mind:
+Here's a few tips to achieve the best results using SE Blueprinter:
 
-* make sure that all mesh faces are oriented outward. This is an easy fix in Blender: (in edit mode) Fix face normals in blender: (top left) show normals in edit mode (edit mode) mesh > normals > recalculate outside. SE Blueprinter relies on face normals (i.e. the direction that the faces are facing) to detect where blocks should go, so if the normals are wrong you may end up with missing blocks.
+When creating or modifying 3D models:
 
-* for the best results, every mesh should be "watertight", meaning that all mesh faces create a single continuous surface with no gaps or holes, thus the back of these faces is never visible from the outside. This kind of mesh is also called "manifold".
-
-* in Space Engineers, the size of a large block is 2.5m, and a small block is 0.5m. However, SE Blueprinter treats **1m as 1 block**, regardless of the grid size you pick.
+### Tip #1: apply transformations and modifiers
 
 **Before exporting** your 3D model, make sure to:
 
 * apply **rotation and scale** to all meshes! (in Blender: select meshes > `CTRL+A` > `Rotation & Scale`)
 * apply **modifiers** to all meshes (in the Blender export dialog: `Data` > `Mesh` > `Apply Modifiers`)
+
+!["Apply modifiers"](/docs/export_apply_modifiers.png)
+
+### Tip #2: orient faces outward
+
+Make sure that all mesh faces are oriented outward. This is an easy fix in Blender:
+
+1. Select the mesh
+1. Enter edit mode (tab)
+1. Make sure the face normals are displayed:
+  !["Show face normals in Blender"](/docs/show_normals_arrows.png)
+1. Still in edit mode, select all faces (shortcut: `A`)
+1. hit `mesh` > `normals` > `recalculate outside`
+  !["Recalculate normals"](/docs/recalculate_normals.png)
+
+SE Blueprinter relies on face normals (i.e. the direction that the faces are facing) to detect where blocks should go, so if the normals are wrong you may end up with missing blocks.
+
+### Tip #3: simplify your meshes
+
+Removing unnecessary faces, edges and vertices can improve both accuracy and performance.
+
+1. Select a mesh
+2. Enter edit mode (tab)
+3. Select all faces (shortcut: `A`)
+3. hit `mesh` > `delete` > `limited dissolve`
+
+Compare before and after:
+
+!["Limited dissolve"](/docs/dissolve_faces_before_after.png)
+
+More info: https://docs.blender.org/manual/en/latest/modeling/meshes/editing/mesh/delete.html#limited-dissolve
+
+### Tip #4: design your meshes as solids
+
+For the best results, every mesh should be "watertight" or "solid", meaning that all mesh faces create a single continuous surface with no gaps or holes, thus the back of these faces is never visible from the outside. This kind of mesh is also called "manifold".
+
+### Tip #5: 1 meter = 1 block
+
+In Space Engineers, the size of a large block is 2.5m, and a small block is 0.5m. However, SE Blueprinter treats **1m as 1 block**, regardless of the grid size you pick.
 
 ## FAQ
 
@@ -106,7 +143,7 @@ SE Blueprinter runs entirely in your browser, so all your data stays private.
 
 ### Create block signatures
 
-1. Run the webapp in debug mode: http://localhost:5173/?debug=true
+1. Run the webapp in debug mode: http://localhost:5173/se-blueprinter?debug=true
 2. Load any example model
 3. Select "slopes (fast)" scan mode
 4. In the debug panel, click on `copy signatures`
