@@ -80,7 +80,7 @@ export default function DebugPanel({ meshes, scanOutput, sampleSignatures }: Pro
         }
     }
 
-    async function copySignaturesOnly() {
+    async function copyDuplicateSignatures() {
         try {
             await navigator.clipboard.writeText(JSON.stringify(getDuplicateSignatures(), null, 4))
             console.info("Copied signatures")
@@ -96,7 +96,7 @@ export default function DebugPanel({ meshes, scanOutput, sampleSignatures }: Pro
             <fieldset style={{ display: "grid" }}>
                 <legend>Debug</legend>
                 <button onClick={copySignatures}><IconCopy size={18} /> Copy sample signatures + names({JSON.stringify(offsets)})</button>
-                <button onClick={copySignaturesOnly}><IconCopy size={18} /> Copy sample signatures only ({JSON.stringify(offsets)})</button>
+                <button onClick={copyDuplicateSignatures}><IconCopy size={18} /> Copy duplicate signatures</button>
                 <button onClick={logSignatures}><IconTerminal size={18} /> Log sample signatures</button>
                 <button onClick={() => console.log(meshes)}><IconTerminal size={18} /> Log meshes</button>
                 <button onClick={() => console.log(scanOutput)}><IconTerminal size={18} /> Log scanOutput</button>

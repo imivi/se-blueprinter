@@ -13,12 +13,11 @@ export function useLoadSampleBlocks() {
 
 
     const bvhBlocks = useMemo(() => {
-        const allBlocks = Object.values(gltf.nodes).filter(node => node.type === "Mesh" && !node.name.startsWith("Text")) as Mesh[]
-
-        const blocks = allBlocks.map(block => createMeshBvh(block))
+        const blocks = Object.values(gltf.nodes).filter(node => node.type === "Mesh" && !node.name.startsWith("Text")) as Mesh[]
         blocks.forEach(block => {
             (block as Mesh).material = materials.test
         })
+        // return blocks.map(block => createMeshBvh(block))
         return blocks
     }, [gltf])
 
@@ -26,6 +25,7 @@ export function useLoadSampleBlocks() {
     const cubeGeometries = useMemo(() => {
         const geometries: Record<string, BufferGeometry> = {}
         for (const mesh of bvhBlocks) {
+            // console.log(mesh.name, mesh, mesh.geometry)
             geometries[mesh.name.toLowerCase()] = mesh.geometry
         }
         return geometries

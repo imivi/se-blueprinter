@@ -17,7 +17,7 @@ export default function SampleBlock({ block, points, showLabels }: Props) {
     const [selected, setSelected] = useState(false)
 
     return (
-        <group onClick={() => setSelected(!selected)}>
+        <group onClick={(e) => { e.stopPropagation(); setSelected(!selected) }}>
             <primitive object={block} />
 
             <group visible={selected}>

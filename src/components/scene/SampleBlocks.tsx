@@ -1,11 +1,11 @@
 import SampleBlock from "./SampleBlock";
 import { maxVisibleMarkers } from "../../settings";
 import { BlockPoints } from "../../types";
-import { MeshBT } from "../../lib/MeshBT";
+import { Mesh } from "three";
 
 
 type Props = {
-    samplesMeshes: MeshBT[]
+    samplesMeshes: Mesh[]
     samplePoints: BlockPoints[]
     visible: boolean
 }

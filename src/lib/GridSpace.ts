@@ -2,7 +2,7 @@ import { Vector3 } from "three";
 import { getOffsetPositions } from "./analyze-block";
 import { formatSignature, getBlockSignature } from "./misc";
 import { MeshBT } from "./MeshBT";
-import { getPointDistanceToMesh, pointIsInsideMesh } from "./point-utils";
+import { getPointDistanceToMeshBT, pointIsInsideMesh } from "./point-utils";
 import { MatchingBlock, ReplacementPolicy } from "../types";
 import { getScanPoints, PointFeature } from "./get-scan-points";
 import { BlockFinder } from "./BlockFinder";
@@ -219,7 +219,7 @@ export class GridSpace {
         // only if raycast didn't find intersections
         const point = this.points[pointIndex]
         if (point && !point.inside) {
-            const result = getPointDistanceToMesh(point.position, mesh)
+            const result = getPointDistanceToMeshBT(point.position, mesh)
 
             if (result) {
                 point.near = result.distanceToMesh < closenessThreshold

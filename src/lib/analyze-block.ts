@@ -1,8 +1,9 @@
-import { Vector3 } from "three"
+import { Mesh, Triangle, Vector3 } from "three"
 import { getBlockSignature } from "./misc"
-import { MeshBT } from "./MeshBT"
 import { BlockPoints, Point } from "../types"
-import { pointIsInsideOrNearMesh } from "./point-utils"
+import { pointIsInsideOrNearMeshBT, pointIsInsideOrNearMesh } from "./point-utils"
+import { MeshBT } from "./MeshBT"
+import { getFaces } from "./get-faces"
 
 
 export function getOffsetPositions(offsets: number[], blockCenter: Vector3): Vector3[] {
@@ -21,13 +22,67 @@ export function getOffsetPositions(offsets: number[], blockCenter: Vector3): Vec
 }
 
 
-export function analyzeBlock(block: MeshBT, offsets: number[], raycastDirection: Vector3, CLOSENESS_THRESHOLD: number): BlockPoints {
+export function analyzeBlock(block: Mesh, offsets: number[], raycastDirection: Vector3, CLOSENESS_THRESHOLD: number): BlockPoints {
 
     const positions = getOffsetPositions(offsets, block.position)
 
-    const points: Point[] = positions.map(pos => pointIsInsideOrNearMesh(pos, block, raycastDirection, CLOSENESS_THRESHOLD))
+    let points: Point[] = []
+
+    if (block instanceof MeshBT)
+        points = positions.map(pos => pointIsInsideOrNearMeshBT(pos, block, raycastDirection, CLOSENESS_THRESHOLD))
+    else {
+        const faces = getFaces(block)
+        // console.info("Block mesh:", block)
+        // console.info("Found faces:", faces)
+        points = positions.map(pos => pointIsInsideOrNearMesh(pos, block, faces, raycastDirection, CLOSENESS_THRESHOLD))
+    }
 
     const signature = getBlockSignature(points)
 
     return { points, signature, name: block.name }
+}
+
+
+
+function getMeshFaces(mesh: Mesh): Triangle[] {
+
+    const faces: Triangle[] = []
+
+    // Below only works if the mesh IS INDEXED
+
+    const index = mesh.geometry.getIndex()
+    const position = mesh.geometry.getAttribute("position")
+
+    if (index) {
+        for (let i = 0; i < index.count; i += 3) {
+            const vertexIndexes = [i, i + 1, i + 2]
+            const [a, b, c] = vertexIndexes.map(i => {
+                const x = position.getX(i)
+                const y = position.getY(i)
+                const z = position.getZ(i)
+                return new Vector3(x, y, z)
+            })
+            const face = new Triangle(a, b, c)
+            faces.push(face)
+        }
+    }
+    return faces
+
+    // Below only works if the mesh is NOT INDEXED
+
+    /*
+    for (let i = 0; i < position.count; i += 3) {
+        const vertexIndexes = [i, i + 1, i + 2]
+        const [a, b, c] = vertexIndexes.map(i => {
+            const x = position.getX(i)
+            const y = position.getY(i)
+            const z = position.getZ(i)
+            return new Vector3(x, y, z)
+        })
+        const face = new Triangle(a, b, c)
+        faces.push(face)
+    }
+
+    return faces
+    */
 }
