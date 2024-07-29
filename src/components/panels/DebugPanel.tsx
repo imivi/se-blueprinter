@@ -52,18 +52,30 @@ export default function DebugPanel({ meshes, scanOutput, sampleSignatures }: Pro
         //     lines.push([block.name, block.signature].join("\t"))
         // }
         // return lines.join("\n")
-        const signatures: Record<string, string[]> = {}
+        const signatureCount: Record<string, string[]> = {}
+        const signatureCount32: Record<string, string[]> = {}
+
         for (const block of sampleSignatures) {
-            if (block.signature in signatures)
-                signatures[block.signature].push(block.name)
+            if (block.signature in signatureCount)
+                signatureCount[block.signature].push(block.name)
             else
-                signatures[block.signature] = [block.name]
+                signatureCount[block.signature] = [block.name]
+
+            const signature32 = removeFacesAndCenter(block.signature)
+            if (signature32 in signatureCount32)
+                signatureCount32[block.signature].push(block.name)
+            else
+                signatureCount32[block.signature] = [block.name]
         }
-        for (const [key, value] of Object.entries(signatures)) {
+        for (const [key, value] of Object.entries(signatureCount)) {
             if (value.length < 2)
-                delete signatures[key]
+                delete signatureCount[key]
         }
-        return signatures
+        for (const [key, value] of Object.entries(signatureCount32)) {
+            if (value.length < 2)
+                delete signatureCount32[key]
+        }
+        return { signatureCount, signatureCount32 }
     }
 
     function logSignatures() {
