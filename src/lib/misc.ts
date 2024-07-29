@@ -37,8 +37,8 @@ const directions: Record<string, Direction> = {
 
 
 export function getBlockOrientation(blockName: string): [Direction, Direction] {
-    const forwardInitial = blockName[blockName.length - 2]
-    const upInitial = blockName[blockName.length - 1]
+    const forwardInitial = blockName[blockName.length - 2].toLowerCase()
+    const upInitial = blockName[blockName.length - 1].toLowerCase()
 
     return [
         directions[forwardInitial] || "Forward",

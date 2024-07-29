@@ -13,9 +13,15 @@ const indexes3x3x3: PointIndexes = {
         0, 2, 6, 8,
         18, 20, 24, 26,
     ],
-    edges: [],
-    faces: [],
-    center: [],
+    edges: [
+        1, 3, 5, 7,
+        10, 12, 14, 16,
+        19, 21, 23, 25,
+    ],
+    faces: [
+        4, 10, 12, 14, 16, 22,
+    ],
+    center: [13],
 }
 
 const indexes4x4x4: PointIndexes = {

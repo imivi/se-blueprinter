@@ -16,7 +16,7 @@ test("GridSpace class", () => {
 
     expect(gridSpace.getSignature()).toBe("")
 
-    const pattern = [-0.3, 0, 0.3]
+    const pattern = [-0.4, -0.05, 0.05, 0.4]
     gridSpace.setPattern(pattern)
 
     const raycastDirection = new Vector3(0, 1, 0)
@@ -42,6 +42,8 @@ test("GridSpace class", () => {
     })
 
     expect(gridSpace.points).toHaveLength(pattern.length * pattern.length * pattern.length)
+
+    console.log("matchingBlock", gridSpace.matchingBlock)
 
     expect(gridSpace.isEmpty()).toBe(false)
     expect(gridSpace.isFullCube()).toBe(true)

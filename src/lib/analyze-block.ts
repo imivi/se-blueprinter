@@ -1,4 +1,4 @@
-import { Mesh, Triangle, Vector3 } from "three"
+import { Mesh, Vector3 } from "three"
 import { getBlockSignature } from "./misc"
 import { BlockPoints, Point } from "../types"
 import { pointIsInsideOrNearMeshBT, pointIsInsideOrNearMesh } from "./point-utils"
@@ -40,49 +40,4 @@ export function analyzeBlock(block: Mesh, offsets: number[], raycastDirection: V
     const signature = getBlockSignature(points)
 
     return { points, signature, name: block.name }
-}
-
-
-
-function getMeshFaces(mesh: Mesh): Triangle[] {
-
-    const faces: Triangle[] = []
-
-    // Below only works if the mesh IS INDEXED
-
-    const index = mesh.geometry.getIndex()
-    const position = mesh.geometry.getAttribute("position")
-
-    if (index) {
-        for (let i = 0; i < index.count; i += 3) {
-            const vertexIndexes = [i, i + 1, i + 2]
-            const [a, b, c] = vertexIndexes.map(i => {
-                const x = position.getX(i)
-                const y = position.getY(i)
-                const z = position.getZ(i)
-                return new Vector3(x, y, z)
-            })
-            const face = new Triangle(a, b, c)
-            faces.push(face)
-        }
-    }
-    return faces
-
-    // Below only works if the mesh is NOT INDEXED
-
-    /*
-    for (let i = 0; i < position.count; i += 3) {
-        const vertexIndexes = [i, i + 1, i + 2]
-        const [a, b, c] = vertexIndexes.map(i => {
-            const x = position.getX(i)
-            const y = position.getY(i)
-            const z = position.getZ(i)
-            return new Vector3(x, y, z)
-        })
-        const face = new Triangle(a, b, c)
-        faces.push(face)
-    }
-
-    return faces
-    */
 }
