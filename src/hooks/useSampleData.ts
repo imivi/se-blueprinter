@@ -23,7 +23,7 @@ export function useSampleData(raycastDirection: Vector3) {
         if (debug) {
             const signatures = sampleMeshes.map(block => analyzeBlock(block, pattern, raycastDirection, CLOSENESS_THRESHOLD))
             console.info(`[debug] Created signatures on the fly from ${sampleMeshes.length} loaded sample blocks`)
-            console.info(signatures.map(block => ({ name: block.name, signature: block.signature })))
+            // console.info(signatures.map(block => ({ name: block.name, signature: block.signature })))
             return signatures
         }
         // In production, fetch the blockData from json

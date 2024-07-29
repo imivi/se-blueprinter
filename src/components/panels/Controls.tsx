@@ -175,10 +175,10 @@ export function Controls({ scanOutput, onScan, meshes, sampleSignatures, benchma
                         }
 
                         <label>Scan mode</label>
-                        <select value={slicePattern} onChange={(e) => { e.preventDefault(); setSlicePattern(e.target.value as typeof slicePattern) }}>
+                        {/* <select value={slicePattern} onChange={(e) => { e.preventDefault(); setSlicePattern(e.target.value as typeof slicePattern) }}>
                             {patternOptions.map(option => <option key={option.name} value={option.name}>{option.label}</option>)}
-                        </select>
-                        {/* <BinaryRadio
+                        </select> */}
+                        <BinaryRadio
                             labels={[
                                 <><IconCube size={16} /> Cubes</>,
                                 <> Slopes <IconPrism size={16} /></>,
@@ -186,7 +186,7 @@ export function Controls({ scanOutput, onScan, meshes, sampleSignatures, benchma
                             firstChecked={slicePattern === "basic"}
                             onCheckedFirst={() => setSlicePattern("basic")}
                             onCheckedSecond={() => setSlicePattern("slopes_full")}
-                        /> */}
+                        />
 
                     </SliceSettings>
 

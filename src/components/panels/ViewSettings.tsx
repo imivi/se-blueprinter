@@ -3,7 +3,7 @@ import { useMemo } from "react"
 import { useSettingsStore } from "../../stores/useSettingsStore"
 import { ScanOutput } from "../../types"
 import { useDebug } from "../../hooks/useDebug"
-import { IconArrowsMaximize, IconPackages } from "@tabler/icons-react"
+import { IconArrowsMaximize, IconClock, IconPackages } from "@tabler/icons-react"
 import BinaryRadio from "./BinaryRadio"
 import { Benchmark } from "../../lib/Benchmark"
 
@@ -64,9 +64,14 @@ export function ViewSettings({ scanOutput, benchmarks }: Props) {
                         <td>{blockCount}</td>
                     </tr>
                 </tbody>
+                <tr>
+                    <td><IconClock size={16} /></td>
+                    <td>Time elapsed</td>
+                    <td>{benchmarks.scanMeshes.getSeconds().toFixed(1)} s</td>
+                </tr>
             </table>
 
-            {(debug || import.meta.env.DEV) && <Benchmarks benchmarks={benchmarks} />}
+            {/* {(debug || import.meta.env.DEV) && <Benchmarks benchmarks={benchmarks} />} */}
 
             <hr />
 
