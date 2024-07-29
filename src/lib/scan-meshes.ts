@@ -62,40 +62,6 @@ export function scanMeshes(options: Options): Output | null {
         }
     }
 
-    // Mark cubes as hollow
-    // For each grid space, raycast along all six axes from the block center to each parent mesh
-    // Only scan cubes that are full
-    // If the cube is inside the mesh and the distanc e is too big, mark this cube as empty
-    /*
-    // OBSOLETE
-    if (maxDistanceFromMeshSurface) {
-        for (const gridSpace of gridSpaces.values()) {
-
-            // Only test spaces that are full blocks
-            if (!gridSpace.isFullCube()) {
-                continue
-            }
-
-            let markEmpty = true
-
-            for (const meshIndex of gridSpace.parentMeshes) {
-                const mesh = meshes[meshIndex]
-                for (const direction of sixRaycastDirections) {
-                    const { inside, distance } = pointIsInsideMesh(gridSpace.worldPosition, mesh, direction)
-                    if (!inside)
-                        markEmpty = false
-                    if (distance && distance < maxDistanceFromMeshSurface)
-                        markEmpty = false
-                }
-            }
-
-            if (markEmpty) {
-                gridSpace.setAsEmpty()
-            }
-        }
-    }
-    */
-
     const realGridSize = new Vector3(0, 0, 0)
     for (const gridSpace of gridSpaces.values()) {
         if (gridSpace.gridPosition.x > realGridSize.x)

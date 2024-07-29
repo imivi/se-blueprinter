@@ -17,7 +17,6 @@ import { useDebug } from "../../hooks/useDebug"
 import ButtonAdvancedSettings from "./ButtonAdvancedSettings"
 import BinaryRadio from "./BinaryRadio"
 import Tooltip from "./Tooltip"
-import { Benchmark } from "../../lib/Benchmark"
 
 const CreateBlueprintButtons = lazy(() => import("./CreateBlueprintButtons"))
 
@@ -33,7 +32,7 @@ type Props = {
     scanOutput: ScanOutput | null
     meshes: MeshBT[]
     sampleSignatures: BlockSignature[]
-    benchmark: Benchmark | null
+    benchmark: number
     onScan: () => void
 }
 

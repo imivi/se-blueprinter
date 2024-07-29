@@ -9,7 +9,6 @@ import { CLOSENESS_THRESHOLD } from "../settings"
 import { useSlicePattern } from "./useSlicePattern"
 import { BlockSignatures } from "../lib/BlockSignatures"
 import { useState } from "react"
-import { Benchmark } from "../lib/Benchmark"
 import { blockFinder } from "../lib/BlockFinder"
 
 
@@ -32,7 +31,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
 
     const pattern = useSlicePattern()
 
-    const [benchmark, setBenchmark] = useState<Benchmark | null>(null)
+    const [benchmark, setBenchmark] = useState<number>(0)
 
     function runScan() {
 
@@ -40,14 +39,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
 
         const offsets = cubeBlockOnly ? [0] : pattern
 
-        const benchmarks = {
-            scanMeshes: new Benchmark(),
-            addMarkers: new Benchmark(),
-            matchBlocks: new Benchmark(),
-        }
-
         const signatures = pattern.length === 3 ? blockSignatures.slopes_fast : blockSignatures.slopes_full
-
 
         const allBlocks = signatures.getSignaturesArray()
         let blocks = allBlocks
@@ -58,7 +50,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
 
         blockFinder.setBlocks(blocks)
 
-        const benchmark = new Benchmark().start()
+        const start = performance.now()
         const result = scanMeshes({
             meshes,
             offsets,
@@ -70,10 +62,10 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
             replacementPolicy,
             signatures,
         })
-        benchmark.end()
+        const end = performance.now()
 
         if (!result) {
-            setBenchmark(benchmark)
+            setBenchmark(0)
             return
         }
 
@@ -92,9 +84,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
         // console.info(scanOutput)
 
         if (createMarkers) {
-            benchmarks.addMarkers.start()
             addMarkers(scanOutput)
-            benchmarks.addMarkers.end()
         }
 
         // OBSOLETE - blocks are matched during the raycasting process
@@ -125,7 +115,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
         setScanOutput({ ...scanOutput })
         setSettingsModified(false)
         setShowBlocks(true)
-        setBenchmark(benchmark)
+        setBenchmark((end - start) / 1000)
 
         setVisibleLayers(gridSize.y - 1)
     }

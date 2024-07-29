@@ -5,11 +5,10 @@ import { ScanOutput } from "../../types"
 import { useDebug } from "../../hooks/useDebug"
 import { IconArrowsMaximize, IconClock, IconPackages } from "@tabler/icons-react"
 import BinaryRadio from "./BinaryRadio"
-import { Benchmark } from "../../lib/Benchmark"
 
 type Props = {
     scanOutput: ScanOutput | null
-    benchmark: Benchmark | null
+    benchmark: number
 }
 
 export function ViewSettings({ scanOutput, benchmark }: Props) {
@@ -66,7 +65,7 @@ export function ViewSettings({ scanOutput, benchmark }: Props) {
                     <tr>
                         <td><IconClock size={16} /></td>
                         <td>Time elapsed</td>
-                        <td>{benchmark?.getSeconds().toFixed(1)} s</td>
+                        <td>{benchmark.toFixed(1)} s</td>
                     </tr>
                 </tbody>
             </table>
