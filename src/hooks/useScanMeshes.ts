@@ -32,7 +32,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
 
     const pattern = useSlicePattern()
 
-    const [benchmarks, setBenchmarks] = useState<Record<string, Benchmark>>({})
+    const [benchmark, setBenchmark] = useState<Benchmark | null>(null)
 
     function runScan() {
 
@@ -58,7 +58,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
 
         blockFinder.setBlocks(blocks)
 
-        benchmarks.scanMeshes.start()
+        const benchmark = new Benchmark().start()
         const result = scanMeshes({
             meshes,
             offsets,
@@ -70,10 +70,10 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
             replacementPolicy,
             signatures,
         })
-        benchmarks.scanMeshes.end()
+        benchmark.end()
 
         if (!result) {
-            setBenchmarks(benchmarks)
+            setBenchmark(benchmark)
             return
         }
 
@@ -125,7 +125,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
         setScanOutput({ ...scanOutput })
         setSettingsModified(false)
         setShowBlocks(true)
-        setBenchmarks(benchmarks)
+        setBenchmark(benchmark)
 
         setVisibleLayers(gridSize.y - 1)
     }
@@ -133,7 +133,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
     return {
         scanOutput,
         runScan,
-        benchmarks,
+        benchmark,
     }
 }
 

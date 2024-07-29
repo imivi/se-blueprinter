@@ -9,10 +9,10 @@ import { Benchmark } from "../../lib/Benchmark"
 
 type Props = {
     scanOutput: ScanOutput | null
-    benchmarks: Record<string, Benchmark>
+    benchmark: Benchmark | null
 }
 
-export function ViewSettings({ scanOutput, benchmarks }: Props) {
+export function ViewSettings({ scanOutput, benchmark }: Props) {
 
     const showBlocks = useSettingsStore(store => store.showBlocks)
     const setShowBlocks = useSettingsStore(store => store.setShowBlocks)
@@ -63,12 +63,12 @@ export function ViewSettings({ scanOutput, benchmarks }: Props) {
                         <td>Blocks</td>
                         <td>{blockCount}</td>
                     </tr>
+                    <tr>
+                        <td><IconClock size={16} /></td>
+                        <td>Time elapsed</td>
+                        <td>{benchmark?.getSeconds().toFixed(1)} s</td>
+                    </tr>
                 </tbody>
-                <tr>
-                    <td><IconClock size={16} /></td>
-                    <td>Time elapsed</td>
-                    <td>{benchmarks.scanMeshes.getSeconds().toFixed(1)} s</td>
-                </tr>
             </table>
 
             {/* {(debug || import.meta.env.DEV) && <Benchmarks benchmarks={benchmarks} />} */}

@@ -33,11 +33,11 @@ type Props = {
     scanOutput: ScanOutput | null
     meshes: MeshBT[]
     sampleSignatures: BlockSignature[]
-    benchmarks: Record<string, Benchmark>
+    benchmark: Benchmark | null
     onScan: () => void
 }
 
-export function Controls({ scanOutput, onScan, meshes, sampleSignatures, benchmarks }: Props) {
+export function Controls({ scanOutput, onScan, meshes, sampleSignatures, benchmark }: Props) {
 
     const raycastDirectionOption = useSettingsStore(store => store.raycastDirectionOption)
     const setRaycastDirectionOption = useSettingsStore(store => store.setRaycastDirectionOption)
@@ -265,7 +265,7 @@ export function Controls({ scanOutput, onScan, meshes, sampleSignatures, benchma
             </Panel>
 
             <Panel show={!!scanOutput} top right>
-                <ViewSettings scanOutput={scanOutput} benchmarks={benchmarks} />
+                <ViewSettings scanOutput={scanOutput} benchmark={benchmark} />
             </Panel>
 
             {

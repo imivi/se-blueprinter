@@ -34,7 +34,7 @@ export default function Scene() {
 
     const debug = useDebug()
 
-    const { runScan, scanOutput, benchmarks } = useScanMeshes(raycastDirection, meshes, debug, sampleMeshes.length)
+    const { runScan, scanOutput, benchmark } = useScanMeshes(raycastDirection, meshes, debug, sampleMeshes.length)
 
     const loading = useGltfStore(store => store.loading)
 
@@ -46,7 +46,7 @@ export default function Scene() {
                 meshes={meshes}
                 onScan={runScan}
                 scanOutput={scanOutput}
-                benchmarks={benchmarks}
+                benchmark={benchmark}
             />
 
             {loading && <Loader />}
