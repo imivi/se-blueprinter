@@ -7,18 +7,6 @@ export function getBlockSignature(points: Point[]): string {
 }
 
 
-export function formatSignature(text: string, chunkLength: number): string {
-    const chunks: string[] = []
-    for (let i = 0; i < chunkLength; i++) {
-        const startIndex = i * chunkLength
-        const endIndex = startIndex + chunkLength
-        const chunk = text.slice(startIndex, endIndex)
-        chunks.push(chunk)
-    }
-    return chunks.join("\n")
-}
-
-
 const directions: Record<string, Direction> = {
     "b": "Backward",
     "f": "Forward",

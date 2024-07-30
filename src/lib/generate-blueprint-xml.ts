@@ -56,13 +56,13 @@ function generateBlueprintStart({ playerDisplayName, gridSize, entityId }: Optio
 <EntityId>${entityId}</EntityId>
 <PersistentFlags>CastShadows InScene</PersistentFlags>
 <PositionAndOrientation>
-<Position x="13377.074374812126" y="143889.59621305511" z="-108819.58197518782" />
-<Forward x="-3.06299046E-18" y="2.26627966E-18" z="-1" />
-<Up x="2.92978336E-18" y="1" z="2.26627966E-18" />
+<Position x="0" y="0" z="0" />
+<Forward x="0" y="0" z="-1" />
+<Up x="0" y="1" z="0" />
 <Orientation>
-<X>1.13313983E-18</X>
-<Y>1.53149523E-18</Y>
-<Z>-1.46489168E-18</Z>
+<X>0</X>
+<Y>0</Y>
+<Z>0</Z>
 <W>1</W>
 </Orientation>
 </PositionAndOrientation>

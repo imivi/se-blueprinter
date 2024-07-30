@@ -36,9 +36,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
 
         const cubeBlockOnly = disabledBlocks.size === (sampleBlockCount - 1) && !disabledBlocks.has("block")
 
-        const signatures = blockSignatures.slopes40
-
-        const allBlocks = signatures.getSignaturesArray()
+        const allBlocks = blockSignatures.getSignaturesArray()
         let blocks = allBlocks
 
         if (disabledBlocks.size > 0) {
@@ -57,7 +55,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
             blockFinder,
             disabledBlocks,
             replacementPolicy,
-            signatures,
+            signatures: blockSignatures,
         })
         const end = performance.now()
 

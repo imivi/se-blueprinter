@@ -1,6 +1,6 @@
 import { useGLTF } from "@react-three/drei"
 import { useMemo } from "react"
-import { BufferGeometry, Mesh, Vector3 } from "three"
+import { BufferGeometry, Mesh } from "three"
 import { materials } from "../materials"
 import { BASE_URL } from "../settings"
 

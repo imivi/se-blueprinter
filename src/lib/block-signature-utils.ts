@@ -6,3 +6,14 @@ export function sameCorners(signature1: string, signature2: string): boolean {
     }
     return true
 }
+
+
+
+export function countSameCharacters(text1: string, text2: string): number {
+    let sameCharacterCount = 0
+    for (let i = 0; i < text1.length; i++) {
+        if (text1[i] === text2[i])
+            sameCharacterCount += 1
+    }
+    return sameCharacterCount
+}

@@ -46,7 +46,6 @@ export default function GridSpaceMarker({ gridSpace }: GridSpaceVisualizationPro
                     position: gridSpace.worldPosition.toArray().join(", "),
                     signature: gridSpace.getSignature(),
                 }, null, 4)}
-                {/* {formatSignature(gridSpace.getSignature(), 8)} */}
             </Html>
         </group>
     )

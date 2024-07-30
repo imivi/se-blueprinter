@@ -2,9 +2,10 @@ import { expect, test } from "vitest"
 import { GridSpace } from "./GridSpace"
 import { BoxGeometry, DoubleSide, Mesh, MeshBasicMaterial, Vector3 } from "three"
 import { createMeshBvh } from "./MeshBT"
-import { BasicSearchEngine, BlockFinder } from "./BlockFinder"
+import { BlockFinder } from "./BlockFinder"
 import { blockSignatures } from "../blocks/block-signatures"
 import { getCornerEdgeCenterPatternOffsets } from "./get-pattern-offsets"
+import { BasicSearchEngine } from "./BlockSearchEngine"
 
 
 test("GridSpace class", () => {
@@ -18,7 +19,6 @@ test("GridSpace class", () => {
     expect(gridSpace.getSignature()).toBe("")
 
     const pattern = [-0.4, -0.05, 0.05, 0.4]
-    // gridSpace.setPattern(pattern)
 
     const raycastDirection = new Vector3(0, 1, 0)
     const geometry = new BoxGeometry(1, 1, 1)
@@ -41,13 +41,13 @@ test("GridSpace class", () => {
         raycastDirection,
         replacementPolicy: "next best",
         pointOffsets,
-        signatures: blockSignatures.slopes40,
+        signatures: blockSignatures,
         maxDistanceFromMeshSurface: null,
     })
 
-    expect(gridSpace.points).toHaveLength(pattern.length * pattern.length * pattern.length)
+    expect(gridSpace.points.length).toBe(8)
 
-    console.log("matchingBlock", gridSpace.matchingBlock)
+    // console.log("matchingBlock", gridSpace.matchingBlock)
 
     expect(gridSpace.isEmpty()).toBe(false)
     expect(gridSpace.isFullCube()).toBe(true)
@@ -55,6 +55,4 @@ test("GridSpace class", () => {
         blockName: "blockfu",
         perfect: true,
     })
-
-    // expect(gridSpace.getSignature()).toBe("111111111111111111111111111")
 })
