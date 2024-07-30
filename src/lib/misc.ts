@@ -1,5 +1,4 @@
 import { Direction } from "../types"
-import { getScanPoints } from "./get-scan-points"
 import { Point } from "./Point"
 
 
@@ -43,17 +42,4 @@ export function getBlockOrientation(blockName: string): [Direction, Direction] {
 
 export function generate17digitsID(): string {
     return Math.random().toFixed(17).slice(2, 19);
-}
-
-
-
-export function removeFacesAndCenter(signature: string) {
-    let signature32 = ""
-    for (const i of getScanPoints("corners", 4)) {
-        signature32 += signature[i]
-    }
-    for (const i of getScanPoints("edges", 4)) {
-        signature32 += signature[i]
-    }
-    return signature32
 }

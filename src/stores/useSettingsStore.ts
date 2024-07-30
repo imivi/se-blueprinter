@@ -1,6 +1,5 @@
 import { create } from "zustand"
 import { Direction, Pattern, ReplacementPolicy } from "../types"
-import { blockFinder } from "../lib/BlockFinder"
 
 
 type Store = {

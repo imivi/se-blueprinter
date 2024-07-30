@@ -1,5 +1,5 @@
 import { useSettingsStore } from "../stores/useSettingsStore"
-import { ReplacementPolicy, ScanOutput } from "../types"
+import { ScanOutput } from "../types"
 import { scanMeshes } from "../lib/scan-meshes"
 import { Vector3 } from "three"
 import { MeshBT } from "../lib/MeshBT"

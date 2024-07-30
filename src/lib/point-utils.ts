@@ -1,4 +1,4 @@
-import { Vector3, Mesh, Raycaster, Triangle, BufferGeometry } from "three"
+import { Vector3, Mesh, Raycaster, Triangle } from "three"
 import { MeshBT } from "./MeshBT"
 import { Point } from "./Point"
 

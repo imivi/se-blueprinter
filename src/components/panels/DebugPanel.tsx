@@ -5,8 +5,7 @@ import { useCanvasImage } from "../../hooks/useCanvasImage"
 import Panel from "./Panel"
 import { useSettingsStore } from "../../stores/useSettingsStore"
 import { useSlicePattern } from "../../hooks/useSlicePattern"
-import { getScanPoints } from "../../lib/get-scan-points"
-import { removeFacesAndCenter } from "../../lib/misc"
+
 
 
 type Props = {

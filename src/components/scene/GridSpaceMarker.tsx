@@ -2,7 +2,6 @@ import { Html } from "@react-three/drei"
 import { useSettingsStore } from "../../stores/useSettingsStore"
 import { PointMarker } from "./PointMarker"
 import { GridSpace } from "../../lib/GridSpace"
-import { formatSignature } from "../../lib/misc"
 
 
 type GridSpaceVisualizationProps = {

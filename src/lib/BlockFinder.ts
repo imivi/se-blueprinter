@@ -1,5 +1,5 @@
 import { BlockSignatures } from "./BlockSignatures"
-import { sameCorners, sameCorners32 } from "./same-corners"
+import { sameCorners } from "./same-corners"
 import { BlockSignature, ReplacementPolicy } from "../types"
 
 
@@ -19,16 +19,28 @@ export class BasicSearchEngine implements SearchEngine {
     }
 
     search(input: string): BlockSignature[] {
-        const matches: Match[] = []
+        const matchesWithSameCorners: Match[] = []
+        const matchesWithDifferentCorners: Match[] = []
 
         for (const block of this.items) {
-            matches.push({
+            const match = {
                 score: countSameCharacters(input, block.signature),
                 name: block.name,
                 signature: block.signature,
-            })
+            }
+
+            // Prioritize blocks with same corner points
+            if (sameCorners(input, block.signature))
+                matchesWithSameCorners.push(match)
+            else
+                matchesWithDifferentCorners.push(match)
         }
-        return matches.sort((a, b) => b.score - a.score)
+
+        // Sort matches by highest score (only return those with matching corners, if any)
+        if (matchesWithSameCorners.length > 0)
+            return matchesWithSameCorners.sort((a, b) => b.score - a.score)
+        else
+            return matchesWithDifferentCorners.sort((a, b) => b.score - a.score)
     }
 }
 
@@ -60,9 +72,7 @@ export class BlockFinder {
 
     findBestMatch(input: string, signatures: BlockSignatures, disabledBlocks: Set<string>, replacementPolicy: ReplacementPolicy): BlockSignature | null {
 
-        const ones = countOnes(input)
-
-        // If the regular cube clock is the only block selected,
+        // If the regular cube block is the only block selected,
         // the raycast offset pattern is [0] and the signature is either "0" or "1"
         if (input === "1") {
             return {
@@ -70,10 +80,6 @@ export class BlockFinder {
                 signature: input,
             }
         }
-
-        // We need at least 1 point to find a block
-        if (ones < 1)
-            return null
 
         const perfectMatch = signatures.getBlockName(input)
 
@@ -89,18 +95,10 @@ export class BlockFinder {
                 return null
         }
 
-        // Remember that fuse will never return disabled blocks!
-        const results = this.searchEngine.search(input)
+        const matches = this.searchEngine.search(input)
 
-        // Return the first result with the same corners
-        for (const result of results) {
-            if (sameCorners32(input, result.signature))
-                return result
-        }
-
-        // Otherwise just return the first result
-        if (results.length > 0)
-            return results[0]
+        if (matches.length > 0)
+            return matches[0]
 
         return null
     }
@@ -109,13 +107,3 @@ export class BlockFinder {
 
 const basicSearchEngine = new BasicSearchEngine()
 export const blockFinder = new BlockFinder(basicSearchEngine)
-
-
-function countOnes(text: string): number {
-    let count = 0
-    for (const char of text) {
-        if (char === "1")
-            count += 1
-    }
-    return count
-}

@@ -4,7 +4,7 @@ import { IconArrowUp, IconBuildingFactory2, IconCube, IconFeather, IconPrism, Ic
 import { lazy, Suspense, useState } from "react"
 import { ViewSettings } from "./ViewSettings"
 import Uploader from "../Uploader"
-import { BlockSignature, Direction, Pattern, ScanOutput } from "../../types"
+import { BlockSignature, Direction, ScanOutput } from "../../types"
 import { MeshBT } from "../../lib/MeshBT"
 import SliceSettings from "./SliceSettings"
 import { useBlueprintFieldsStore } from "../../stores/useBlueprintFieldsStore"
@@ -21,11 +21,11 @@ import Tooltip from "./Tooltip"
 const CreateBlueprintButtons = lazy(() => import("./CreateBlueprintButtons"))
 
 
-const patternOptions: { name: Pattern, label: string }[] = [
-    { name: "basic", label: "Cube only (fastest)" },
-    { name: "slopes_fast", label: "Slopes (faster)" },
-    { name: "slopes_full", label: "Slopes (best)" },
-]
+// const patternOptions: { name: Pattern, label: string }[] = [
+//     { name: "basic", label: "Cube only (fastest)" },
+//     { name: "slopes_fast", label: "Slopes (faster)" },
+//     { name: "slopes_full", label: "Slopes (best)" },
+// ]
 
 
 type Props = {

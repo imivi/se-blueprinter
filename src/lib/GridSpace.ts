@@ -1,19 +1,12 @@
 import { Vector3 } from "three";
-import { formatSignature, getBlockSignature, removeFacesAndCenter } from "./misc";
 import { MeshBT } from "./MeshBT";
 import { getPointDistanceToMeshBT, pointIsInsideMesh } from "./point-utils";
 import { MatchingBlock, ReplacementPolicy } from "../types";
-import { getScanPoints, PointFeature } from "./get-scan-points";
 import { BlockFinder } from "./BlockFinder";
 import { BlockSignatures } from "./BlockSignatures";
 import { Point } from "./Point";
 
 
-// type Point = {
-//     position: Vector3
-//     inside: boolean // using raycast
-//     near: boolean | null // using closestPointToPoint
-// }
 
 type ScanMeshForPointsOptions = {
     blockFinder: BlockFinder,
@@ -30,10 +23,7 @@ export class GridSpace {
 
     private pattern: number[] = []
     public points: Point[] = []
-    // public meshesScanned: number[] = []
-    // public parentMeshIndex: number | null = null
     public parentMeshes: number[] = []
-    // public meshesToScan: number[] = [] // Stores the indexes of the meshes that contain this grid space
     private empty = true
 
     public matchingBlock: MatchingBlock | null = null

@@ -20,6 +20,7 @@ export function getCornerEdgeCenterPatternOffsets(pattern: number[]): Vector3[] 
         return index === 0 || index === pattern.length - 1
     }
 
+    /*
     function isCenter(index: number) {
         // If the pattern is odd, the middle value is the center
         if (pattern.length % 2 === 1)
@@ -28,6 +29,7 @@ export function getCornerEdgeCenterPatternOffsets(pattern: number[]): Vector3[] 
         // If the pattern is even, the middle two values are the center
         return (index === pattern.length / 2) || (index == pattern.length / 2 - 1)
     }
+    */
 
     for (let i = 0; i < pattern.length; i++) {
         // const isCornerOrEdgeX = isCornerOrEdge(i)
@@ -56,9 +58,6 @@ export function getCornerEdgeCenterPatternOffsets(pattern: number[]): Vector3[] 
                 else if (pointIsEdge) {
                     edgeOffsets.push(new Vector3(x, y, z))
                 }
-                // else if (pointIsFace) {
-                //     faceOffsets.push(new Vector3(x, y, z))
-                // }
                 // else {
                 //     const pointIsCenter = isCenter(i) && isCenter(j) && isCenter(k)
                 //     if (pointIsCenter) {
