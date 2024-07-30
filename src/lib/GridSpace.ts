@@ -136,7 +136,7 @@ export class GridSpace {
     }
 
     private updateEmptyStatus() {
-        this.empty = this.points.length === 0 || this.points.every(point => !point?.inside && !point?.near)
+        this.empty = this.points.length === 0 || this.points.every(point => point.isEmpty())
         return this.empty
     }
 
@@ -148,19 +148,6 @@ export class GridSpace {
         return this.empty
     }
 
-    public setAsEmpty() {
-        this.points = []
-        this.empty = true
-    }
-
-    public isFullCube(): boolean {
-        return this.matchingBlock?.blockName === "blockfu"
-
-        // return (
-        //     this.points.length > 0 &&
-        //     this.points.every(point => point?.inside || point?.near)
-        // )
-    }
 }
 
 function scanPoint(position: Vector3, mesh: MeshBT, raycastDirection: Vector3, closenessThreshold: number): Point {

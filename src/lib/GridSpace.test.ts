@@ -14,7 +14,6 @@ test("GridSpace class", () => {
     const gridSpace = new GridSpace(worldPos, gridPos)
 
     expect(gridSpace.isEmpty()).toBe(true)
-    expect(gridSpace.isFullCube()).toBe(false)
 
     expect(gridSpace.getSignature()).toBe("")
 
@@ -50,7 +49,6 @@ test("GridSpace class", () => {
     // console.log("matchingBlock", gridSpace.matchingBlock)
 
     expect(gridSpace.isEmpty()).toBe(false)
-    expect(gridSpace.isFullCube()).toBe(true)
     expect(gridSpace.matchingBlock).toMatchObject({
         blockName: "blockfu",
         perfect: true,
