@@ -30,6 +30,7 @@
     "src",
     "src/blocks/block-signatures-3x3x3.json",
     "src/blocks/block-signatures-4x4x4.json",
+    "src/blocks/block-signatures-38.json",
     "src/blocks/block-names.json",
   ]
 }

@@ -1,12 +1,14 @@
 import { Mesh, Vector3 } from "three"
 import { getBlockSignature } from "./misc"
-import { BlockPoints, Point } from "../types"
+import { BlockPoints } from "../types"
 import { pointIsInsideOrNearMeshBT, pointIsInsideOrNearMesh } from "./point-utils"
 import { MeshBT } from "./MeshBT"
 import { getFaces } from "./get-faces"
+import { Point } from "./Point"
 
 
-export function getOffsetPositions(offsets: number[], blockCenter: Vector3): Vector3[] {
+/*
+function getOffsetPositions(offsets: number[], blockCenter: Vector3): Vector3[] {
 
     const positions: Vector3[] = []
     for (let y = 0; y < offsets.length; y++) {
@@ -20,12 +22,12 @@ export function getOffsetPositions(offsets: number[], blockCenter: Vector3): Vec
     }
     return positions
 }
+*/
 
 
-export function analyzeBlock(block: Mesh, offsets: number[], raycastDirection: Vector3, CLOSENESS_THRESHOLD: number): BlockPoints {
+export function analyzeBlock(block: Mesh, pointOffsets: Vector3[], raycastDirection: Vector3, CLOSENESS_THRESHOLD: number): BlockPoints {
 
-    const positions = getOffsetPositions(offsets, block.position)
-
+    const positions = pointOffsets.map(offset => block.position.clone().add(offset))
     let points: Point[] = []
 
     if (block instanceof MeshBT)

@@ -105,7 +105,7 @@ export function ViewSettings({ scanOutput, benchmark }: Props) {
     )
 }
 
-
+/*
 function Benchmarks({ benchmarks }: { benchmarks: Record<string, Benchmark> }) {
 
     let total = 0
@@ -138,3 +138,4 @@ function Benchmarks({ benchmarks }: { benchmarks: Record<string, Benchmark> }) {
         </table>
     )
 }
+*/

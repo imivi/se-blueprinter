@@ -1,3 +1,47 @@
+/*
+32-char signature
+
+
+
+*/
+
+const points = [
+    [0, "corner"],
+    [1, "edge"],
+    [2, "edge"],
+    [3, "corner"],
+    [4, "edge"],
+    [5, "edge"],
+    [6, "edge"],
+    [7, "edge"],
+    [8, "corner"],
+    [9, "edge"],
+    [10, "edge"],
+    [11, "corner"],
+    [12, "edge"],
+    [13, "edge"],
+    [14, "edge"],
+    [15, "edge"],
+    [16, "edge"],
+    [17, "edge"],
+    [18, "edge"],
+    [19, "edge"],
+    [20, "corner"],
+    [21, "edge"],
+    [22, "edge"],
+    [23, "corner"],
+    [24, "edge"],
+    [25, "edge"],
+    [26, "edge"],
+    [27, "edge"],
+    [28, "corner"],
+    [29, "edge"],
+    [30, "edge"],
+    [31, "corner"],
+] as const
+
+const cornerPoints = points.filter(point => point[1] === "corner").map(point => point[0])
+const edgePoints = points.filter(point => point[1] === "edge").map(point => point[0])
 
 
 type PointIndexes = {

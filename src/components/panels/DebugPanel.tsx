@@ -6,18 +6,7 @@ import Panel from "./Panel"
 import { useSettingsStore } from "../../stores/useSettingsStore"
 import { useSlicePattern } from "../../hooks/useSlicePattern"
 import { getScanPoints } from "../../lib/get-scan-points"
-
-
-function removeFacesAndCenter(signature: string) {
-    let signature32 = ""
-    for (const i of getScanPoints("corners", 4)) {
-        signature32 += signature[i]
-    }
-    for (const i of getScanPoints("edges", 4)) {
-        signature32 += signature[i]
-    }
-    return signature32
-}
+import { removeFacesAndCenter } from "../../lib/misc"
 
 
 type Props = {
@@ -42,7 +31,7 @@ export default function DebugPanel({ meshes, scanOutput, sampleSignatures }: Pro
         return sampleSignatures.map(data => ({
             name: data.name,
             signature: data.signature,
-            signature32: removeFacesAndCenter(data.signature),
+            // signature32: removeFacesAndCenter(data.signature),
         }))
     }
 
@@ -53,7 +42,6 @@ export default function DebugPanel({ meshes, scanOutput, sampleSignatures }: Pro
         // }
         // return lines.join("\n")
         const signatureCount: Record<string, string[]> = {}
-        const signatureCount32: Record<string, string[]> = {}
 
         for (const block of sampleSignatures) {
             if (block.signature in signatureCount)
@@ -61,21 +49,12 @@ export default function DebugPanel({ meshes, scanOutput, sampleSignatures }: Pro
             else
                 signatureCount[block.signature] = [block.name]
 
-            const signature32 = removeFacesAndCenter(block.signature)
-            if (signature32 in signatureCount32)
-                signatureCount32[block.signature].push(block.name)
-            else
-                signatureCount32[block.signature] = [block.name]
         }
         for (const [key, value] of Object.entries(signatureCount)) {
             if (value.length < 2)
                 delete signatureCount[key]
         }
-        for (const [key, value] of Object.entries(signatureCount32)) {
-            if (value.length < 2)
-                delete signatureCount32[key]
-        }
-        return { signatureCount, signatureCount32 }
+        return signatureCount
     }
 
     function logSignatures() {

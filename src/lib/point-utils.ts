@@ -1,37 +1,25 @@
 import { Vector3, Mesh, Raycaster, Triangle, BufferGeometry } from "three"
 import { MeshBT } from "./MeshBT"
+import { Point } from "./Point"
 
 
-type PointData = {
-    position: Vector3
-    inside: boolean
-    near: boolean | null
-}
 
-export function pointIsInsideOrNearMeshBT(pos: Vector3, mesh: MeshBT, raycastDirection: Vector3, CLOSENESS_THRESHOLD: number): PointData {
+export function pointIsInsideOrNearMeshBT(pos: Vector3, mesh: MeshBT, raycastDirection: Vector3, CLOSENESS_THRESHOLD: number): Point {
     const { inside } = pointIsInsideMesh(pos, mesh, raycastDirection)
     let near = null
     if (inside) {
         near = pointIsNearMeshSurfaceBT(pos, mesh, CLOSENESS_THRESHOLD)
     }
-    return {
-        position: pos,
-        inside,
-        near,
-    }
+    return new Point(pos, inside, near)
 }
 
-export function pointIsInsideOrNearMesh(pos: Vector3, mesh: Mesh, meshFaces: Triangle[], raycastDirection: Vector3, CLOSENESS_THRESHOLD: number): PointData {
+export function pointIsInsideOrNearMesh(pos: Vector3, mesh: Mesh, meshFaces: Triangle[], raycastDirection: Vector3, CLOSENESS_THRESHOLD: number): Point {
     const { inside } = pointIsInsideMesh(pos, mesh, raycastDirection)
     let near = null
     if (!inside) {
         near = pointIsNearMeshSurface(pos, mesh, meshFaces, CLOSENESS_THRESHOLD)
     }
-    return {
-        position: pos,
-        inside,
-        near,
-    }
+    return new Point(pos, inside, near)
 }
 
 

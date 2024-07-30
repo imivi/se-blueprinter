@@ -5,7 +5,7 @@ export const BASE_URL = import.meta.env.BASE_URL
 export const SLICE_PATTERNS: Record<Pattern, number[]> = {
     basic: [0],
     slopes_fast: [-0.35, 0, 0.35],
-    slopes_full: [-0.4, -0.05, 0.05, 0.4],
+    slopes_full: [-0.4, -0.1, 0.1, 0.4],
 }
 
 export const maxVisibleMarkers = 999 // Only show markers for up to N blocks

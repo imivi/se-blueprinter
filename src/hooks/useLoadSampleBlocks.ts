@@ -2,7 +2,6 @@ import { useGLTF } from "@react-three/drei"
 import { useMemo } from "react"
 import { BufferGeometry, Mesh } from "three"
 import { materials } from "../materials"
-import { createMeshBvh } from "../lib/MeshBT"
 import { BASE_URL } from "../settings"
 
 

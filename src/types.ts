@@ -1,5 +1,6 @@
 import { Box3, Vector3 } from "three"
 import { GridSpace } from "./lib/GridSpace"
+import { Point } from "./lib/Point"
 
 export type Pattern = "basic" | "slopes_fast" | "slopes_full"
 
@@ -28,11 +29,11 @@ export type BlockPoints = {
     points: Point[]
 }
 
-export type Point = {
-    position: Vector3
-    inside: boolean
-    near: boolean | null
-}
+// export type Point = {
+//     position: Vector3
+//     inside: boolean
+//     near: boolean | null
+// }
 
 export type MeshScanResult = {
     meshName: string

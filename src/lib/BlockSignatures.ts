@@ -6,7 +6,7 @@ export class BlockSignatures {
     private nameToSignature = new Map<string, string>()
     private signatureToName = new Map<string, string>()
 
-    constructor(private readonly signatures: BlockSignature[]) {
+    constructor(signatures: BlockSignature[]) {
         signatures.forEach(block => {
             const name = block.name.toLowerCase()
             const signature = block.signature

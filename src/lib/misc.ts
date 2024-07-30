@@ -1,16 +1,10 @@
-import { Direction, Point } from "../types"
+import { Direction } from "../types"
+import { getScanPoints } from "./get-scan-points"
+import { Point } from "./Point"
 
 
-export function getBlockSignature(points: (Point | null)[]): string {
-
-    let signature = ""
-    points.forEach(point => {
-        if (point?.inside || point?.near)
-            signature += "1"
-        else
-            signature += "0"
-    })
-    return signature
+export function getBlockSignature(points: Point[]): string {
+    return points.map(point => point?.isFull() ? "1" : "0").join("")
 }
 
 
@@ -49,4 +43,17 @@ export function getBlockOrientation(blockName: string): [Direction, Direction] {
 
 export function generate17digitsID(): string {
     return Math.random().toFixed(17).slice(2, 19);
+}
+
+
+
+export function removeFacesAndCenter(signature: string) {
+    let signature32 = ""
+    for (const i of getScanPoints("corners", 4)) {
+        signature32 += signature[i]
+    }
+    for (const i of getScanPoints("edges", 4)) {
+        signature32 += signature[i]
+    }
+    return signature32
 }

@@ -4,6 +4,7 @@ import { BoxGeometry, DoubleSide, Mesh, MeshBasicMaterial, Vector3 } from "three
 import { createMeshBvh } from "./MeshBT"
 import { BasicSearchEngine, BlockFinder } from "./BlockFinder"
 import { blockSignatures } from "../blocks/block-signatures"
+import { getCornerEdgeCenterPatternOffsets } from "./get-pattern-offsets"
 
 
 test("GridSpace class", () => {
@@ -17,7 +18,7 @@ test("GridSpace class", () => {
     expect(gridSpace.getSignature()).toBe("")
 
     const pattern = [-0.4, -0.05, 0.05, 0.4]
-    gridSpace.setPattern(pattern)
+    // gridSpace.setPattern(pattern)
 
     const raycastDirection = new Vector3(0, 1, 0)
     const geometry = new BoxGeometry(1, 1, 1)
@@ -30,6 +31,8 @@ test("GridSpace class", () => {
     const searchEngine = new BasicSearchEngine()
     const blockFinder = new BlockFinder(searchEngine)
 
+    const pointOffsets = getCornerEdgeCenterPatternOffsets(pattern)
+
     gridSpace.scanMeshForPoints({
         blockFinder,
         closenessThreshold: 0.1,
@@ -37,7 +40,8 @@ test("GridSpace class", () => {
         mesh: meshBT,
         raycastDirection,
         replacementPolicy: "next best",
-        signatures: blockSignatures.slopes_full,
+        pointOffsets,
+        signatures: blockSignatures.slopes40,
         maxDistanceFromMeshSurface: null,
     })
 

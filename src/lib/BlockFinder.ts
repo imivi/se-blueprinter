@@ -1,5 +1,5 @@
 import { BlockSignatures } from "./BlockSignatures"
-import { sameCorners } from "./same-corners"
+import { sameCorners, sameCorners32 } from "./same-corners"
 import { BlockSignature, ReplacementPolicy } from "../types"
 
 
@@ -94,7 +94,7 @@ export class BlockFinder {
 
         // Return the first result with the same corners
         for (const result of results) {
-            if (sameCorners(input, result.signature))
+            if (sameCorners32(input, result.signature))
                 return result
         }
 

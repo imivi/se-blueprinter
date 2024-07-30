@@ -37,6 +37,7 @@ export default function GridSpaceMarker({ gridSpace }: GridSpaceVisualizationPro
                     display: (empty || !showLabels) ? "none" : "block",
                     maxWidth: "20rem",
                     overflow: "auto",
+                    transform: "translateX(-50%) translateY(-50%)",
                 }}
             >
                 {JSON.stringify({

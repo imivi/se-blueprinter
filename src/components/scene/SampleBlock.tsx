@@ -1,8 +1,8 @@
 import { Html } from "@react-three/drei"
 import { Mesh } from "three"
 import { PointMarker } from "./PointMarker"
-import { Point } from "../../types"
 import { useState } from "react"
+import { Point } from "../../lib/Point"
 
 
 

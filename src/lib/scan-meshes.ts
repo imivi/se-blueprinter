@@ -2,15 +2,15 @@ import { Box3, Vector3 } from "three"
 import { GridSpace, hashPosition } from "./GridSpace"
 import { BlueprintGrid } from "./BlueprintGrid"
 import { MeshBT } from "./MeshBT"
-import { pointIsInsideMesh } from "./point-utils"
 import { BlockFinder } from "./BlockFinder"
 import { BlockSignatures } from "./BlockSignatures"
 import { ReplacementPolicy } from "../types"
+import { getCornerEdgeCenterPatternOffsets } from "./get-pattern-offsets"
 
 
 type Options = {
     meshes: MeshBT[]
-    offsets: number[]
+    pattern: number[]
     raycastDirection: Vector3
     closenessThreshold: number
     maxDistanceFromMeshSurface: number | null
@@ -32,7 +32,7 @@ type Output = {
 
 export function scanMeshes(options: Options): Output | null {
 
-    const { meshes, offsets, maxDistanceFromMeshSurface } = options
+    const { meshes, pattern } = options
 
     if (meshes.length === 0) {
         console.warn("No meshes received, cannot scan!")
@@ -49,14 +49,17 @@ export function scanMeshes(options: Options): Output | null {
         meshBboxes.push(meshBbox)
     })
 
+    const pointOffsets = getCornerEdgeCenterPatternOffsets(pattern)
+
     // Scan meshes for blocks
     for (const gridSpace of gridSpaces.values()) {
-        gridSpace.setPattern(offsets)
+        // gridSpace.setPattern(pattern)
 
         for (const meshIndex of gridSpace.parentMeshes) {
             if (gridSpace.isEmpty())
                 gridSpace.scanMeshForPoints({
                     ...options,
+                    pointOffsets,
                     mesh: meshes[meshIndex],
                 })
         }

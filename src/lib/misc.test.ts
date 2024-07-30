@@ -1,16 +1,17 @@
 import { expect, test } from "vitest"
 import { generate17digitsID, getBlockOrientation, getBlockSignature } from "./misc";
-import { Direction, Point } from "../types";
+import { Direction } from "../types";
 import { Vector3 } from "three";
+import { Point } from "./Point";
 
 
 test("convert points into block signature", () => {
     const position = new Vector3(0, 0, 0)
     const points: Point[] = [
-        { inside: true, near: true, position },
-        { inside: true, near: false, position },
-        { inside: false, near: true, position },
-        { inside: false, near: false, position },
+        new Point(position, true, true),
+        new Point(position, true, false),
+        new Point(position, false, true),
+        new Point(position, false, false),
     ]
 
     expect(getBlockSignature(points)).toBe("1110")
