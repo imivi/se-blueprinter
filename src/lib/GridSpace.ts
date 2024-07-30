@@ -89,7 +89,7 @@ export class GridSpace {
         // const pointPositions = getOffsetPositions(this.pattern, this.worldPosition)
 
         const cornerOffsets = pointOffsets.slice(0, 8)
-        const edgeOffsets = pointOffsets.slice(8, 32)
+        const edgeAndFaceOffsets = pointOffsets.slice(8, 8 + 24 + 6)
 
         // Scan just the 8 corner points for now
         const corners = cornerOffsets.map(offset => scanPoint(this.worldPosition.clone().add(offset), mesh, raycastDirection, closenessThreshold))
@@ -116,10 +116,10 @@ export class GridSpace {
             return this.empty = false
         }
 
-        // Scan edge points
-        const edges = edgeOffsets.map(offset => scanPoint(this.worldPosition.clone().add(offset), mesh, raycastDirection, closenessThreshold))
+        // Scan edge and face points
+        const edgesAndFaces = edgeAndFaceOffsets.map(offset => scanPoint(this.worldPosition.clone().add(offset), mesh, raycastDirection, closenessThreshold))
 
-        this.points = [...corners, ...edges]
+        this.points = [...corners, ...edgesAndFaces]
 
         const signature = this.getSignature()
 
