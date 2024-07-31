@@ -29,14 +29,16 @@ const blocks: Block[] = [
     { img: "half_sloped_corner.png", name: "halfslopedcorner" },
     { img: "half_sloped_corner_base.png", name: "halfslopedcornerbase" },
     { img: "half_slope_inv.png", name: "halfslopeinv" },
-    { img: "sloped_corner.png", name: "slopedcorner" },
-    { img: "sloped_corner_base.png", name: "slopedcornerbase" },
-    { img: "sloped_corner_tip.png", name: "slopedcornertip" },
+
+    { img: "round_corner.png", name: "roundcorner" },
 
     // UNSUPPORTED
     // { img: "round_slope.png", name: "roundslope" },
-    // { img: "round_corner.png", name: "roundcorner" },
     // { img: "round_inv_corner.png", name: "roundinvcorner" },
+
+    // { img: "sloped_corner.png", name: "slopedcorner" },
+    // { img: "sloped_corner_base.png", name: "slopedcornerbase" },
+    // { img: "sloped_corner_tip.png", name: "slopedcornertip" },
 ]
 
 export default function BlockSelector() {
