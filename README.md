@@ -120,19 +120,19 @@ SE Blueprinter runs entirely in your browser, so all your data stays private.
 | ![half_sloped_corner](public/blocks/half_sloped_corner.png)           | half sloped corner      | ✔️         |
 | ![half_sloped_corner_base](public/blocks/half_sloped_corner_base.png) | half sloped corner base | ✔️         |
 | ![half_slope_inv](public/blocks/half_slope_inv.png)                   | half slope inv          | ✔️         |
+| ![round_slope](public/blocks/round_slope.png)                         | round slope             | ✔️         |
+| ![round_corner](public/blocks/round_corner.png)                       | round corner            | ✔️         |
+| ![round_inv_corner](public/blocks/round_inv_corner.png)               | round inv corner        | ❌         |
 | ![sloped_corner](public/blocks/sloped_corner.png)                     | sloped corner           | 🚧 to be added         |
 | ![sloped_corner_base](public/blocks/sloped_corner_base.png)           | sloped corner base      | 🚧 to be added         |
 | ![sloped_corner_tip](public/blocks/sloped_corner_tip.png)             | sloped corner tip       | 🚧 to be added         |
-| ![round_slope](public/blocks/round_slope.png)                         | round slope             | ❌         |
-| ![round_corner](public/blocks/round_corner.png)                       | round corner            | ❌         |
-| ![round_inv_corner](public/blocks/round_inv_corner.png)               | round inv corner        | ❌         |
 
 ## Acknowledgements
 
 * [three-mesh-bvh](https://github.com/gkjohnson/three-mesh-bvh) for improving raycasting performance
 * https://polyhaven.com/a/pizzo_pernice_puresky for the background environment map
 
-## For developers
+## Info for developers
 
 ### Add more blocks
 
@@ -142,13 +142,9 @@ SE Blueprinter runs entirely in your browser, so all your data stays private.
 4. Export to `public/cubes.glb`
 5. Re-create the block signatures (steps below)
 
-### Create block signatures
+### Update block signatures
 
 1. Run the webapp in debug mode: http://localhost:5173/se-blueprinter?debug=true
 2. Load any example model
-3. Select "slopes (fast)" scan mode
 4. In the debug panel, click on `copy signatures`
-5. Paste the signatures in `src/blocks/block-signatures-3x3x3.json`
-6. Switch to "slopes (best)" scan mode
-7. Again `copy signatures`
-8. Paste the signatures in `src/blocks/block-signatures-4x4x4.json`
+5. Paste the signatures in `src/blocks/block-signatures-38.json`

@@ -1,8 +1,6 @@
 import { ArmorType, GridSize } from "../types"
-// import { getBlockNames } from "./get-block-names"
 import blockNames from "./block-names.json"
 
-// const blockNames = getBlockNames()
 
 export function getBlockName(baseBlockName: string, gridSize: GridSize, armorType: ArmorType): string {
 
