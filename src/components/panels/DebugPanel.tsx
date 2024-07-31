@@ -105,6 +105,8 @@ export default function DebugPanel({ meshes, scanOutput, sampleSignatures }: Pro
                     Show labels
                 </label>
 
+                <a href="/?debug=false">Exit debug mode</a>
+
             </fieldset>
         </Panel>
     )

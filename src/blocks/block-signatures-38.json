@@ -32,6 +32,18 @@
         "signature": "11101000111110001000100000100000101010"
     },
     {
+        "name": "SlopedCornerFU",
+        "signature": "11101100111110001100110011100000101010"
+    },
+    {
+        "name": "SlopedCornerBaseFU",
+        "signature": "11101111111110001110111011111111111011"
+    },
+    {
+        "name": "SlopedCornerTipFU",
+        "signature": "01000000110100000100010000000000000000"
+    },
+    {
         "name": "Corner211BaseFU",
         "signature": "10001000111010001000100010100000001010"
     },
@@ -1374,5 +1386,281 @@
     {
         "name": "RoundCornerRF",
         "signature": "00010111000001010001011101011111010101"
+    },
+    {
+        "name": "SlopedCornerFR",
+        "signature": "11110010111111111011001000000000100110"
+    },
+    {
+        "name": "SlopedCornerFD",
+        "signature": "00111011000010110011001100101111010110"
+    },
+    {
+        "name": "SlopedCornerFL",
+        "signature": "10001111000000001000111011111111011010"
+    },
+    {
+        "name": "SlopedCornerLU",
+        "signature": "11011100111101001100110011010000101001"
+    },
+    {
+        "name": "SlopedCornerLF",
+        "signature": "01110101010101110101010100010101100101"
+    },
+    {
+        "name": "SlopedCornerLD",
+        "signature": "10110011001011110011001100001011100110"
+    },
+    {
+        "name": "SlopedCornerLB",
+        "signature": "11101010111010101010101010101000101010"
+    },
+    {
+        "name": "SlopedCornerRU",
+        "signature": "11001110111000001100110011111000011010"
+    },
+    {
+        "name": "SlopedCornerRB",
+        "signature": "10101011001010101010101010101011010110"
+    },
+    {
+        "name": "SlopedCornerRD",
+        "signature": "00110111000001110011001100011111010101"
+    },
+    {
+        "name": "SlopedCornerRF",
+        "signature": "01011101010101000101010111010101011001"
+    },
+    {
+        "name": "SlopedCornerBU",
+        "signature": "11001101110100001100110011110100011001"
+    },
+    {
+        "name": "SlopedCornerBL",
+        "signature": "00011111000000000001011111111111010101"
+    },
+    {
+        "name": "SlopedCornerBD",
+        "signature": "01110011000111110011001100000111100101"
+    },
+    {
+        "name": "SlopedCornerBR",
+        "signature": "11110100111111111101010000000000101001"
+    },
+    {
+        "name": "SlopedCornerUB",
+        "signature": "10111010101010111010101000101010100110"
+    },
+    {
+        "name": "SlopedCornerUR",
+        "signature": "11110001111111110111000100000000100101"
+    },
+    {
+        "name": "SlopedCornerUF",
+        "signature": "01010111000101010101010101010111010101"
+    },
+    {
+        "name": "SlopedCornerUL",
+        "signature": "00101111000000000010101111111111010110"
+    },
+    {
+        "name": "SlopedCornerDF",
+        "signature": "11010101110101010101010101010100101001"
+    },
+    {
+        "name": "SlopedCornerDR",
+        "signature": "11111000111111111110100000000000101010"
+    },
+    {
+        "name": "SlopedCornerDB",
+        "signature": "10101110101010001010101011101010011010"
+    },
+    {
+        "name": "SlopedCornerDL",
+        "signature": "01001111000000000100110111111111011001"
+    },
+    {
+        "name": "SlopedCornerBaseFR",
+        "signature": "11111110111111111111111011101000101111"
+    },
+    {
+        "name": "SlopedCornerBaseFD",
+        "signature": "11111011111111111011101100101111110111"
+    },
+    {
+        "name": "SlopedCornerBaseFL",
+        "signature": "10111111001010111011111111111111011111"
+    },
+    {
+        "name": "SlopedCornerBaseLU",
+        "signature": "11111110111111111110111011111000111011"
+    },
+    {
+        "name": "SlopedCornerBaseLF",
+        "signature": "11111101111111111101110111010101111101"
+    },
+    {
+        "name": "SlopedCornerBaseLD",
+        "signature": "11110111111111110111011100011111110111"
+    },
+    {
+        "name": "SlopedCornerBaseLB",
+        "signature": "11111011111111111011101110101011111110"
+    },
+    {
+        "name": "SlopedCornerBaseRD",
+        "signature": "11011111111101001101110111111111111011"
+    },
+    {
+        "name": "SlopedCornerBaseRB",
+        "signature": "11101111111010101110111011111111111110"
+    },
+    {
+        "name": "SlopedCornerBaseRU",
+        "signature": "10111111001011111011101111111111110111"
+    },
+    {
+        "name": "SlopedCornerBaseRF",
+        "signature": "01111111010101110111011111111111111101"
+    },
+    {
+        "name": "SlopedCornerBaseBU",
+        "signature": "11111101111111111101110111110100111011"
+    },
+    {
+        "name": "SlopedCornerBaseBL",
+        "signature": "11011111110101001101111111111111011111"
+    },
+    {
+        "name": "SlopedCornerBaseBD",
+        "signature": "01111111000111110111011111111111110111"
+    },
+    {
+        "name": "SlopedCornerBaseBR",
+        "signature": "11110111111111111111011100010111101111"
+    },
+    {
+        "name": "SlopedCornerBaseUB",
+        "signature": "10111111101010111011101111111111111110"
+    },
+    {
+        "name": "SlopedCornerBaseUR",
+        "signature": "11111011111111111111101100101011101111"
+    },
+    {
+        "name": "SlopedCornerBaseUF",
+        "signature": "11110111111111110111011101010111111101"
+    },
+    {
+        "name": "SlopedCornerBaseUL",
+        "signature": "01111111000101110111111111111111011111"
+    },
+    {
+        "name": "SlopedCornerBaseDF",
+        "signature": "11011111110101011101110111111111111101"
+    },
+    {
+        "name": "SlopedCornerBaseDR",
+        "signature": "11111101111111111111110111010100101111"
+    },
+    {
+        "name": "SlopedCornerBaseDB",
+        "signature": "11111110111111111110111011101010111110"
+    },
+    {
+        "name": "SlopedCornerBaseDL",
+        "signature": "11101111111010001110111111111111011111"
+    },
+    {
+        "name": "SlopedCornerTipFR",
+        "signature": "00010000000101110001000000000000000000"
+    },
+    {
+        "name": "SlopedCornerTipFD",
+        "signature": "00000001000000000001000100000111000000"
+    },
+    {
+        "name": "SlopedCornerTipFL",
+        "signature": "00000100000000000000010011010100000000"
+    },
+    {
+        "name": "SlopedCornerTipLU",
+        "signature": "00000100000000000100010011010000000000"
+    },
+    {
+        "name": "SlopedCornerTipLF",
+        "signature": "00000001000000000001000100010101000000"
+    },
+    {
+        "name": "SlopedCornerTipLD",
+        "signature": "00000010000000000010001000001011000000"
+    },
+    {
+        "name": "SlopedCornerTipLB",
+        "signature": "00001000000000001000100010101000000000"
+    },
+    {
+        "name": "SlopedCornerTipRU",
+        "signature": "10000000111000001000100000000000000000"
+    },
+    {
+        "name": "SlopedCornerTipRB",
+        "signature": "00100000001010100010001000000000000000"
+    },
+    {
+        "name": "SlopedCornerTipRD",
+        "signature": "00010000000001110001000100000000000000"
+    },
+    {
+        "name": "SlopedCornerTipRF",
+        "signature": "01000000010101000100010000000000000000"
+    },
+    {
+        "name": "SlopedCornerTipBU",
+        "signature": "00001000000000001000100011100000000000"
+    },
+    {
+        "name": "SlopedCornerTipBL",
+        "signature": "00000010000000000000001000101011000000"
+    },
+    {
+        "name": "SlopedCornerTipBD",
+        "signature": "00100000000010110010001000000000000000"
+    },
+    {
+        "name": "SlopedCornerTipBR",
+        "signature": "10000000111010001000000000000000000000"
+    },
+    {
+        "name": "SlopedCornerTipUB",
+        "signature": "10000000101010001000100000000000000000"
+    },
+    {
+        "name": "SlopedCornerTipUR",
+        "signature": "01000000110101000100000000000000000000"
+    },
+    {
+        "name": "SlopedCornerTipUF",
+        "signature": "00000100000000000100010001010100000000"
+    },
+    {
+        "name": "SlopedCornerTipUL",
+        "signature": "00001000000000000000100011101000000000"
+    },
+    {
+        "name": "SlopedCornerTipDF",
+        "signature": "00010000000101010001000100000000000000"
+    },
+    {
+        "name": "SlopedCornerTipDR",
+        "signature": "00100000001010110010000000000000000000"
+    },
+    {
+        "name": "SlopedCornerTipDB",
+        "signature": "00000010000000000010001000101010000000"
+    },
+    {
+        "name": "SlopedCornerTipDL",
+        "signature": "00000001000000000000000100010111000000"
     }
 ]

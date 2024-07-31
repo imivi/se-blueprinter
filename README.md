@@ -123,9 +123,10 @@ SE Blueprinter runs entirely in your browser, so all your data stays private.
 | ![round_slope](public/blocks/round_slope.png)                         | round slope             | ✔️         |
 | ![round_corner](public/blocks/round_corner.png)                       | round corner            | ✔️         |
 | ![round_inv_corner](public/blocks/round_inv_corner.png)               | round inv corner        | ❌         |
-| ![sloped_corner](public/blocks/sloped_corner.png)                     | sloped corner           | 🚧 to be added         |
-| ![sloped_corner_base](public/blocks/sloped_corner_base.png)           | sloped corner base      | 🚧 to be added         |
-| ![sloped_corner_tip](public/blocks/sloped_corner_tip.png)             | sloped corner tip       | 🚧 to be added         |
+| ![sloped_corner](public/blocks/sloped_corner.png)                     | sloped corner           | ✔️         |
+| ![sloped_corner_base](public/blocks/sloped_corner_base.png)           | sloped corner base      | ✔️         |
+| ![sloped_corner_tip](public/blocks/sloped_corner_tip.png)             | sloped corner tip       | ✔️         |
+<!-- | ![new_block](public/blocks/new_block.png)             | new_block       | 🚧 to be added         | -->
 
 ## Acknowledgements
 
