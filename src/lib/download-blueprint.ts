@@ -22,7 +22,6 @@ export type BlueprintFields = {
 
 export async function downloadBlueprintZip(gridSpaces: GridSpace[], blueprintFields: BlueprintFields, canvasImageDataUrl: string) {
 
-
     // Fetch the image and parse the response stream as a blob
     const imageResponse = await fetch(canvasImageDataUrl)
     const imageData = await imageResponse.blob()
@@ -62,6 +61,7 @@ export function generateBlueprint(gridSpaces: GridSpace[], blueprintFields: Blue
             forward,
             up,
             baseName: name,
+            armorType: space.armorType,
         })
     }
 
@@ -69,6 +69,7 @@ export function generateBlueprint(gridSpaces: GridSpace[], blueprintFields: Blue
         ...blueprintFields,
         entityId: blueprintFields.entityId ?? generate17digitsID(),
         blocks,
+        defaultArmorType: blueprintFields.armorType,
     })
 
     return blueprintXml

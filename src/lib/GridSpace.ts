@@ -1,7 +1,7 @@
 import { Vector3 } from "three";
 import { MeshBT } from "./MeshBT";
 import { getPointDistanceToMeshBT, pointIsInsideMesh } from "./point-utils";
-import { MatchingBlock, ReplacementPolicy } from "../types";
+import { ArmorType, MatchingBlock, ReplacementPolicy } from "../types";
 import { BlockFinder } from "./BlockFinder";
 import { BlockSignatures } from "./BlockSignatures";
 import { Point } from "./Point";
@@ -26,9 +26,8 @@ export class GridSpace {
     private pattern: number[] = []
     public points: Point[] = []
     public parentMeshes: number[] = []
-    private empty = true
-
     public matchingBlock: MatchingBlock | null = null
+    public armorType: ArmorType | null = null
 
     constructor(public readonly worldPosition: Vector3, public readonly gridPosition: Vector3) { }
 
@@ -62,10 +61,8 @@ export class GridSpace {
 
         // Avoid overwriting this grid space
         // with a possibly empty mesh scan
-        if (this.matchingBlock) {
-            // return this.isEmpty()
+        if (this.matchingBlock)
             return
-        }
 
         // If hollow option is enabled, first check if
         // this block is too far from the mesh surface.

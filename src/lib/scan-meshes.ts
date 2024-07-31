@@ -4,7 +4,7 @@ import { BlueprintGrid } from "./BlueprintGrid"
 import { MeshBT } from "./MeshBT"
 import { BlockFinder } from "./BlockFinder"
 import { BlockSignatures } from "./BlockSignatures"
-import { ReplacementPolicy } from "../types"
+import { ArmorType, ReplacementPolicy } from "../types"
 import { getCornerEdgeCenterPatternOffsets } from "./get-pattern-offsets"
 
 
@@ -40,6 +40,13 @@ export function scanMeshes(options: Options): Output | null {
         return null
     }
 
+    const meshArmorTypes: Array<ArmorType | null> = meshes.map(mesh => {
+        const name = mesh.name.toLowerCase()
+        if (name.includes("heavy")) return "Heavy"
+        if (name.includes("light")) return "Light"
+        return null
+    })
+
     const gridSpaces = new Map<string, GridSpace>()
 
     const grid = new BlueprintGrid(meshes)
@@ -57,12 +64,14 @@ export function scanMeshes(options: Options): Output | null {
         // gridSpace.setPattern(pattern)
 
         for (const meshIndex of gridSpace.parentMeshes) {
-            if (gridSpace.isEmpty())
-                gridSpace.scanMeshForPoints({
-                    ...options,
-                    pointOffsets,
-                    mesh: meshes[meshIndex],
-                })
+
+            gridSpace.scanMeshForPoints({
+                ...options,
+                pointOffsets,
+                mesh: meshes[meshIndex],
+            })
+
+            gridSpace.armorType = meshArmorTypes[meshIndex]
         }
     }
 

@@ -21,12 +21,6 @@ import Tooltip from "./Tooltip"
 const CreateBlueprintButtons = lazy(() => import("./CreateBlueprintButtons"))
 
 
-// const patternOptions: { name: Pattern, label: string }[] = [
-//     { name: "basic", label: "Cube only (fastest)" },
-//     { name: "slopes_fast", label: "Slopes (faster)" },
-//     { name: "slopes_full", label: "Slopes (best)" },
-// ]
-
 
 type Props = {
     scanOutput: ScanOutput | null
@@ -93,7 +87,13 @@ export function Controls({ scanOutput, onScan, meshes, sampleSignatures, benchma
                             onCheckedSecond={() => fields.setGridSize("Small")}
                         />
 
-                        <label>Armor type</label>
+                        <label>
+                            Armor type
+                            <Tooltip
+                                id="tooltip-armor-type"
+                                text="Applies to all blocks. If the name of a mesh contains 'heavy' or 'light', this setting is overriden."
+                            />
+                        </label>
                         <BinaryRadio
                             labels={[
                                 <><IconWeight size={16} /> Heavy</>,
@@ -173,10 +173,7 @@ export function Controls({ scanOutput, onScan, meshes, sampleSignatures, benchma
                             </>
                         }
 
-                        <label>Scan mode</label>
-                        {/* <select value={slicePattern} onChange={(e) => { e.preventDefault(); setSlicePattern(e.target.value as typeof slicePattern) }}>
-                            {patternOptions.map(option => <option key={option.name} value={option.name}>{option.label}</option>)}
-                        </select> */}
+                        <label>Block type</label>
                         <BinaryRadio
                             labels={[
                                 <><IconCube size={16} /> Cubes</>,

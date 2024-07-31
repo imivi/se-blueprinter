@@ -7,7 +7,7 @@ type Options = {
     entityId: string // digits only
     ownerSteamId: string // digits only
     gridSize: GridSize
-    armorType: ArmorType
+    defaultArmorType: ArmorType
     staticGrid: boolean
     blocks: BlockData[]
 }
@@ -16,7 +16,7 @@ export function generateBlueprintXml(options: Options): string {
 
     const startXml = generateBlueprintStart(options)
     const endXml = generateBlueprintEnd(options)
-    const blocksXml = options.blocks.map(block => generateBlockXml(block, getBlockName(block.baseName.toLowerCase(), options.gridSize, options.armorType)))
+    const blocksXml = options.blocks.map(block => generateBlockXml(block, getBlockName(block.baseName.toLowerCase(), options.gridSize, block.armorType || options.defaultArmorType)))
 
     return [startXml, blocksXml, endXml].flat().join("\n")
 }

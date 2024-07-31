@@ -60,6 +60,7 @@ export type BlockData = {
     position: [number, number, number]
     forward: Direction
     up: Direction
+    armorType: ArmorType | null
 }
 
 export type MatchingBlock = {
