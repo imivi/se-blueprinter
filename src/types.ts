@@ -2,7 +2,7 @@ import { Box3, Vector3 } from "three"
 import { GridSpace } from "./lib/GridSpace"
 import { Point } from "./lib/Point"
 
-export type Pattern = "basic" | "slopes_fast" | "slopes_full"
+export type Pattern = "cubes" | "slopes"
 
 export type FindMatchFn = (signature: string) => BlockSignature | null
 

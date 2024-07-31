@@ -78,16 +78,13 @@ export class GridSpace {
         // we just have to scan the center position
         if (this.pattern.length === 1) {
             const point = scanPoint(this.worldPosition, mesh, raycastDirection, closenessThreshold)
-            if (point) {
-                if (point.inside || point.near) {
-                    this.matchingBlock = {
-                        blockName: "blockfu",
-                        perfect: true,
-                    }
-                    return
+            if (point.isFull()) {
+                this.matchingBlock = {
+                    blockName: "blockfu",
+                    perfect: true,
                 }
-                return
             }
+            return
         }
 
         // const pointPositions = getOffsetPositions(this.pattern, this.worldPosition)

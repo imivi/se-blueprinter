@@ -182,9 +182,9 @@ export function Controls({ scanOutput, onScan, meshes, sampleSignatures, benchma
                                 <><IconCube size={16} /> Cubes</>,
                                 <> Slopes <IconPrism size={16} /></>,
                             ]}
-                            firstChecked={slicePattern === "basic"}
-                            onCheckedFirst={() => setSlicePattern("basic")}
-                            onCheckedSecond={() => setSlicePattern("slopes_full")}
+                            firstChecked={slicePattern === "cubes"}
+                            onCheckedFirst={() => setSlicePattern("cubes")}
+                            onCheckedSecond={() => setSlicePattern("slopes")}
                         />
 
                     </SliceSettings>
@@ -237,7 +237,7 @@ export function Controls({ scanOutput, onScan, meshes, sampleSignatures, benchma
 
                     </SliceSettings>
 
-                    {showAdvancedSettings && slicePattern !== "basic" && <BlockSelector />}
+                    {showAdvancedSettings && slicePattern !== "cubes" && <BlockSelector />}
 
                     <SliceSettings show={showAdvancedSettings && disabledBlocks.size > 0}>
                         <label>Replace disabled blocks with...</label>

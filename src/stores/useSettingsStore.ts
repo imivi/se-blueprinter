@@ -46,7 +46,7 @@ type Store = {
 
 export const useSettingsStore = create<Store>((set, get) => ({
 
-    slicePattern: "slopes_full",
+    slicePattern: "slopes",
     setSlicePattern: (pattern) => set({ slicePattern: pattern, settingsModified: true }),
 
     settingsModified: true,
