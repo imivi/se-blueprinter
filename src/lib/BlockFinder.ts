@@ -37,12 +37,7 @@ export class BlockFinder {
                 return null
         }
 
-        const matches = this.searchEngine.search(input)
-
-        if (matches.length > 0)
-            return matches[0]
-
-        return null
+        return this.searchEngine.search(input)
     }
 }
 
