@@ -1,8 +1,9 @@
 import { expect, test } from "vitest"
-import { generate17digitsID, getBlockOrientation, getBlockSignature } from "./misc";
+import { generate17digitsID, getBlockOrientation } from "./misc";
 import { Direction } from "../types";
 import { Vector3 } from "three";
 import { Point } from "./Point";
+import { getSignature } from "./block-signature-utils";
 
 
 test("convert points into block signature", () => {
@@ -14,7 +15,7 @@ test("convert points into block signature", () => {
         new Point(position, false, false),
     ]
 
-    expect(getBlockSignature(points)).toBe("1110")
+    expect(getSignature(points)).toBe("1110")
 })
 
 

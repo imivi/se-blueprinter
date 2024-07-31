@@ -2,6 +2,7 @@ import { Html } from "@react-three/drei"
 import { useSettingsStore } from "../../stores/useSettingsStore"
 import { PointMarker } from "./PointMarker"
 import { GridSpace } from "../../lib/GridSpace"
+import { getSignature } from "../../lib/block-signature-utils"
 
 
 type GridSpaceVisualizationProps = {
@@ -44,7 +45,7 @@ export default function GridSpaceMarker({ gridSpace }: GridSpaceVisualizationPro
                     name: gridSpace.matchingBlock?.blockName || "unknown",
                     perfect: gridSpace.matchingBlock?.perfect,
                     position: gridSpace.worldPosition.toArray().join(", "),
-                    signature: gridSpace.getSignature(),
+                    signature: getSignature(gridSpace.points),
                 }, null, 4)}
             </Html>
         </group>

@@ -6,6 +6,7 @@ import { BlockFinder } from "./BlockFinder"
 import { blockSignatures } from "../blocks/block-signatures"
 import { getCornerEdgeCenterPatternOffsets } from "./get-pattern-offsets"
 import { BasicSearchEngine } from "./BlockSearchEngine"
+import { getSignature } from "./block-signature-utils"
 
 
 test("GridSpace class", () => {
@@ -15,7 +16,7 @@ test("GridSpace class", () => {
 
     expect(gridSpace.isEmpty()).toBe(true)
 
-    expect(gridSpace.getSignature()).toBe("")
+    expect(getSignature(gridSpace.points)).toBe("")
 
     const pattern = [-0.4, -0.05, 0.05, 0.4]
 
@@ -42,6 +43,7 @@ test("GridSpace class", () => {
         pointOffsets,
         signatures: blockSignatures,
         maxDistanceFromMeshSurface: null,
+        savePoints: true,
     })
 
     expect(gridSpace.points.length).toBe(8)

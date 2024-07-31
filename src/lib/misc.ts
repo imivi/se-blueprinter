@@ -1,10 +1,4 @@
 import { Direction } from "../types"
-import { Point } from "./Point"
-
-
-export function getBlockSignature(points: Point[]): string {
-    return points.map(point => point?.isFull() ? "1" : "0").join("")
-}
 
 
 const directions: Record<string, Direction> = {

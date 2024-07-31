@@ -1,3 +1,5 @@
+import { Point } from "./Point"
+
 /** Compares two signatures, and returns true if the corners are the same (i.e. the first 8 points) */
 export function compareCorners(signature1: string, signature2: string): boolean {
     for (let i = 0; i < 8; i++) {
@@ -16,4 +18,9 @@ export function countSameCharacters(text1: string, text2: string): number {
             sameCharacterCount += 1
     }
     return sameCharacterCount
+}
+
+
+export function getSignature(points: Point[]): string {
+    return points.map(point => point.isFull() ? "1" : "0").join("")
 }

@@ -49,7 +49,7 @@ export function generateBlueprint(gridSpaces: GridSpace[], blueprintFields: Blue
     const blocks: BlockData[] = []
 
     for (const space of gridSpaces) {
-        if (space.isEmpty() || !space.matchingBlock)
+        if (!space.matchingBlock)
             continue
 
         const [forward, up] = getBlockOrientation(space.matchingBlock.blockName)

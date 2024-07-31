@@ -18,6 +18,7 @@ type Options = {
     signatures: BlockSignatures
     disabledBlocks: Set<string>
     replacementPolicy: ReplacementPolicy
+    savePoints: boolean
 }
 
 type GridSpaces = Map<string, GridSpace>

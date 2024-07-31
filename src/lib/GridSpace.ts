@@ -5,6 +5,7 @@ import { MatchingBlock, ReplacementPolicy } from "../types";
 import { BlockFinder } from "./BlockFinder";
 import { BlockSignatures } from "./BlockSignatures";
 import { Point } from "./Point";
+import { getSignature } from "./block-signature-utils";
 
 
 
@@ -17,6 +18,7 @@ type ScanMeshForPointsOptions = {
     replacementPolicy: ReplacementPolicy
     maxDistanceFromMeshSurface: number | null
     pointOffsets: Vector3[]
+    savePoints: boolean
 }
 
 export class GridSpace {
@@ -43,7 +45,7 @@ export class GridSpace {
         return true
     }
 
-    scanMeshForPoints(options: ScanMeshForPointsOptions): boolean {
+    scanMeshForPoints(options: ScanMeshForPointsOptions): void {
 
         const {
             blockFinder,
@@ -55,19 +57,21 @@ export class GridSpace {
             signatures,
             maxDistanceFromMeshSurface,
             pointOffsets,
+            savePoints,
         } = options
 
         // Avoid overwriting this grid space
         // with a possibly empty mesh scan
-        if (!this.isEmpty()) {
-            return this.isEmpty()
+        if (this.matchingBlock) {
+            // return this.isEmpty()
+            return
         }
 
         // If hollow option is enabled, first check if
         // this block is too far from the mesh surface.
         if (maxDistanceFromMeshSurface && this.isHollow(mesh, maxDistanceFromMeshSurface)) {
             this.matchingBlock = null
-            return this.empty = false
+            return
         }
 
         // If we are looking for cubes only (no slopes)
@@ -80,9 +84,9 @@ export class GridSpace {
                         blockName: "blockfu",
                         perfect: true,
                     }
-                    return this.empty = false
+                    return
                 }
-                return this.empty = true
+                return
             }
         }
 
@@ -99,8 +103,9 @@ export class GridSpace {
         // so we don't need to check any other point
         const cornersAreEmpty = corners.every(corner => corner.isEmpty())
         if (cornersAreEmpty) {
-            this.points = corners
-            return this.empty = true
+            if (savePoints)
+                this.points = corners
+            return
         }
 
 
@@ -108,20 +113,21 @@ export class GridSpace {
         // so we don't need to check any other point
         const cornersAreFull = corners.every(corner => corner.isFull())
         if (cornersAreFull) {
-            this.points = corners
+            if (savePoints)
+                this.points = corners
             this.matchingBlock = {
                 blockName: "blockfu",
                 perfect: true,
             }
-            return this.empty = false
+            return
         }
 
         // Scan edge and face points
         const edgesAndFaces = edgeAndFaceOffsets.map(offset => scanPoint(this.worldPosition.clone().add(offset), mesh, raycastDirection, closenessThreshold))
 
-        this.points = [...corners, ...edgesAndFaces]
+        const allPoints = [...corners, ...edgesAndFaces]
 
-        const signature = this.getSignature()
+        const signature = getSignature(allPoints)
 
         const match = blockFinder.findBestMatch(signature, signatures, disabledBlocks, replacementPolicy)
 
@@ -132,20 +138,19 @@ export class GridSpace {
             }
         }
 
-        return this.updateEmptyStatus()
+        if (savePoints)
+            this.points = allPoints
+
+        // return this.updateEmptyStatus()
     }
 
-    private updateEmptyStatus() {
-        this.empty = this.points.length === 0 || this.points.every(point => point.isEmpty())
-        return this.empty
-    }
-
-    getSignature(): string {
-        return this.points.map(point => point.isFull() ? "1" : "0").join("")
-    }
+    // private updateEmptyStatus() {
+    //     this.empty = this.points.length === 0 || this.points.every(point => point.isEmpty())
+    //     return this.empty
+    // }
 
     public isEmpty(): boolean {
-        return this.empty
+        return !this.matchingBlock
     }
 
 }
@@ -189,4 +194,3 @@ const sixRaycastDirections = [
     new Vector3(0, 0, 1),
     new Vector3(0, 0, -1),
 ]
-

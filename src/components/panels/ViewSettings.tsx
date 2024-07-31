@@ -1,4 +1,5 @@
 import s from "./ViewSettings.module.scss"
+
 import { useMemo } from "react"
 import { useSettingsStore } from "../../stores/useSettingsStore"
 import { ScanOutput } from "../../types"

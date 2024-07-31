@@ -1,10 +1,10 @@
 import { Mesh, Vector3 } from "three"
-import { getBlockSignature } from "./misc"
 import { BlockPoints } from "../types"
 import { pointIsInsideOrNearMeshBT, pointIsInsideOrNearMesh } from "./point-utils"
 import { MeshBT } from "./MeshBT"
 import { getFaces } from "./get-faces"
 import { Point } from "./Point"
+import { getSignature } from "./block-signature-utils"
 
 
 
@@ -20,7 +20,7 @@ export function analyzeBlock(block: Mesh, pointOffsets: Vector3[], raycastDirect
         points = positions.map(pos => pointIsInsideOrNearMesh(pos, block, faces, raycastDirection, CLOSENESS_THRESHOLD))
     }
 
-    const signature = getBlockSignature(points)
+    const signature = getSignature(points)
 
     return { points, signature, name: block.name }
 }

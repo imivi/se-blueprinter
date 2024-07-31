@@ -9,6 +9,7 @@ import { CLOSENESS_THRESHOLD } from "../settings"
 import { useSlicePattern } from "./useSlicePattern"
 import { useState } from "react"
 import { blockFinder } from "../lib/BlockFinder"
+import { useDebug } from "./useDebug"
 
 
 
@@ -31,6 +32,8 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
     const pattern = useSlicePattern()
 
     const [benchmark, setBenchmark] = useState<number>(0)
+
+    const debug = useDebug()
 
     function runScan() {
 
@@ -56,6 +59,7 @@ export function useScanMeshes(raycastDirection: Vector3, meshes: MeshBT[], creat
             disabledBlocks,
             replacementPolicy,
             signatures: blockSignatures,
+            savePoints: debug,
         })
         const end = performance.now()
 
