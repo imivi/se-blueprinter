@@ -33,12 +33,12 @@ const blocks: Block[] = [
     { img: "round_corner.png", name: "roundcorner" },
     { img: "round_slope.png", name: "roundslope" },
 
+    { img: "sloped_corner.png", name: "slopedcorner" },
+    { img: "sloped_corner_base.png", name: "slopedcornerbase" },
+    { img: "sloped_corner_tip.png", name: "slopedcornertip" },
+
     // UNSUPPORTED
     // { img: "round_inv_corner.png", name: "roundinvcorner" },
-
-    // { img: "sloped_corner.png", name: "slopedcorner" },
-    // { img: "sloped_corner_base.png", name: "slopedcornerbase" },
-    // { img: "sloped_corner_tip.png", name: "slopedcornertip" },
 ]
 
 export default function BlockSelector() {
