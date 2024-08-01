@@ -31,7 +31,7 @@
     },
     "roundcorner": {
         "LARGE_HEAVY": "LargeHeavyBlockArmorRoundCorner",
-        "LARGE_LIGHT": "LargeRoundArmor_Corner",
+        "LARGE_LIGHT": "LargeRoundArmorCorner",
         "SMALL_HEAVY": "SmallHeavyBlockArmorRoundCorner",
         "SMALL_LIGHT": "SmallBlockArmorRoundCorner"
     },
@@ -126,10 +126,10 @@
         "SMALL_LIGHT": "SmallBlockArmorHalfSlopedCorner"
     },
     "halfslopedcornerbase": {
-        "LARGE_HEAVY": "LargeBlockHeavyArmorHalfSlopeInverted",
-        "LARGE_LIGHT": "LargeBlockArmorHalfSlopeInverted",
-        "SMALL_HEAVY": "SmallBlockHeavyArmorHalfSlopeInverted",
-        "SMALL_LIGHT": "SmallBlockArmorHalfSlopeInverted"
+        "LARGE_HEAVY": "LargeBlockHeavyArmorHalfSlopedCornerBase",
+        "LARGE_LIGHT": "LargeBlockArmorHalfSlopedCornerBase",
+        "SMALL_HEAVY": "SmallBlockHeavyArmorHalfSlopedCornerBase",
+        "SMALL_LIGHT": "SmallBlockArmorHalfSlopedCornerBase"
     },
     "halfslopeinv": {
         "LARGE_HEAVY": "LargeBlockHeavyArmorHalfSlopeInverted",
