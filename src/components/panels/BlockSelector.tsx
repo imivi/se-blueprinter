@@ -37,6 +37,8 @@ const blocks: Block[] = [
     { img: "sloped_corner_base.png", name: "slopedcornerbase" },
     { img: "sloped_corner_tip.png", name: "slopedcornertip" },
 
+    { img: "panel.png", name: "panel" },
+
     // UNSUPPORTED
     // { img: "round_inv_corner.png", name: "roundinvcorner" },
 ]

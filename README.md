@@ -126,6 +126,7 @@ SE Blueprinter runs entirely in your browser, so all your data stays private.
 | ![sloped_corner](public/blocks/sloped_corner.png)                     | sloped corner           | ✔️         |
 | ![sloped_corner_base](public/blocks/sloped_corner_base.png)           | sloped corner base      | ✔️         |
 | ![sloped_corner_tip](public/blocks/sloped_corner_tip.png)             | sloped corner tip       | ✔️         |
+| ![panel](public/blocks/panel.png)             | panel       | ✔️ (recommended mesh thickness: 0.2)         |
 <!-- | ![new_block](public/blocks/new_block.png)             | new_block       | 🚧 to be added         | -->
 
 ## Acknowledgements
