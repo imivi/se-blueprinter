@@ -17,9 +17,9 @@ import { computeBoundsTree, disposeBoundsTree, acceleratedRaycast } from "three-
 
 ColorManagement.enabled = true
 
-// @ts-expect-error "from three-mesh-bvh"
+// @ts-ignore "from three-mesh-bvh"
 BufferGeometry.prototype.computeBoundsTree = computeBoundsTree
-// @ts-expect-error "from three-mesh-bvh"
+// @ts-ignore "from three-mesh-bvh"
 BufferGeometry.prototype.disposeBoundsTree = disposeBoundsTree
 Mesh.prototype.raycast = acceleratedRaycast
 
